@@ -2,7 +2,7 @@
 $dbHostName = "localhost";
 $dbUserName = "root";
 $dbPassword = "";
-$dbName = "admin_usersdb";
+$dbName = "all_users";
 $con = "";  
 
 

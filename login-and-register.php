@@ -1,4 +1,11 @@
-<!DOCTYPE html>
+ <!-- <?php
+
+include("admin_usersdb.php");
+?>
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+LERNSSSSSSS DONT REMOVE THIS SHIT IT CONNECTS THIS FILE (LOGIN AND REGISTER) TO THE DATABASEEEEEEEEEEEEEEEEEEEEE PLS LERNS PLS -->
+
+<!DOCTYPE html> 
 <html lang="en">
   <head>
     <title>Barangay Feedback Portal</title>
