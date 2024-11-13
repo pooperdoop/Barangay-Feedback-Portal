@@ -1,9 +1,7 @@
- <!-- <?php
+<?php
 
-include("admin_usersdb.php");
+include("all_usersdb.php");
 ?>
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-LERNSSSSSSS DONT REMOVE THIS SHIT IT CONNECTS THIS FILE (LOGIN AND REGISTER) TO THE DATABASEEEEEEEEEEEEEEEEEEEEE PLS LERNS PLS -->
 
 <!DOCTYPE html> 
 <html lang="en">
@@ -29,16 +27,16 @@ LERNSSSSSSS DONT REMOVE THIS SHIT IT CONNECTS THIS FILE (LOGIN AND REGISTER) TO 
           <div class="iconfinder-vector"></div>
         </div>
 
-
+      <form action="login-and-register.php" method="post">
         <div class="group-1">
           <span class="username_lbl">User Name</span>
-            <input type = "text"class="username_input" placeholder="Charlene Reed"/>
+            <input type = "text"class="username_input" name = "username_input" placeholder="Charlene Reed"/>
         </div>
 
 
         <div class="group-3">
           <span class="password_lbl">Password</span>
-            <input type = "password" class="password_input" placeholder="*********"/>
+            <input type = "password" class="password_input" name ="password_input" placeholder="*********"/>
         </div>
 
 
@@ -51,7 +49,7 @@ LERNSSSSSSS DONT REMOVE THIS SHIT IT CONNECTS THIS FILE (LOGIN AND REGISTER) TO 
 
 
         <button class="register-officialbtn">Register as an Official </button>
-
+      </form>
       </div>
 
       <div class="rectangle-e"></div>
@@ -60,3 +58,30 @@ LERNSSSSSSS DONT REMOVE THIS SHIT IT CONNECTS THIS FILE (LOGIN AND REGISTER) TO 
 
   </body>
 </html>
+
+<?php
+
+if($_SERVER["REQUEST_METHOD"] == "POST"){
+
+    $username = $_POST["username_input"];
+    $password = $_POST["password_input"];
+
+    if(empty($username) || empty($password)){
+        echo "enter all fields";
+    } 
+    else{
+        $sql = "SELECT * FROM all_users WHERE username ='$username'";
+
+        $result = mysqli_query($con, $sql);
+
+        if(mysqli_num_rows($result) > 0){
+            echo "you son of a bitch";
+            header('Location: usersdb.php');
+            die;
+        }
+        else{
+            echo"doesnt exist";
+        }
+    }
+}
+?>
