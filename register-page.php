@@ -2,152 +2,113 @@
 <html lang="en">
   <head>
     <title>Barangay Feedback Portal</title>
-    <link rel="stylesheet" href="register page.css" />
+    <link rel="stylesheet" href="register_user_style.css"/>
 
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap" />
   </head>
-
   <body>
-
-    <div class="main-container">
-      <div class="group">
-        <div class="group-1">
-          <span class="phone-number">Phone Number</span>
-          <div class="group-2">
-            <span class="phone-number-text">0239203902</span>
-            <div class="rectangle"></div>
-            <input class="group-input" />
-          </div>
-        </div>
-
-
-        <div class="rectangle-3"></div>
+        <div class="rectangle">
         <div class="logo">
-          <div class="iconfinder-vector"></div>
-          <span class="barangay-feedback-portal">Barangay Feedback Portal</span>
+          <div class="vector-icon"></div>
+          <span class="feedback-portal">Barangay Feedback Portal</span>
         </div>
 
 
         <span class="return">Return</span>
         <div class="arrow-back"><div class="icon"></div></div>
+
+
         <div class="group-4">
-          <span class="first-name">First Name</span>
-          <div class="group-5">
-            <span class="charlene">Charlene </span>
-            <div class="rectangle-6"></div>
-            <input class="group-input-7" />
-          </div>
-        </div>
-
-
-        <div class="group-8">
           <span class="middle-name">Middle Name</span>
-          <div class="group-9">
-            <span class="fernandez">Fernandez</span>
-            <div class="rectangle-a"></div>
-            <input class="group-input-b" />
-          </div>
+          <input type="text" class="group-input-c" placeholder="Fernandez" style="transform: translatey(20px);"/>
         </div>
 
 
-        <div class="group-c">
+        <div class="group-7">
           <div class="mask-group"></div>
-          <div class="group-d">
+          <div class="group-8">
             <div class="pencil-alt"><div class="vector"></div></div>
             <div class="ellipse"></div>
           </div>
         </div>
 
+        <div class="group-1">
+          <span class="first-name">First Name</span>
+            <input type="text" class="group-input-c" placeholder="Charlene" style="transform: translatey(20px);"/>
+        </div>
 
-        <div class="group-e">
+
+        <div class="group-9">
           <span class="last-name">Last Name</span>
-          <div class="group-f">
-            <span class="de-leon">De Leon</span>
-            <div class="rectangle-10"></div>
-            <input class="group-input-11" />
-          </div>
+            <input type="text" class="group-input-c" placeholder="De Leon" style="transform: translatey(20px);" />
         </div>
 
 
-        <div class="group-12">
+        <div class="group-d">
           <span class="date-of-birth">Date of Birth</span>
-          <div class="rectangle-13"></div>
-          <span class="january">25 January 1990</span>
-          <div class="vector-14"></div>
+          <input type="date" class="group-input-c" placeholder="Charlene" style="transform: translatey(20px);"/>
         </div>
 
 
-        <div class="group-15">
-          <button class="button-group">
+        <div class="group-10">
+          <button class="button">
             <span class="attach-valid-id">Attach Valid ID</span>
-            <div class="rectangle-16"></div></button
-          ><button class="button-group-17">
-            <span class="register">Register</span>
-            <div class="rectangle-18"></div>
+            <div class="rectangle-11"></div></button
+          ><button class="group-12">
+            <span class="register-user">Register as a User</span>
+            <div class="rectangle-13"></div>
           </button>
         </div>
 
 
-        <div class="group-19">
+        <div class="group-14">
           <span class="full-address">Full Address</span>
-          <div class="group-1a">
-            <span class="span-barangay">Mangga 2 Matatalaib Tarlac City</span>
-            <div class="rectangle-1b"></div>
-          </div>
+          <input type="text" class="group-input-c" placeholder="Mangga 2 Matatalaib Tarlac City" style="transform: translatey(20px);" />
         </div>
 
 
-        <div class="group-1c">
+        <div class="group-17">
           <span class="barangay">Barangay</span>
-          <div class="rectangle-1d"></div>
-          <span class="matatalaib">Matatalaib</span>
-          <div class="vector-1e"></div>
+          <input type="text" class="group-input-c" placeholder="Matatalaib" style="transform: translatey(20px);" />
         </div>
 
 
-        <div class="group-email">
+        <div class="group-1b">
           <span class="email">Email</span>
-          <div class="group-1f">
-            <span class="asdasd-email">asdasd@gmail.com</span>
-            <div class="rectangle-20"></div>
-            <input class="group-input-21" />
-          </div>
+            <input type="text" class="group-input-c" placeholder="asdasd@gmail.com" style="transform: translatey(20px);" />
         </div>
 
 
-        <div class="group-22">
+        <div class="group-20">
           <span class="sex">Sex</span>
-          <div class="rectangle-23"></div>
-          <span class="female">Female</span>
-          <div class="vector-24"></div>
+          <select style="border: none; transform: translatey(20px); width:100%">
+                <option value="Female">Female</option>
+                <option value="Male">Male</option>
+                <option value="Other">Other</option>
+          </select>
         </div>
 
 
-        <div class="group-25">
+        <div class="group-23">
           <span class="username">Username</span>
-          <div class="group-26">
-            <span class="chferde">CHFerDe</span>
-            <div class="rectangle-27"></div>
-            <input class="group-input-28" />
-          </div>
+          <input type="text" class="group-input-c" placeholder="CHFerde" style="transform: translatey(20px);"/>
         </div>
 
 
-        <div class="group-29">
+        <div class="group-27">
           <span class="password">Password</span>
-          <div class="group-2a">
-            <span class="password-2b">*********</span>
-            <div class="rectangle-2c"></div>
-            <input class="group-input-2d" />
-          </div>
+          <input type="password" class="group-input-c" placeholder="**********" style="transform: translatey(20px);" /> 
         </div>
 
 
-      </div>
-      <div class="rectangle-2e"></div>
+        <div class="group-2b">
+          <span class="phone-number">Phone Number</span>
+          <input type="text" class="group-input-c" placeholder="0239203902" style="transform: translatey(20px);" /> 
+        </div>
     </div>
+    
   </body>
 </html>

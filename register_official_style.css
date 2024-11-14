@@ -4,118 +4,18 @@
     "Hiragino Sans GB", "Microsoft Yahei UI", "Microsoft Yahei",
     "Source Han Sans CN", sans-serif;
 }
-
-.main-container {
-  overflow: hidden;
-}
-
-.main-container,
-.main-container * {
-  box-sizing: border-box;
-}
-
-input,
-select,
-textarea,
-button {
-  outline: 0;
-}
-
-.main-container {
-  position: relative;
-  width: 1440px;
-  height: 1024px;
-  margin: 0 auto;
-  background: #ffffff;
-  overflow: hidden;
-}
-.group {
-  position: relative;
-  width: 755px;
-  height: 626px;
-  margin: 199px 0 0 342px;
-  z-index: 1;
-  overflow: visible auto;
-}
-.group-1 {
-  position: relative;
-  width: 256px;
-  height: 63px;
-  margin: 492px 0 0 194px;
-  font-size: 0px;
-  z-index: 27;
-  overflow: visible auto;
-
-}
-.phone-number {
-  display: block;
-  position: relative;
-  height: 16px;
-  margin: 0 0 0 0;
-  color: #232323;
-  font-family: Inter, var(--default-font-family);
-  font-size: 13px;
-  font-weight: 400;
-  line-height: 15.733px;
-  text-align: left;
-  white-space: nowrap;
-  z-index: 28;
-}
-.group-2 {
-  position: relative;
-  width: 256px;
-  height: 40px;
-  margin: 7px 0 0 0;
-  font-size: 0px;
-  z-index: 29;
-  overflow: hidden;
-  border-radius: 15px;
-}
-.phone-number-text {
-  display: block;
-  position: relative;
-  height: 15px;
-  margin: 13px 0 0 15px;
-  color: #718ebf;
-  font-family: Inter, var(--default-font-family);
-  font-size: 12px;
-  font-weight: 400;
-  line-height: 14.523px;
-  text-align: left;
-  white-space: nowrap;
-  z-index: 31;
+body{
+    background-color: #f4f6f9;
 }
 .rectangle {
   position: absolute;
-  width: 256px;
-  height: 40px;
-  top: 0;
-  left: 0;
-  background: #ffffff;
-  border: 1px solid #dfeaf2;
-  z-index: 30;
-  border-radius: 15px;
-}
-.group-input {
-  position: absolute;
-  width: 256px;
-  height: 40px;
-  top: 0;
-  left: 0;
-  background: transparent;
-  border: none;
-  z-index: 32;
-  outline: none;
-}
-.rectangle-3 {
-  position: absolute;
   width: 755px;
   height: 626px;
-  top: 0;
-  left: 0;
   background: #ffffff;
+  margin-left: 30%;
+  margin-top: 8%;
   z-index: 2;
-  border-radius: 20px;
+  border-radius: 30px;
 }
 .logo {
   position: absolute;
@@ -123,9 +23,9 @@ button {
   height: 72px;
   top: 12px;
   left: 16px;
-  z-index: 81;
+  z-index: 88;
 }
-.iconfinder-vector {
+.vector-icon {
   position: absolute;
   width: 72px;
   height: 72px;
@@ -134,10 +34,10 @@ button {
   background: url(Icons/brgy\ icon\ small.png)
     no-repeat center;
   background-size: cover;
-  z-index: 82;
+  z-index: 89;
   overflow: hidden;
 }
-.barangay-feedback-portal {
+.feedback-portal {
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
@@ -152,7 +52,7 @@ button {
   font-weight: 800;
   line-height: 24.38px;
   text-align: left;
-  z-index: 83;
+  z-index: 90;
 }
 .return {
   display: flex;
@@ -169,7 +69,7 @@ button {
   line-height: 25.074px;
   text-align: left;
   white-space: nowrap;
-  z-index: 78;
+  z-index: 85;
 }
 .arrow-back {
   position: absolute;
@@ -177,7 +77,7 @@ button {
   height: 28.143px;
   top: 34px;
   left: 632px;
-  z-index: 79;
+  z-index: 86;
 }
 .icon {
   position: relative;
@@ -187,17 +87,7 @@ button {
   background: url(Icons/arrow\ sa\ reg.png)
     no-repeat center;
   background-size: 100% 100%;
-  z-index: 80;
-}
-.group-4 {
-  position: absolute;
-  width: 256px;
-  height: 63px;
-  top: 111px;
-  left: 194px;
-  font-size: 0px;
-  z-index: 9;
-  border-radius: 15px;
+  z-index: 87;
 }
 .first-name {
   display: block;
@@ -213,42 +103,7 @@ button {
   white-space: nowrap;
   z-index: 10;
 }
-.group-5 {
-  position: relative;
-  width: 256px;
-  height: 40px;
-  margin: 7px 0 0 0;
-  font-size: 0px;
-  z-index: 11;
-  overflow: hidden;
-  border-radius: 15px;
-}
-.charlene {
-  display: block;
-  position: relative;
-  height: 15px;
-  margin: 13px 0 0 15px;
-  color: #718ebf;
-  font-family: Inter, var(--default-font-family);
-  font-size: 12px;
-  font-weight: 400;
-  line-height: 14.523px;
-  text-align: left;
-  white-space: nowrap;
-  z-index: 13;
-}
-.rectangle-6 {
-  position: absolute;
-  width: 256px;
-  height: 40px;
-  top: 0;
-  left: 0;
-  background: #ffffff;
-  border: 1px solid #dfeaf2;
-  z-index: 12;
-  border-radius: 15px;
-}
-.group-input-7 {
+.input-group {
   position: absolute;
   width: 256px;
   height: 40px;
@@ -259,14 +114,14 @@ button {
   z-index: 14;
   outline: none;
 }
-.group-8 {
+.group-4 {
   position: absolute;
   width: 256px;
   height: 63px;
   top: 111px;
   left: 476px;
   font-size: 0px;
-  z-index: 33;
+  z-index: 39;
   border-radius: 15px;
 }
 .middle-name {
@@ -281,17 +136,7 @@ button {
   line-height: 15.733px;
   text-align: left;
   white-space: nowrap;
-  z-index: 34;
-}
-.group-9 {
-  position: relative;
-  width: 256px;
-  height: 40px;
-  margin: 7px 0 0 0;
-  font-size: 0px;
-  z-index: 35;
-  overflow: hidden;
-  border-radius: 15px;
+  z-index: 40;
 }
 .fernandez {
   display: block;
@@ -305,20 +150,9 @@ button {
   line-height: 14.523px;
   text-align: left;
   white-space: nowrap;
-  z-index: 37;
+  z-index: 43;
 }
-.rectangle-a {
-  position: absolute;
-  width: 256px;
-  height: 40px;
-  top: 0;
-  left: 0;
-  background: #ffffff;
-  border: 1px solid #dfeaf2;
-  z-index: 36;
-  border-radius: 15px;
-}
-.group-input-b {
+.group-input {
   position: absolute;
   width: 256px;
   height: 40px;
@@ -326,10 +160,10 @@ button {
   left: 0;
   background: transparent;
   border: none;
-  z-index: 38;
+  z-index: 44;
   outline: none;
 }
-.group-c {
+.group-7 {
   position: absolute;
   width: 113px;
   height: 110px;
@@ -347,14 +181,6 @@ button {
     no-repeat center;
   background-size: cover;
   z-index: 4;
-}
-.group-d {
-  position: absolute;
-  width: 25px;
-  height: 25px;
-  top: 72px;
-  left: 88px;
-  z-index: 5;
 }
 .pencil-alt {
   position: relative;
@@ -386,7 +212,19 @@ button {
   z-index: 6;
   border-radius: 50%;
 }
-.group-e {
+
+.group-1 {
+    position: absolute;
+    width: 256px;
+    height: 63px;
+    top: 111px;
+    left: 194px;
+    font-size: 0px;
+    z-index: 15;
+    border-radius: 15px;
+  }
+
+.group-9 {
   position: absolute;
   width: 256px;
   height: 63px;
@@ -410,16 +248,6 @@ button {
   white-space: nowrap;
   z-index: 16;
 }
-.group-f {
-  position: relative;
-  width: 256px;
-  height: 40px;
-  margin: 7px 0 0 0;
-  font-size: 0px;
-  z-index: 17;
-  overflow: hidden;
-  border-radius: 15px;
-}
 .de-leon {
   display: block;
   position: relative;
@@ -434,18 +262,7 @@ button {
   white-space: nowrap;
   z-index: 19;
 }
-.rectangle-10 {
-  position: absolute;
-  width: 256px;
-  height: 40px;
-  top: 0;
-  left: 0;
-  background: #ffffff;
-  border: 1px solid #dfeaf2;
-  z-index: 18;
-  border-radius: 15px;
-}
-.group-input-11 {
+.group-input-c {
   position: absolute;
   width: 256px;
   height: 40px;
@@ -456,14 +273,14 @@ button {
   z-index: 20;
   outline: none;
 }
-.group-12 {
+.group-d {
   position: absolute;
   width: 256px;
   height: 63px;
   top: 188px;
   left: 476px;
   font-size: 0px;
-  z-index: 61;
+  z-index: 68;
 }
 .date-of-birth {
   display: block;
@@ -477,57 +294,19 @@ button {
   line-height: 15.733px;
   text-align: left;
   white-space: nowrap;
-  z-index: 63;
+  z-index: 70;
 }
-.rectangle-13 {
-  position: absolute;
-  width: 256px;
-  height: 40px;
-  top: 23px;
-  left: 0;
-  background: #ffffff;
-  border: 1px solid #dfeaf2;
-  z-index: 62;
-  border-radius: 15px;
-}
-.january {
-  display: flex;
-  align-items: flex-start;
-  justify-content: flex-start;
-  position: absolute;
-  height: 15px;
-  top: 36px;
-  left: 15px;
-  color: #718ebf;
-  font-family: Inter, var(--default-font-family);
-  font-size: 12px;
-  font-weight: 400;
-  line-height: 14.523px;
-  text-align: left;
-  white-space: nowrap;
-  z-index: 64;
-}
-.vector-14 {
-  position: absolute;
-  width: 10.919px;
-  height: 6.379px;
-  top: 40.54px;
-  left: 225.54px;
-  background: url(Icons/droplist.png)
-    no-repeat center;
-  background-size: cover;
-  z-index: 65;
-}
-.group-15 {
+
+.group-10 {
   position: absolute;
   width: 130px;
-  height: 95px;
+  height: 118px;
   top: 251px;
   left: 40px;
-  z-index: 71;
+  z-index: 78;
   border-radius: 9px;
 }
-.button-group {
+.button {
   position: relative;
   width: 130px;
   height: 40px;
@@ -536,7 +315,7 @@ button {
   font-size: 0px;
   background: transparent;
   border: none;
-  z-index: 75;
+  z-index: 82;
   overflow: visible auto;
   border-radius: 9px;
 }
@@ -547,7 +326,7 @@ button {
   position: relative;
   width: 106px;
   height: 18px;
-  margin: 0 0 0 7px;
+  margin: 0 0 0 6px;
   color: #ffffff;
   font-family: Inter, var(--default-font-family);
   font-size: 15px;
@@ -555,66 +334,65 @@ button {
   line-height: 18px;
   text-align: center;
   white-space: nowrap;
-  z-index: 77;
+  z-index: 84;
 }
-.rectangle-16 {
+.rectangle-11 {
   position: absolute;
   width: 130px;
   height: 40px;
   top: 0;
   left: 0;
   background: #1814f3;
-  z-index: 76;
+  z-index: 83;
   border-radius: 9px;
 }
-.button-group-17 {
+.group-12 {
   position: relative;
   width: 130px;
-  height: 40px;
+  height: 63px;
   margin: 15px 0 0 0;
   cursor: pointer;
   font-size: 0px;
   background: transparent;
   border: none;
-  z-index: 72;
+  z-index: 79;
   overflow: visible auto;
   border-radius: 9px;
 }
-.register {
+.register-official {
   display: flex;
   align-items: flex-start;
   justify-content: center;
   position: relative;
-  width: 60px;
-  height: 18px;
-  margin: 0 0 0 30px;
+  width: 111px;
+  height: 39px;
+  margin: 5px 0 0 3px;
   color: #ffffff;
   font-family: Inter, var(--default-font-family);
   font-size: 15px;
   font-weight: 500;
-  line-height: 18px;
+  line-height: 18.153px;
   text-align: center;
-  white-space: nowrap;
-  z-index: 74;
+  z-index: 81;
 }
-.rectangle-18 {
+.rectangle-13 {
   position: absolute;
   width: 130px;
-  height: 40px;
+  height: 63px;
   top: 0;
   left: 0;
-  background: #16dbaa;
-  z-index: 73;
+  background: #fe5c73;
+  z-index: 80;
   border-radius: 9px;
 }
-.group-19 {
+.group-14 {
   position: absolute;
   width: 256px;
   height: 63px;
   top: 265px;
   left: 194px;
   font-size: 0px;
-  z-index: 39;
+  z-index: 45;
   border-radius: 15px;
 }
 .full-address {
@@ -629,19 +407,10 @@ button {
   line-height: 15.733px;
   text-align: left;
   white-space: nowrap;
-  z-index: 40;
+  z-index: 46;
 }
-.group-1a {
-  position: relative;
-  width: 256px;
-  height: 40px;
-  margin: 7px 0 0 0;
-  font-size: 0px;
-  z-index: 41;
-  overflow: visible auto;
-  border-radius: 15px;
-}
-.span-barangay {
+
+.address-text {
   display: block;
   position: relative;
   height: 15px;
@@ -653,33 +422,24 @@ button {
   line-height: 14.523px;
   text-align: left;
   white-space: nowrap;
-  z-index: 43;
+  z-index: 49;
 }
-.rectangle-1b {
+.group-17 {
   position: absolute;
-  width: 256px;
-  height: 40px;
-  top: 0;
-  left: 0;
-  background: #ffffff;
-  border: 1px solid #dfeaf2;
-  z-index: 42;
-  border-radius: 15px;
-}
-.group-1c {
-  position: absolute;
-  width: 256px;
-  height: 63px;
+  width: 58px;
+  height: 16px;
   top: 265px;
   left: 476px;
-  font-size: 0px;
-  z-index: 56;
+  z-index: 62;
 }
 .barangay {
-  display: block;
-  position: relative;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  position: absolute;
   height: 16px;
-  margin: 0 0 0 0;
+  top: 0;
+  left: 0;
   color: #232323;
   font-family: Inter, var(--default-font-family);
   font-size: 13px;
@@ -687,26 +447,16 @@ button {
   line-height: 15.733px;
   text-align: left;
   white-space: nowrap;
-  z-index: 60;
+  z-index: 63;
 }
-.rectangle-1d {
-  position: absolute;
-  width: 256px;
-  height: 40px;
-  top: 23px;
-  left: 0;
-  background: #ffffff;
-  border: 1px solid #dfeaf2;
-  z-index: 57;
-  border-radius: 15px;
-}
+
 .matatalaib {
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
   position: absolute;
   height: 15px;
-  top: 36px;
+  top: 13px;
   left: 15px;
   color: #718ebf;
   font-family: Inter, var(--default-font-family);
@@ -715,27 +465,16 @@ button {
   line-height: 14.523px;
   text-align: left;
   white-space: nowrap;
-  z-index: 58;
+  z-index: 66;
 }
-.vector-1e {
-  position: absolute;
-  width: 10.919px;
-  height: 6.379px;
-  top: 40.54px;
-  left: 225.54px;
-  background: url(Icons/droplist.png)
-    no-repeat center;
-  background-size: cover;
-  z-index: 59;
-}
-.group-email {
+.group-1b {
   position: absolute;
   width: 256px;
   height: 63px;
   top: 342px;
   left: 476px;
   font-size: 0px;
-  z-index: 44;
+  z-index: 50;
   border-radius: 15px;
 }
 .email {
@@ -750,19 +489,9 @@ button {
   line-height: 15.733px;
   text-align: left;
   white-space: nowrap;
-  z-index: 45;
+  z-index: 51;
 }
-.group-1f {
-  position: relative;
-  width: 256px;
-  height: 40px;
-  margin: 7px 0 0 0;
-  font-size: 0px;
-  z-index: 46;
-  overflow: hidden;
-  border-radius: 15px;
-}
-.asdasd-email {
+.email-1d {
   display: block;
   position: relative;
   height: 15px;
@@ -774,38 +503,16 @@ button {
   line-height: 14.523px;
   text-align: left;
   white-space: nowrap;
-  z-index: 48;
+  z-index: 54;
 }
-.rectangle-20 {
-  position: absolute;
-  width: 256px;
-  height: 40px;
-  top: 0;
-  left: 0;
-  background: #ffffff;
-  border: 1px solid #dfeaf2;
-  z-index: 47;
-  border-radius: 15px;
-}
-.group-input-21 {
-  position: absolute;
-  width: 256px;
-  height: 40px;
-  top: 0;
-  left: 0;
-  background: transparent;
-  border: none;
-  z-index: 49;
-  outline: none;
-}
-.group-22 {
+.group-20 {
   position: absolute;
   width: 256px;
   height: 63px;
   top: 346px;
   left: 194px;
   font-size: 0px;
-  z-index: 66;
+  z-index: 73;
 }
 .sex {
   display: block;
@@ -819,9 +526,9 @@ button {
   line-height: 15.733px;
   text-align: left;
   white-space: nowrap;
-  z-index: 68;
+  z-index: 75;
 }
-.rectangle-23 {
+.rectangle-21 {
   position: absolute;
   width: 256px;
   height: 40px;
@@ -829,7 +536,7 @@ button {
   left: 0;
   background: #ffffff;
   border: 1px solid #dfeaf2;
-  z-index: 67;
+  z-index: 74;
   border-radius: 15px;
 }
 .female {
@@ -847,20 +554,9 @@ button {
   line-height: 14.523px;
   text-align: left;
   white-space: nowrap;
-  z-index: 69;
+  z-index: 76;
 }
-.vector-24 {
-  position: absolute;
-  width: 10.919px;
-  height: 6.379px;
-  top: 40.54px;
-  left: 225.54px;
-  background: url(Icons/droplist.png)
-    no-repeat center;
-  background-size: cover;
-  z-index: 70;
-}
-.group-25 {
+.group-23 {
   position: absolute;
   width: 256px;
   height: 63px;
@@ -884,16 +580,6 @@ button {
   white-space: nowrap;
   z-index: 22;
 }
-.group-26 {
-  position: relative;
-  width: 256px;
-  height: 40px;
-  margin: 7px 0 0 0;
-  font-size: 0px;
-  z-index: 23;
-  overflow: hidden;
-  border-radius: 15px;
-}
 .chferde {
   display: block;
   position: relative;
@@ -908,36 +594,15 @@ button {
   white-space: nowrap;
   z-index: 25;
 }
-.rectangle-27 {
-  position: absolute;
-  width: 256px;
-  height: 40px;
-  top: 0;
-  left: 0;
-  background: #ffffff;
-  border: 1px solid #dfeaf2;
-  z-index: 24;
-  border-radius: 15px;
-}
-.group-input-28 {
-  position: absolute;
-  width: 256px;
-  height: 40px;
-  top: 0;
-  left: 0;
-  background: transparent;
-  border: none;
-  z-index: 26;
-  outline: none;
-}
-.group-29 {
+
+.group-27 {
   position: absolute;
   width: 256px;
   height: 63px;
   top: 419px;
   left: 476px;
   font-size: 0px;
-  z-index: 50;
+  z-index: 56;
   border-radius: 15px;
 }
 .password {
@@ -952,19 +617,34 @@ button {
   line-height: 15.733px;
   text-align: left;
   white-space: nowrap;
-  z-index: 51;
+  z-index: 57;
 }
-.group-2a {
-  position: relative;
+
+.group-2b {
+  position: absolute;
   width: 256px;
-  height: 40px;
-  margin: 7px 0 0 0;
+  height: 63px;
+  top: 492px;
+  left: 194px;
   font-size: 0px;
-  z-index: 52;
-  overflow: hidden;
+  z-index: 27;
   border-radius: 15px;
 }
-.password-2b {
+.phone-number {
+  display: block;
+  position: relative;
+  height: 16px;
+  margin: 0 0 0 0;
+  color: #232323;
+  font-family: Inter, var(--default-font-family);
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 15.733px;
+  text-align: left;
+  white-space: nowrap;
+  z-index: 28;
+}
+.span {
   display: block;
   position: relative;
   height: 15px;
@@ -976,35 +656,43 @@ button {
   line-height: 14.523px;
   text-align: left;
   white-space: nowrap;
-  z-index: 54;
+  z-index: 31;
 }
-.rectangle-2c {
+.group-2f {
   position: absolute;
   width: 256px;
-  height: 40px;
-  top: 0;
-  left: 0;
-  background: #ffffff;
-  border: 1px solid #dfeaf2;
-  z-index: 53;
+  height: 63px;
+  top: 496px;
+  left: 476px;
+  font-size: 0px;
+  z-index: 33;
   border-radius: 15px;
 }
-.group-input-2d {
-  position: absolute;
-  width: 256px;
-  height: 40px;
-  top: 0;
-  left: 0;
-  background: transparent;
-  border: none;
-  z-index: 55;
-  outline: none;
+.barangay-position {
+  display: block;
+  position: relative;
+  height: 16px;
+  margin: 0 0 0 0;
+  color: #232323;
+  font-family: Inter, var(--default-font-family);
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 15.733px;
+  text-align: left;
+  white-space: nowrap;
+  z-index: 34;
 }
-.rectangle-2e {
-  position: absolute;
-  width: 1440px;
-  height: 1024px;
-  top: 0;
-  left: 0;
-  background: #f4f6f9;
+.captain {
+  display: block;
+  position: relative;
+  height: 15px;
+  margin: 13px 0 0 15px;
+  color: #718ebf;
+  font-family: Inter, var(--default-font-family);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 14.523px;
+  text-align: left;
+  white-space: nowrap;
+  z-index: 37;
 }
