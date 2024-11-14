@@ -16,7 +16,6 @@ include("all_usersdb.php");
   </head>
   <body>
 
-
     <div class="main-container">
 
       <div class="group">
@@ -28,28 +27,28 @@ include("all_usersdb.php");
         </div>
 
       <form action="login-and-register.php" method="post">
-        <div class="group-1">
-          <span class="username_lbl">User Name</span>
-            <input type = "text"class="username_input" name = "username_input" placeholder="Charlene Reed"/>
-        </div>
 
+            <div class="group-1">
+              <span class="username_lbl">User Name</span>
+                <input type = "text"class="username_input" name = "username_input" placeholder="Charlene Reed"/>
+            </div>
 
-        <div class="group-3">
-          <span class="password_lbl">Password</span>
-            <input type = "password" class="password_input" name ="password_input" placeholder="*********"/>
-        </div>
+            <div class="group-3">
+              <span class="password_lbl">Password</span>
+                <input type = "password" class="password_input" name ="password_input" placeholder="*********"/>
+            </div>
 
+            <button class="login_btn">Log In</span></button>
 
-        <button class="login_btn">Log In</span></button>
-
+        </form>
 
         <div class="rectangle-8"></div>
   
-            <button class="register">Register</button>
+            <button onclick="gotoRegisterUser()" class="register">Register</button>
 
 
-        <button class="register-officialbtn">Register as an Official </button>
-      </form>
+        <button onclick="gotoRegisterOfficial()" class="register-officialbtn">Register as an Official </button>
+
       </div>
 
       <div class="rectangle-e"></div>
@@ -59,6 +58,18 @@ include("all_usersdb.php");
   </body>
 </html>
 
+<script>
+
+function gotoRegisterUser(){
+  location.replace("register-page.php");
+}
+
+function gotoRegisterOfficial(){
+  location.replace("register-official.php");
+}
+
+</script>
+
 <?php
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
@@ -67,7 +78,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $password = $_POST["password_input"];
 
     if(empty($username) || empty($password)){
-        echo "enter all fields";
+        echo '<script>alert("enter all fields") </script>';
     } 
     else{
         $sql = "SELECT * FROM all_users WHERE username ='$username'";
@@ -75,12 +86,19 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $result = mysqli_query($con, $sql);
 
         if(mysqli_num_rows($result) > 0){
-            echo "you son of a bitch";
-            header('Location: usersdb.php');
-            die;
+
+          $user_data = mysqli_fetch_assoc($result);
+
+            if($user_data['password'] == $password){
+              header('Location: usersdb.php');
+              die;
+            }
+            else{
+              echo'<script>alert("incorrect password") </script>';
+          }
         }
         else{
-            echo"doesnt exist";
+            echo'<script>alert("acc does not exist") </script>';
         }
     }
 }
