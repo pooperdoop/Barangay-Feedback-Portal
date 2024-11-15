@@ -7,7 +7,7 @@ include("all_usersdb.php");
 <html lang="en">
   <head>
     <title>Barangay Feedback Portal</title>
-    <link rel="stylesheet" href="login_register.css">
+    <link rel="stylesheet" href="login_register.css?v=<?php echo time(); ?>">
 
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />

@@ -56,6 +56,7 @@ body{
 }
 .return {
   display: flex;
+  text-decoration: none;
   align-items: flex-start;
   justify-content: flex-start;
   position: absolute;
@@ -306,85 +307,45 @@ body{
   z-index: 78;
   border-radius: 9px;
 }
-.button {
-  position: relative;
-  width: 130px;
-  height: 40px;
-  margin: 0 0 0 0;
-  cursor: pointer;
-  font-size: 0px;
-  background: transparent;
-  border: none;
-  z-index: 82;
-  overflow: visible auto;
-  border-radius: 9px;
-}
-.attach-valid-id {
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  position: relative;
-  width: 106px;
-  height: 18px;
-  margin: 0 0 0 6px;
-  color: #ffffff;
-  font-family: Inter, var(--default-font-family);
-  font-size: 15px;
-  font-weight: 500;
-  line-height: 18px;
-  text-align: center;
-  white-space: nowrap;
-  z-index: 84;
-}
-.rectangle-11 {
-  position: absolute;
-  width: 130px;
-  height: 40px;
-  top: 0;
-  left: 0;
-  background: #1814f3;
-  z-index: 83;
-  border-radius: 9px;
-}
+  .button {
+    position: relative;
+    width: 130px;
+    height: 40px;
+    margin: 0 0 0 0;
+    cursor: pointer;
+    font-size: 15px;
+    color: #ffffff;
+    background-color: #1814f3;
+    border: none;
+    z-index: 82;
+    overflow: visible auto;
+    border-radius: 9px;
+    transition: 0.5s;
+  }
+
+  .button:hover {
+    background-color: #6e6dbd ;
+  }
+
 .group-12 {
   position: relative;
   width: 130px;
   height: 63px;
-  margin: 15px 0 0 0;
+  margin: 10px 0 0 0;
   cursor: pointer;
-  font-size: 0px;
-  background: transparent;
+  font-size: 15px;
+  background-color: #fe5c73;
   border: none;
   z-index: 79;
-  overflow: visible auto;
-  border-radius: 9px;
-}
-.register-official {
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  position: relative;
-  width: 111px;
-  height: 39px;
-  margin: 5px 0 0 3px;
   color: #ffffff;
-  font-family: Inter, var(--default-font-family);
-  font-size: 15px;
-  font-weight: 500;
-  line-height: 18.153px;
-  text-align: center;
-  z-index: 81;
-}
-.rectangle-13 {
-  position: absolute;
-  width: 130px;
-  height: 63px;
-  top: 0;
-  left: 0;
-  background: #fe5c73;
-  z-index: 80;
   border-radius: 9px;
+  transition: 0.5s;
 }
+
+.group-12:hover{
+  background-color: #ec929f;
+}
+
 .group-14 {
   position: absolute;
   width: 256px;

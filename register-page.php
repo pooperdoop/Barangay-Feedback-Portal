@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <title>Barangay Feedback Portal</title>
-    <link rel="stylesheet" href="register_user_style.css"/>
+    <link rel="stylesheet" href="register_user_style.css?v=<?php echo time(); ?>"/>
 
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -17,8 +17,8 @@
         </div>
 
 
-        <span class="return">Return</span>
-        <div class="arrow-back"><div class="icon"></div></div>
+        
+        <a href ="login-and-register.php"  class="return">Return</a>
 
 
         <div class="group-4">
@@ -54,13 +54,9 @@
 
 
         <div class="group-10">
-          <button class="button">
-            <span class="attach-valid-id">Attach Valid ID</span>
-            <div class="rectangle-11"></div></button
-          ><button class="group-12">
-            <span class="register-user">Register as a User</span>
-            <div class="rectangle-13"></div>
-          </button>
+          <button class="button">Attach Valid ID</button>
+            
+            <button class="group-12">Register as User </button>
         </div>
 
 
