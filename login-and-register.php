@@ -1,8 +1,3 @@
-<?php
-
-include("all_usersdb.php");
-?>
-
 <!DOCTYPE html> 
 <html lang="en">
   <head>
@@ -67,10 +62,11 @@ function gotoRegisterUser(){
 function gotoRegisterOfficial(){
   location.replace("register-official.php");
 }
-
 </script>
 
 <?php
+include("all_usersdb.php");
+session_start();
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
 
@@ -90,8 +86,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
           $user_data = mysqli_fetch_assoc($result);
 
             if($user_data['password'] == $password){
-              header('Location: usersdb.php');
-              die;
+              $_SESSION['id'] = $user_data['id'];
+              header('Location: testHomePage.php');
             }
             else{
               echo'<script>alert("incorrect password") </script>';
