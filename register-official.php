@@ -3,6 +3,15 @@ include("all_usersdb.php");
 include("functions.php");
 
 
+if (isset($_POST["hidden_button"])){
+  $profile = $_FILES['submit_profile'];
+    $profilesplit = explode('.',$profile['name']);
+    $profileext = strtolower(end($profilesplit));
+    $profilenewname = "user"."profile".".".$profileext; 
+    $profiledir = 'profiles/'.$profilenewname;
+    move_uploaded_file($profile['tmp_name'], $profiledir);
+}
+
 if (isset($_POST["register_button"])){
 
   if($_SERVER["REQUEST_METHOD"] == "POST"){
@@ -23,8 +32,7 @@ if (isset($_POST["register_button"])){
     $img = $_FILES['submit_id'];
     $imgsplit = explode('.',$img['name']);
     $imgext = strtolower(end($imgsplit));
-    $imgdest = 'images/'.$img['name'];
-    move_uploaded_file($img['tmp_name'], $imgdest);
+
 
     if(empty($firstname) || empty($middlename) ||  empty($lastname) ||  empty($email) || empty($password) || empty($position) || 
     empty($phonenumber) || empty($username) || empty($fulladdress) || empty($barangay) || empty($sex) || empty($birthday) ){
@@ -35,6 +43,24 @@ if (isset($_POST["register_button"])){
                         VALUE ('$username', '$email', '$password', '$firstname', '$middlename', '$lastname', '$birthday', '$fulladdress', 'Official', '$position', '$barangay', '$sex', 
                         '$phonenumber')";
   mysqli_query($con, $sql);
+
+  $sqlImgName = "SELECT * FROM all_users WHERE email = '$email' AND password = '$password'";
+  $result = mysqli_query($con, $sqlImgName);
+
+  if(mysqli_num_rows($result)>0){
+
+    $currentid = mysqli_fetch_assoc($result);
+
+    $imgnewname = "user".$currentid['id']."id".".".$imgext; 
+    $imgdir = 'images/'.$imgnewname;
+    move_uploaded_file($img['tmp_name'], $imgdir  );
+
+    $sqlimginsert = "UPDATE all_users SET img_dir = '$imgdir'";
+
+    mysqli_query($con, $sqlimginsert);  
+  }
+
+
   after_signup();
 }
     } else{
@@ -50,6 +76,9 @@ if (isset($_POST["register_button"])){
 <html lang="en">
   <head>
     <title>Barangay Feedback Portal</title>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
     <link rel="stylesheet" href="register_official_style.css?v=<?php echo time(); ?>"/>
 
     <meta charset="UTF-8" />
@@ -75,14 +104,7 @@ if (isset($_POST["register_button"])){
         </div>
 
 
-        <div class="group-7">
-          <div class="mask-group"></div>
-          <div class="group-8">
-            <div class="pencil-alt"><div class="vector"></div></div>
-            <div class="ellipse"></div>
-          </div>
-        </div>
-
+       
         <div class="group-1">
           <span class="first-name">First Name</span>
             <input type="text" name = "first_name" class="group-input-c" placeholder="Charlene" value="<?php if (isset($_POST['first_name'])) echo $_POST['first_name']; ?>"
@@ -168,7 +190,58 @@ if (isset($_POST["register_button"])){
            style="transform: translatey(20px);" /> 
       </div>
       </form>
+
+      <form action="profileImg.php" method="post" enctype="multipart/form-data">
+      <div class="group-7">
+          <img src = "Icons/profile.png" class="mask-group" id = "user_profile">
+            <input type="file" name="submit_profile" id="submit_profile" accept=".jpg, .png, .jpeg|image/*" style="display: none;">
+            <button id = "hidden_button" name="hidden_button" style="display: none;"></button>
+            <label class="ellipse"  for = "submit_profile"><img src="Icons/pencil.png" class ="pencil" alt="x"></label>
+        </div>
+       </form>
+
+
     </div>
     
   </body>
 </html>
+
+<script>
+
+// $(document).ready(function(){
+//  $(document).on('change', '#submit_profile', function(){
+//   let user_profile = document.getElementById("user_profile");
+//   document.getElementById("hidden_button").click();
+//   user_profile.style.backgroundImage = "url('profiles/userprofile.png')"; 
+//  });
+
+// });
+
+submit_profile.onchange = evt => {
+    const [file] = submit_profile.files;
+    if(file){
+      user_profile.src = URL.createObjectURL(file);
+    }
+}
+
+$(document).ready(function(){
+    $(document).on('change', '#submit_profile', function(){
+   
+      var formdata = new FormData();
+      var files = $('#submit_profile')[0].files;
+      formdata.append('submit_profile', files[0]);
+
+      $.ajax({
+        url: 'profileImg.php',
+        type: 'post',
+        data: formdata,
+        contentType: false,
+        processData: false,
+
+        success:function(result){
+          console.log(result);
+        }
+      })
+    });
+  });
+</script>
