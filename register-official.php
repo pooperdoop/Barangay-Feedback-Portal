@@ -2,16 +2,6 @@
 include("all_usersdb.php");
 include("functions.php");
 
-
-if (isset($_POST["hidden_button"])){
-  $profile = $_FILES['submit_profile'];
-    $profilesplit = explode('.',$profile['name']);
-    $profileext = strtolower(end($profilesplit));
-    $profilenewname = "user"."profile".".".$profileext; 
-    $profiledir = 'profiles/'.$profilenewname;
-    move_uploaded_file($profile['tmp_name'], $profiledir);
-}
-
 if (isset($_POST["register_button"])){
 
   if($_SERVER["REQUEST_METHOD"] == "POST"){
@@ -50,18 +40,37 @@ if (isset($_POST["register_button"])){
   if(mysqli_num_rows($result)>0){
 
     $currentid = mysqli_fetch_assoc($result);
-
     $imgnewname = "user".$currentid['id']."id".".".$imgext; 
-    $imgdir = 'images/'.$imgnewname;
-    move_uploaded_file($img['tmp_name'], $imgdir  );
+    $valididdir = 'images/'.$imgnewname;
+    move_uploaded_file($img['tmp_name'], $valididdir);
 
-    $sqlimginsert = "UPDATE all_users SET img_dir = '$imgdir'";
-
+    $sqlimginsert = "UPDATE all_users SET valid_id_dir = '$valididdir' WHERE email = '$email' AND password = '$password'";
     mysqli_query($con, $sqlimginsert);  
+
+      if (file_exists($_FILES['submit_profile']['tmp_name']) || is_uploaded_file($_FILES['submit_profile']['tmp_name'])){
+        $profile = $_FILES['submit_profile'];
+        $profilesplit = explode('.',$profile['name']);
+        $profileext = strtolower(end($profilesplit));
+        $profilenewname = "user".$currentid['id']."profile".".".$profileext; 
+        $profiledir = 'profiles/'.$profilenewname;
+        move_uploaded_file($profile['tmp_name'], $profiledir);
+
+        $sqlprofileinsert = "UPDATE all_users SET user_profile_dir = '$profiledir' WHERE email = '$email' AND password = '$password'";
+        mysqli_query($con, $sqlprofileinsert);
+    
+      }
+
+      else{
+
+        $sqlprofileinsert = "UPDATE all_users SET user_profile_dir = 'Icons/profile.png' WHERE email = '$email' AND password = '$password'";
+        mysqli_query($con, $sqlprofileinsert);
+
+      }
   }
 
 
-  after_signup();
+  // after_signup();
+  // die;
 }
     } else{
       echo '<script>alert("Please upload an image")</script>';  
@@ -129,7 +138,7 @@ if (isset($_POST["register_button"])){
         <div class="group-10">
           <label class="button" for="submit_id">Attach Valid ID</label>
             <input type="file" name="submit_id" id="submit_id" accept=".jpg, .png, .jpeg|image/*" style="display: none;">
-            <button class="group-12" name = "register_button">Register as an Official </button>
+            <button class="group-12" name = "register_button" id="register_button">Register as an Official </button>
         </div>
 
 
@@ -149,7 +158,7 @@ if (isset($_POST["register_button"])){
 
         <div class="group-1b">
           <span class="email">Email</span>
-            <input type="text" name="email" class="group-input-c" placeholder="asdasd@gmail.com" value="<?php if (isset($_POST['email'])) echo $_POST['email']; ?>"
+            <input type="text" name="email" id="email" class="group-input-c" placeholder="asdasd@gmail.com" value="<?php if (isset($_POST['email'])) echo $_POST['email']; ?>"
             style="transform: translatey(20px);" />
         </div>
 
@@ -189,34 +198,19 @@ if (isset($_POST["register_button"])){
           <input type="text" name="position" class="group-input-c" placeholder="Captain" value="<?php if (isset($_POST['position'])) echo $_POST['position']; ?>"
            style="transform: translatey(20px);" /> 
       </div>
-      </form>
 
-      <form action="profileImg.php" method="post" enctype="multipart/form-data">
       <div class="group-7">
           <img src = "Icons/profile.png" class="mask-group" id = "user_profile">
             <input type="file" name="submit_profile" id="submit_profile" accept=".jpg, .png, .jpeg|image/*" style="display: none;">
-            <button id = "hidden_button" name="hidden_button" style="display: none;"></button>
             <label class="ellipse"  for = "submit_profile"><img src="Icons/pencil.png" class ="pencil" alt="x"></label>
         </div>
-       </form>
-
-
-    </div>
-    
+        
+      </form>
+    </div>    
   </body>
 </html>
 
 <script>
-
-// $(document).ready(function(){
-//  $(document).on('change', '#submit_profile', function(){
-//   let user_profile = document.getElementById("user_profile");
-//   document.getElementById("hidden_button").click();
-//   user_profile.style.backgroundImage = "url('profiles/userprofile.png')"; 
-//  });
-
-// });
-
 submit_profile.onchange = evt => {
     const [file] = submit_profile.files;
     if(file){
@@ -224,24 +218,25 @@ submit_profile.onchange = evt => {
     }
 }
 
-$(document).ready(function(){
-    $(document).on('change', '#submit_profile', function(){
-   
-      var formdata = new FormData();
-      var files = $('#submit_profile')[0].files;
-      formdata.append('submit_profile', files[0]);
+// $(document).ready(function(){
+//   $("#register_button").click(function(){
+//     document.getElementById("email_to_pass").value = document.getElementById("email").value;  
+//     // $(document).on('click', '#register_button', function(){
+//       var formdata = new FormData();
+//       var files = $('#submit_profile')[0].files;
+//       formdata.append('submit_profile', files[0]);
 
-      $.ajax({
-        url: 'profileImg.php',
-        type: 'post',
-        data: formdata,
-        contentType: false,
-        processData: false,
+//       $.ajax({
+//         url: 'profileImg.php',
+//         type: 'post',
+//         data: formdata,
+//         contentType: false,
+//         processData: false,
 
-        success:function(result){
-          console.log(result);
-        }
-      })
-    });
-  });
+//         success:function(result){
+//          alert(document.getElementById("email_to_pass").value );
+//         }
+//       })
+//     });
+//   });
 </script>

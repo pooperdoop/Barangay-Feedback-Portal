@@ -1,7 +1,90 @@
+<?php
+include("all_usersdb.php");
+include("functions.php");
+
+if (isset($_POST["register_button"])){
+
+  if($_SERVER["REQUEST_METHOD"] == "POST"){
+    $firstname = $_POST["first_name"];
+    $middlename = $_POST["middle_name"];
+    $lastname = $_POST["last_name"];
+    $email = $_POST["email"];
+    $password = $_POST["password"];
+    $phonenumber = $_POST["phone_number"];
+    $username = $_POST["username"];
+    $fulladdress = $_POST["full_address"];
+    $barangay = $_POST["barangay"];
+    $sex = $_POST["sex_choice"];
+    $birthday = $_POST["birthday"];
+
+    if (file_exists($_FILES['submit_id']['tmp_name']) || is_uploaded_file($_FILES['submit_id']['tmp_name'])) {    
+    $img = $_FILES['submit_id'];
+    $imgsplit = explode('.',$img['name']);
+    $imgext = strtolower(end($imgsplit));
+
+
+    if(empty($firstname) || empty($middlename) ||  empty($lastname) ||  empty($email) || empty($password) || 
+    empty($phonenumber) || empty($username) || empty($fulladdress) || empty($barangay) || empty($sex) || empty($birthday) ){
+      echo '<script>alert("enter all fields")</script>';  
+    }
+  else{
+    $sql = "INSERT INTO all_users(username, email, password, first_name, middle_name, last_name, birthday, full_address, type, position, barangay, sex, phonenumber) 
+                        VALUE ('$username', '$email', '$password', '$firstname', '$middlename', '$lastname', '$birthday', '$fulladdress', 'User', '-', '$barangay', '$sex', 
+                        '$phonenumber')";
+  mysqli_query($con, $sql);
+
+  $sqlImgName = "SELECT * FROM all_users WHERE email = '$email' AND password = '$password'";
+  $result = mysqli_query($con, $sqlImgName);
+
+  if(mysqli_num_rows($result)>0){
+
+    $currentid = mysqli_fetch_assoc($result);
+    $imgnewname = "user".$currentid['id']."id".".".$imgext; 
+    $valididdir = 'images/'.$imgnewname;
+    move_uploaded_file($img['tmp_name'], $valididdir);
+
+    $sqlimginsert = "UPDATE all_users SET valid_id_dir = '$valididdir' WHERE email = '$email' AND password = '$password'";
+    mysqli_query($con, $sqlimginsert);  
+
+      if (file_exists($_FILES['submit_profile']['tmp_name']) || is_uploaded_file($_FILES['submit_profile']['tmp_name'])){
+        $profile = $_FILES['submit_profile'];
+        $profilesplit = explode('.',$profile['name']);
+        $profileext = strtolower(end($profilesplit));
+        $profilenewname = "user".$currentid['id']."profile".".".$profileext; 
+        $profiledir = 'profiles/'.$profilenewname;
+        move_uploaded_file($profile['tmp_name'], $profiledir);
+
+        $sqlprofileinsert = "UPDATE all_users SET user_profile_dir = '$profiledir' WHERE email = '$email' AND password = '$password'";
+        mysqli_query($con, $sqlprofileinsert);
+    
+      }
+
+      else{
+
+        $sqlprofileinsert = "UPDATE all_users SET user_profile_dir = 'Icons/profile.png' WHERE email = '$email' AND password = '$password'";
+        mysqli_query($con, $sqlprofileinsert);
+
+      }
+  }
+
+
+  // after_signup();
+  // die;
+}
+    } else{
+      echo '<script>alert("Please upload an image")</script>';  
+    }
+
+  }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <title>Barangay Feedback Portal</title>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
     <link rel="stylesheet" href="register_user_style.css?v=<?php echo time(); ?>"/>
 
     <meta charset="UTF-8" />
@@ -17,70 +100,69 @@
         </div>
 
 
-        
         <a href ="login-and-register.php"  class="return">Return</a>
 
-
+  <form action="register-page.php" method="post" enctype="multipart/form-data">
         <div class="group-4">
           <span class="middle-name">Middle Name</span>
-          <input type="text" class="group-input-c" placeholder="Fernandez" style="transform: translatey(20px);"/>
+          <input name = "middle_name"type="text" class="group-input-c" placeholder="Fernandez" value="<?php if (isset($_POST['middle_name'])) echo $_POST['middle_name']; ?>"
+          style="transform: translatey(20px);"/>
         </div>
 
 
-        <div class="group-7">
-          <div class="mask-group"></div>
-          <div class="group-8">
-            <div class="pencil-alt"><div class="vector"></div></div>
-            <div class="ellipse"></div>
-          </div>
-        </div>
-
+       
         <div class="group-1">
           <span class="first-name">First Name</span>
-            <input type="text" class="group-input-c" placeholder="Charlene" style="transform: translatey(20px);"/>
+            <input type="text" name = "first_name" class="group-input-c" placeholder="Charlene" value="<?php if (isset($_POST['first_name'])) echo $_POST['first_name']; ?>"
+             style="transform: translatey(20px);"/>
         </div>
 
 
         <div class="group-9">
           <span class="last-name">Last Name</span>
-            <input type="text" class="group-input-c" placeholder="De Leon" style="transform: translatey(20px);" />
+            <input type="text" name = "last_name" class="group-input-c" placeholder="De Leon" value="<?php if (isset($_POST['last_name'])) echo $_POST['last_name']; ?>"
+             style="transform: translatey(20px);" />
         </div>
 
 
         <div class="group-d">
           <span class="date-of-birth">Date of Birth</span>
-          <input type="date" class="group-input-c" placeholder="Charlene" style="transform: translatey(20px);"/>
+          <input name = "birthday" type="date" class="group-input-c" value="<?php if (isset($_POST['birthday'])) echo $_POST['birthday']; ?>" 
+          style="transform: translatey(20px);"/>
         </div>
 
 
         <div class="group-10">
-          <button class="button">Attach Valid ID</button>
-            
-            <button class="group-12">Register as User </button>
+          <label class="button" for="submit_id">Attach Valid ID</label>
+            <input type="file" name="submit_id" id="submit_id" accept=".jpg, .png, .jpeg|image/*" style="display: none;">
+            <button class="group-12" name = "register_button" id="register_button">Register as a User </button>
         </div>
 
 
         <div class="group-14">
           <span class="full-address">Full Address</span>
-          <input type="text" class="group-input-c" placeholder="Mangga 2 Matatalaib Tarlac City" style="transform: translatey(20px);" />
+          <input type="text" name="full_address" class="group-input-c" placeholder="Mangga 2 Matatalaib Tarlac City" value="<?php if (isset($_POST['full_address'])) echo $_POST['full_address']; ?>"
+           style="transform: translatey(20px);" />
         </div>
 
 
         <div class="group-17">
           <span class="barangay">Barangay</span>
-          <input type="text" class="group-input-c" placeholder="Matatalaib" style="transform: translatey(20px);" />
+          <input type="text" name="barangay" class="group-input-c" placeholder="Matatalaib" value="<?php if (isset($_POST['barangay'])) echo $_POST['barangay']; ?>"
+           style="transform: translatey(20px);" />
         </div>
 
 
         <div class="group-1b">
           <span class="email">Email</span>
-            <input type="text" class="group-input-c" placeholder="asdasd@gmail.com" style="transform: translatey(20px);" />
+            <input type="text" name="email" id="email" class="group-input-c" placeholder="asdasd@gmail.com" value="<?php if (isset($_POST['email'])) echo $_POST['email']; ?>"
+            style="transform: translatey(20px);" />
         </div>
 
 
         <div class="group-20">
           <span class="sex">Sex</span>
-          <select style="border: none; transform: translatey(20px); width:100%">
+          <select name="sex_choice" style="border: none; transform: translatey(20px); width:100%">
                 <option value="Female">Female</option>
                 <option value="Male">Male</option>
                 <option value="Other">Other</option>
@@ -90,21 +172,40 @@
 
         <div class="group-23">
           <span class="username">Username</span>
-          <input type="text" class="group-input-c" placeholder="CHFerde" style="transform: translatey(20px);"/>
+          <input type="text" name="username" class="group-input-c" placeholder="CHFerde" value="<?php if (isset($_POST['username'])) echo $_POST['username']; ?>"
+           style="transform: translatey(20px);"/>
         </div>
 
 
         <div class="group-27">
           <span class="password">Password</span>
-          <input type="password" class="group-input-c" placeholder="**********" style="transform: translatey(20px);" /> 
+          <input type="password" name="password" class="group-input-c" placeholder="**********" style="transform: translatey(20px);" /> 
         </div>
 
 
         <div class="group-2b">
           <span class="phone-number">Phone Number</span>
-          <input type="text" class="group-input-c" placeholder="0239203902" style="transform: translatey(20px);" /> 
+          <input type="text" name="phone_number" class="group-input-c" placeholder="0239203902" value="<?php if (isset($_POST['phone_number'])) echo $_POST['phone_number']; ?>"
+           style="transform: translatey(20px);" /> 
         </div>
-    </div>
-    
+
+
+      <div class="group-7">
+          <img src = "Icons/profile.png" class="mask-group" id = "user_profile">
+            <input type="file" name="submit_profile" id="submit_profile" accept=".jpg, .png, .jpeg|image/*" style="display: none;">
+            <label class="ellipse"  for = "submit_profile"><img src="Icons/pencil.png" class ="pencil" alt="x"></label>
+        </div>
+        
+      </form>
+    </div>    
   </body>
 </html>
+
+<script>
+submit_profile.onchange = evt => {
+    const [file] = submit_profile.files;
+    if(file){
+      user_profile.src = URL.createObjectURL(file);
+    }
+}
+</script>
