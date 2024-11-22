@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Barangay Feedback Portal</title>
+    <link rel="stylesheet" href="home.css"/>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap" />
+</head>
+<body>
+    
+    <div class="wrapper">
+        <div class="sidebar">
+            <h2><img src="Icons/brgy icon.png" alt="brgy">Barangay Feedback Portal</h2>
+            <ul>
+                <li><img src="Icons/home1.png" alt="home"><a href="#"><i class="but home"></i>Home</a></li>
+                <li><img src="Icons/transfer1.png" alt="feedback"><a href="#"><i class="but feedbacks"></i>Feedbacks</a></li>
+                <li><img src="Icons/account1.png" alt="accounts"><a href="#"><i class="but accounts"></i>Accounts</a></li>
+                <li><img src="Icons/settings1.png" alt="settings"><a href="#"><i class="but settings"></i>Settings</a></li>
+                <li><img src="Icons/logout1.png" alt="logout"><a href="#"><i class="but logout">Log Out</a></li>
+            </ul>
+        </div>
+
+        <div class="main_content">
+
+            <div class="header">
+                <div>
+                    <h2>Feedbacks</h2>
+                </div>
+                <div>
+                    <input class="search" type="text" placeholder="Search for something">
+                </div>
+                <div>
+                    <p>Welcome, Username</p>
+                </div>
+            </div>
+
+            <div class="buttons" style="margin-left: 20px;">   
+                <button>All Feedbacks</button>
+                <button>Complaints</button>
+                <button>Request</button>
+                <button>Suggestions</button>
+                <button>Open</button>
+                <button>Closed</button>
+            </div>
+
+            <section class="feedback-section" style="margin-left: 20px;">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>Ticket ID</th>
+                            <th>Type</th>
+                            <th>Date</th>
+                            <th>Status</th>
+                            <th>User</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>RE: Free Rabies Vaccine</td>
+                            <td>#12548786</td>
+                            <td>Suggestion</td>
+                            <td>28 Jan, 12:30 AM</td>
+                            <td><span class="status open">Open</span></td>
+                            <td>Barangay Official</td>
+                            <td><button class="view-btn">View</button></td>
+                        </tr>
+                        <tr>
+                            <td>Free Rabies Vaccine</td>
+                            <td>#12548786</td>
+                            <td>Suggestion</td>
+                            <td>25 Jan, 10:40 PM</td>
+                            <td><span class="status open">Open</span></td>
+                            <td>John Doe</td>
+                            <td><button class="view-btn">View</button></td>
+                        </tr>
+                        <tr>
+                            <td>Pakipon mga Basura</td>
+                            <td>#12548789</td>
+                            <td>Request</td>
+                            <td>20 Jan, 10:49 PM</td>
+                            <td><span class="status processing">Processing</span></td>
+                            <td>John Doe</td>
+                            <td><button class="view-btn">View</button></td>
+                        </tr>
+                        <tr>
+                            <td>Potholes</td>
+                            <td>#12548796</td>
+                            <td>Complaint</td>
+                            <td>15 Jan, 03:29 PM</td>
+                            <td><span class="status closed">Closed</span></td>
+                            <td>Nallah Sheng</td>
+                            <td><button class="view-btn">View</button></td>
+                        </tr>
+                        <tr>
+                            <td>Potholes</td>
+                            <td>#12548796</td>
+                            <td>Request</td>
+                            <td>14 Jan, 10:40 PM</td>
+                            <td><span class="status closed">Closed</span></td>
+                            <td>John Doe</td>
+                            <td><button class="view-btn">View</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+        </div>
+    </div>
+
+</body>
+</html>
