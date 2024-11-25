@@ -3,14 +3,13 @@
 <head>
     <title>Barangay Feedback Portal</title>
     <link rel="stylesheet" href="home.css"/>
-
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap" />
 </head>
 <body>
-    
+
     <div class="wrapper">
         <div class="sidebar">
             <h2><img src="Icons/brgy icon.png" alt="brgy">Barangay Feedback Portal</h2>
@@ -26,17 +25,14 @@
         <div class="main_content">
 
             <div class="header">
-                <div>
+                <div class="header-content">
                     <h2>Feedbacks</h2>
-                </div>
-                <div>
                     <input class="search" type="text" placeholder="Search for something">
-                </div>
-                <div>
                     <p>Welcome, Username</p>
                 </div>
             </div>
 
+            <!--
             <div class="buttons" style="margin-left: 20px;">   
                 <button>All Feedbacks</button>
                 <button>Complaints</button>
@@ -108,6 +104,60 @@
                     </tbody>
                 </table>
             </section>
+            -->
+
+            <div class="rectangle-5">
+                <div class="flex-row-c" style="margin-top: 7px;">
+                    <div class="top">
+                        <h1>Write your feedbacks here</h1>
+                        <div class="divider"></div> <!-- Divider line added here -->
+                        <span>Message</span>
+                    </div>
+                </div>
+            
+                <div class="flex-row-c" style="margin-top: 5px;">
+                    <div class="title-container">
+                        <span class="title">Title</span>
+                        <input type="text" name="feedback_title" class="group-input" placeholder="Enter feedback title" required />
+                    </div>
+                    
+                    <div class="barangay-container" style="margin-left: 53px;">
+                        <span class="barangay">Barangay</span>
+                        <select name="barangay" class="group-input" style="width: 256px;">
+                            <option value="" disabled selected>Select Barangay</option>
+                            <option value="Barangay 1">Barangay 1</option>
+                            <option value="Barangay 2">Barangay 2</option>
+                            <option value="Barangay 3">Barangay 3</option>
+                            <!-- Add more barangays as needed -->
+                        </select>
+                    </div>
+                </div>
+            
+                <span class="message">Description</span> <!-- Updated message class -->
+                <textarea name="description" class="group-input" placeholder="Enter your description here" required></textarea>
+
+                <div class="rectangle-f">
+                    <div class="complaint-type-container">
+                        <span class="complaint">Type of Feedback</span> <!-- Type of Feedback label -->
+                        <select name="complaint_type" class="complaint-type-dropdown">
+                            <option value="" disabled selected>Complaint</option>
+                            <option value="Noise Complaint">Noise Complaint</option>
+                            <option value="Waste Management">Waste Management</option>
+                            <option value="Street Lighting">Street Lighting</option>
+                            <!-- Add more complaint types as needed -->
+                        </select>
+                    </div>
+                    
+                    <div class="file-upload-container">
+                        <label for="feedback_file" class="file-upload-label">
+                            <button type="button" class="attach-files-button">Attach Files</button>
+                            <input type="file" name="feedback_file" class="group-input-e" id="feedback_file" style="display: none;" />
+                        </label>
+                    </div>
+                    
+                    <button type="submit" class="send-feedback-button">Send</button>
+                </div>
+
 
         </div>
     </div>
