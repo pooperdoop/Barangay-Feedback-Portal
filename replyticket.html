@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barangay Feedback Porta - Enter Feedback</title>
+    <link rel="stylesheet" href="replyticket.css"/>
+
+</head>
+<body>
+
+    <div class="wrapper">
+        <div class="sidebar">
+            <h2><img src="Icons/brgy icon.png" alt="brgy">Barangay Feedback Portal</h2>
+            <ul>
+                <li><img src="Icons/home1.png" alt="home"><a href="#"><i class="but home"></i>Home</a></li>
+                <li><img src="Icons/transfer1.png" alt="feedback"><a href="#"><i class="but feedbacks"></i>Feedbacks</a></li>
+                <li><img src="Icons/account1.png" alt="accounts"><a href="#"><i class="but accounts"></i>Accounts</a></li>
+                <li><img src="Icons/settings1.png" alt="settings"><a href="#"><i class="but settings"></i>Settings</a></li>
+                <li><img src="Icons/logout1.png" alt="logout"><a href="#"><i class="but logout">Log Out</a></li>
+            </ul>
+        </div>
+
+        <div class="main_content">
+
+            <div class="header">
+                <div class="header-content">
+                    <h2>Feedbacks</h2>
+                    <input class="search" type="text" placeholder="Search for something">
+                    <p>Welcome, Username</p>
+                </div>
+            </div>
+    
+    <div class="feedback_write_page ">
+        <div class="flex-row-c" style="margin-top: 7px;">
+            <div class="top">
+                <h1>Replying to: #00000 - Main Subject</h1>
+                <div class="divider"></div>
+                <span>Write your reply here</span>
+            </div>
+        </div>
+    
+        <div class="flex-row-c" style="margin-top: 5px;">
+            <div class="title-container">
+                <span class="title">Title</span>
+                <input type="text" name="feedback_title" class="group-input" placeholder="Enter feedback title" required />
+            </div>
+        </div>
+    
+        <span class="message">Description</span>
+        <textarea name="description" class="group-input" placeholder="Enter your description here" required></textarea>
+
+        <div class="rectangle-f">
+            <button type="submit" class="send-feedback-button">Send</button>
+        </div>
+    </div>
+</div>
+</body>
+</html>
