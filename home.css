@@ -99,7 +99,7 @@ body {
     height: 50px;
 }
 
-.feedback_write_page{
+.rectangle-5 {
     width: 1110px;
     height: 660px;
     flex-shrink: 0;
@@ -128,7 +128,7 @@ body {
     border: 1px solid #DFEAF2; /* Border style */
     background: #FFF; /* Background color */
     font-size: 14px; /* Font size for better readability */
-    color: black; /* Text color */
+    color: #718EBF; /* Text color */
     font-family: Inter; /* Font family */
     font-style: normal; /* Font style */
     font-weight: 400; /* Font weight */
@@ -151,7 +151,6 @@ textarea.group-input {
     border-radius: 15px;
     border: 1px solid #DFEAF2;
     background: #FFF;
-    color: black;
     font-size: 14px; /* Font size for better readability */
     resize: vertical; /* Allow vertical resizing only */
 }
@@ -255,11 +254,6 @@ textarea.group-input {
     border: none; /* No border */
     cursor: pointer; /* Pointer cursor on hover */
     font-size: 14px; /* Font size */
-    display: inline-block;
-    text-align: center;
-    padding-top: 10px;
-    font-style: normal;
-    font-family: Inter;
     transition: background-color 0.3s; /* Transition for hover effect */
 }
 
@@ -276,7 +270,7 @@ textarea.group-input {
     background: #FFF; /* Background color */
     padding: 5px; /* Optional: Add some padding for better appearance */
     font-size: 14px; /* Set font size for better readability */
-    color: black;
+    color: #718EBF;
     font-family: Inter;
     font-size: 12px;
     font-style: normal;
