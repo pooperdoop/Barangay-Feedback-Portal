@@ -304,7 +304,7 @@ textarea.group-input {
     display: flex;
     flex-direction: column; /* Stack elements vertically */
     align-items: flex-start; /* Align items to the start */
-    margin-bottom: 10px; /* Space below the title section */
+
 }
 
 .top h1 {

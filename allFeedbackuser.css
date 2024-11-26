@@ -181,11 +181,7 @@ body {
 }
 
 .buttons button {
-    margin: 0 10px;
-}
-
-.buttons button {
-    margin-right: 10 px;
+    margin-right: 5 px;
 }
 
 .buttons {

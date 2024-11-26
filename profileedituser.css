@@ -105,6 +105,37 @@ body {
     margin-left: 40px;
 }
 
+.cancel-button {
+    width: 130px;
+    height: 40px;
+    flex-shrink: 0;
+    border-radius: 9px;
+    background: #FE5C73;
+    color: #FFF; /* Optional: Set text color to white for better contrast */
+    border: none; /* Optional: Remove border */
+    cursor: pointer; /* Pointer cursor on hover */
+    font-family: Inter; /* Ensure the font matches */
+    font-size: 16px; /* Optional: Set font size */
+    font-weight: 500; /* Optional: Set font weight */
+    margin-left: 40px;
+}
+
+.save-button {
+    margin-top: 18px;
+    width: 130px;
+    height: 40px;
+    flex-shrink: 0;
+    border-radius: 9px;
+    background: #16DBAA;
+    color: #FFF; /* Optional: Set text color to white for better contrast */
+    border: none; /* Optional: Remove border */
+    cursor: pointer; /* Pointer cursor on hover */
+    font-family: Inter; /* Ensure the font matches */
+    font-size: 16px; /* Optional: Set font size */
+    font-weight: 500; /* Optional: Set font weight */
+    margin-left: 40px;
+}
+
 .profile-image {
     width: 120px;
     height: 112.538px;
