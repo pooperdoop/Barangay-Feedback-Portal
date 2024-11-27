@@ -1,0 +1,170 @@
+:root {
+    --default-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+      Ubuntu, "Helvetica Neue", Helvetica, Arial, "PingFang SC",
+      "Hiragino Sans GB", "Microsoft Yahei UI", "Microsoft Yahei",
+      "Source Han Sans CN", sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+}
+
+body {
+    background-color: #F5F7FA;
+}
+
+.rectangle-5 {
+    width: 1110px;
+    height: auto;
+    flex-shrink: 0;
+    margin-top: 20px; /* Space above the rectangle */
+    padding: 20px; /* Padding inside the rectangle */
+    border-radius: 20px;
+    background: #FFF;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    display: flex; /* Use flexbox for layout */
+    flex-direction: column; /* Stack children vertically */
+}
+
+.top {
+    display: flex; /* Use flexbox for layout */
+    align-items: center; /* Align items vertically centered */
+    margin-bottom: 10px; /* Space below the title section */
+}
+
+.top span {
+    color: #343C6A;
+    font-family: Inter;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.divider {
+    width: 1050px; /* Set the width of the line */
+    height: 1px; /* Set the height of the line */
+    flex-shrink: 0; /* Prevent the line from shrinking */
+    background: #E6EFF5; /* Set the background color of the line */
+}
+
+
+.title {
+    font-size: 28px; /* Set the font size for the title */
+    font-weight: 600; /* Set the font weight */
+    color: #343C6A; /* Set the text color */
+}
+
+.return {
+    display: flex;
+    align-items: center; /* Center the icon and text vertically */
+    justify-content: flex-end; /* Align items to the start */
+    width: 67.463px;
+    height: 30px;
+    flex-shrink: 0;
+    color: #B1B1B1; /* Set the text color */
+    font-family: Inter; /* Set the font family */
+    font-size: 25px; /* Set the font size */
+    font-style: normal; /* Set the font style */
+    font-weight: 500; /* Set the font weight */
+    line-height: normal; /* Set the line height */
+    background: transparent; /* No background color */
+    border: none; /* No border */
+    cursor: pointer; /* Pointer cursor on hover */
+    margin-left: 650px; /* Optional: Add some margin to the left of the button */
+}
+
+.arrow-back {
+    background: url(Icons/arrow_back.png) no-repeat center; /* Set the background image */
+    background-size: contain; /* Ensure the image fits within the element */
+    width: 33px;
+    height: 33px;
+    flex-shrink: 0;
+    margin-right: 4.65px; /* Space between the icon and text */
+}
+
+.centerdiv {
+    padding: 15px 5px 0 5px;
+}
+
+.centerdiv p {
+    color: #232323;
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.centerdiv p strong{
+    color: #343C6A;
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.rectangle-f {
+    display: flex; /* Use flexbox for layout */
+    justify-content: space-between; /* Space between items */
+    align-items: center; /* Center items vertically */
+    margin-top: 20px; /* Optional: Space above the rectangle */
+}
+
+.status {
+    display: block; /* Ensures it behaves like a block element */
+    font-size: 14px; /* Font size for the label */
+    margin-bottom: 7px; /* Space below the label */
+    font-family: Inter; /* Font family */
+    font-weight: 400; /* Font weight */
+    line-height: normal; /* Ensures normal line height */
+    color: #232323;
+}
+
+.status {
+    color: #232323;
+    font-family: Inter;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.reply-feedback-button {
+    width: 130px; /* Set width */
+    height: 40px; /* Set height */
+    flex-shrink: 0; /* Prevent the button from shrinking */
+    border-radius: 9px; /* Rounded corners */
+    background: #FE5C73;
+    color: white; /* Text color */
+    border: none; /* No border */
+    cursor: pointer; /* Pointer cursor on hover */
+    font-size: 14px; /* Font size */
+    transition: background-color 0.3s; /* Transition for hover effect */
+}
+
+.reply-feedback-button:hover {
+    background-color: #b33f51; /* Darker shade on hover for Send button */
+}
+
+.readonly-input {
+    width: 256px;
+    height: 40px;
+    flex-shrink: 0;
+    border-radius: 15px;
+    border: 1px solid #DFEAF2;
+    background: #FFF;
+    color: #718EBF;
+    font-family: Inter;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    padding: 10px; /* Optional: Add some padding for better appearance */
+    outline: none; /* Remove the default outline */
+}

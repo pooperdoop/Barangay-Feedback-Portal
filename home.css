@@ -22,6 +22,10 @@ body {
     position: relative;
 }
 
+.wrapper .header {
+    width: 100%;
+}
+
 .wrapper .sidebar {
     position: fixed;
     width: 249px;
@@ -62,6 +66,7 @@ body {
 }
 
 .wrapper .main_content .header {
+    width: 100%;
     padding: 40px;
     background: #FFF;
     color: #343C6A;
@@ -72,7 +77,6 @@ body {
     display: flex; /* Use flexbox for layout */
     justify-content: space-between; /* Space between items */
     align-items: center; /* Center items vertically */
-    width: 100%;
 }
 
 .wrapper .main_content .header .search {
