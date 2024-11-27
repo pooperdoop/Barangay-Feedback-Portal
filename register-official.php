@@ -29,6 +29,17 @@ if (isset($_POST["register_button"])){
       echo '<script>alert("enter all fields")</script>';  
     }
   else{
+
+    
+    $checkEmail = "SELECT * FROM all_users WHERE email = '$email'";
+    $result = mysqli_query($con, $checkEmail);
+
+    if(mysqli_num_rows($result)>0){
+    
+      echo '<script>alert("User Email Already Taken!")</script>';  
+
+    }
+    else{
     $sql = "INSERT INTO all_users(username, email, password, first_name, middle_name, last_name, birthday, full_address, type, position, barangay, sex, phonenumber) 
                         VALUE ('$username', '$email', '$password', '$firstname', '$middlename', '$lastname', '$birthday', '$fulladdress', 'Official', '$position', '$barangay', '$sex', 
                         '$phonenumber')";
@@ -69,9 +80,10 @@ if (isset($_POST["register_button"])){
   }
 
 
-  // after_signup();
-  // die;
+   after_signup();
+   die;
 }
+  }
     } else{
       echo '<script>alert("Please upload an image")</script>';  
     }
@@ -105,61 +117,63 @@ if (isset($_POST["register_button"])){
 
         <a href ="login-and-register.php"  class="return">Return</a>
 
+        
+
   <form action="register-official.php" method="post" enctype="multipart/form-data">
+
+
+  <div class="group-1">
+          <span class="first-name">First Name</span>
+            <input type="text" name = "first_name" class="group-input-c" placeholder="Charlene" value="<?php if (isset($_POST['first_name'])) echo $_POST['first_name']; ?>"
+             style="transform: translatey(20px);" required/>
+        </div>
+
+
         <div class="group-4">
           <span class="middle-name">Middle Name</span>
           <input name = "middle_name"type="text" class="group-input-c" placeholder="Fernandez" value="<?php if (isset($_POST['middle_name'])) echo $_POST['middle_name']; ?>"
-          style="transform: translatey(20px);"/>
+          style="transform: translatey(20px);" required/>
         </div>
-
-
-       
-        <div class="group-1">
-          <span class="first-name">First Name</span>
-            <input type="text" name = "first_name" class="group-input-c" placeholder="Charlene" value="<?php if (isset($_POST['first_name'])) echo $_POST['first_name']; ?>"
-             style="transform: translatey(20px);"/>
-        </div>
-
 
         <div class="group-9">
           <span class="last-name">Last Name</span>
             <input type="text" name = "last_name" class="group-input-c" placeholder="De Leon" value="<?php if (isset($_POST['last_name'])) echo $_POST['last_name']; ?>"
-             style="transform: translatey(20px);" />
+             style="transform: translatey(20px);" required />
         </div>
 
 
         <div class="group-d">
           <span class="date-of-birth">Date of Birth</span>
           <input name = "birthday" type="date" class="group-input-c" value="<?php if (isset($_POST['birthday'])) echo $_POST['birthday']; ?>" 
-          style="transform: translatey(20px);"/>
+          style="transform: translatey(20px);" required/>
         </div>
 
 
         <div class="group-10">
           <label class="button" for="submit_id">Attach Valid ID</label>
             <input type="file" name="submit_id" id="submit_id" accept=".jpg, .png, .jpeg|image/*" style="display: none;">
-            <button class="group-12" name = "register_button" id="register_button">Register as an Official </button>
+            <input type="submit" class="group-12" name = "register_button" id="register_button" value="Register as an Official" >
         </div>
 
 
         <div class="group-14">
           <span class="full-address">Full Address</span>
           <input type="text" name="full_address" class="group-input-c" placeholder="Mangga 2 Matatalaib Tarlac City" value="<?php if (isset($_POST['full_address'])) echo $_POST['full_address']; ?>"
-           style="transform: translatey(20px);" />
+           style="transform: translatey(20px);" required />
         </div>
 
 
         <div class="group-17">
           <span class="barangay">Barangay</span>
           <input type="text" name="barangay" class="group-input-c" placeholder="Matatalaib" value="<?php if (isset($_POST['barangay'])) echo $_POST['barangay']; ?>"
-           style="transform: translatey(20px);" />
+           style="transform: translatey(20px);" required/>
         </div>
 
 
         <div class="group-1b">
           <span class="email">Email</span>
-            <input type="text" name="email" id="email" class="group-input-c" placeholder="asdasd@gmail.com" value="<?php if (isset($_POST['email'])) echo $_POST['email']; ?>"
-            style="transform: translatey(20px);" />
+            <input type="email" name="email" id="email" class="group-input-c" placeholder="asdasd@gmail.com" value="<?php if (isset($_POST['email'])) echo $_POST['email']; ?>"
+            style="transform: translatey(20px);" required/>
         </div>
 
 
@@ -176,32 +190,32 @@ if (isset($_POST["register_button"])){
         <div class="group-23">
           <span class="username">Username</span>
           <input type="text" name="username" class="group-input-c" placeholder="CHFerde" value="<?php if (isset($_POST['username'])) echo $_POST['username']; ?>"
-           style="transform: translatey(20px);"/>
+           style="transform: translatey(20px);" required/>
         </div>
 
 
         <div class="group-27">
           <span class="password">Password</span>
-          <input type="password" name="password" class="group-input-c" placeholder="**********" style="transform: translatey(20px);" /> 
+          <input type="password" name="password" class="group-input-c" placeholder="**********" style="transform: translatey(20px);"  required/> 
         </div>
 
 
         <div class="group-2b">
           <span class="phone-number">Phone Number</span>
-          <input type="text" name="phone_number" class="group-input-c" placeholder="0239203902" value="<?php if (isset($_POST['phone_number'])) echo $_POST['phone_number']; ?>"
-           style="transform: translatey(20px);" /> 
+          <input type="number" minlength="11" maxlength="11" name="phone_number" class="group-input-c" placeholder="0239203902" value="<?php if (isset($_POST['phone_number'])) echo $_POST['phone_number']; ?>"
+           style="transform: translatey(20px);" required /> 
         </div>
 
 
         <div class="group-2f">
           <span class="barangay-position">Barangay Position</span>
           <input type="text" name="position" class="group-input-c" placeholder="Captain" value="<?php if (isset($_POST['position'])) echo $_POST['position']; ?>"
-           style="transform: translatey(20px);" /> 
+           style="transform: translatey(20px);" required/> 
       </div>
 
       <div class="group-7">
           <img src = "Icons/profile.png" class="mask-group" id = "user_profile">
-            <input type="file" name="submit_profile" id="submit_profile" accept=".jpg, .png, .jpeg|image/*" style="display: none;">
+            <input type="file" name="submit_profile" id="submit_profile" accept=".jpg, .png, .jpeg|image/*" style="display: none;" >
             <label class="ellipse"  for = "submit_profile"><img src="Icons/pencil.png" class ="pencil" alt="x"></label>
         </div>
         

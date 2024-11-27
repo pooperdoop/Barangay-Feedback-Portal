@@ -1,3 +1,11 @@
+<?php
+
+session_start();
+include("all_usersdb.php"); 
+include("functions.php");
+$user_data = check_login($con);
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,9 +27,9 @@
             <h2><img src="Icons/brgy icon.png" alt="brgy">Barangay Feedback Portal</h2>
             <ul>
                 <li><img src="Icons/home1.png" alt="home"><a href="#"><i class="but home"></i>Home</a></li>
-                <li><img src="Icons/transfer1.png" alt="feedback"><a href="#"><i class="but feedbacks"></i>Feedbacks</a></li>
+                <li><img src="Icons/transfer1.png" alt="feedback"><a href="allFeedbackAdmin.php"><i class="but feedbacks"></i>Feedbacks</a></li>
                 <li><img src="Icons/account1.png" alt="accounts"><a href="#"><i class="but accounts"></i>Accounts</a></li>
-                <li><img src="Icons/settings1.png" alt="settings"><a href="#"><i class="but settings"></i>Settings</a></li>
+                <li><img src="Icons/settings1.png" alt="settings"><a href="profileeditadmin.php"><i class="but settings"></i>Settings</a></li>
                 <li><img src="Icons/logout1.png" alt="logout"><a href="#"><i class="but logout">Log Out</a></li>
             </ul>
         </div>
@@ -42,7 +50,7 @@
 
             <div class="buttons">
                 <button class="notices-btn">Notices</button>
-                <button class="add-notices-btn">Add Notices</button>
+                <button id="add_notice" class="add-notices-btn" onclick="addNotice()">Add Notices</button>
             </div>
             
 
@@ -56,37 +64,21 @@
                             <th></th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <td>RE: Free Rabies Vaccine</td>
-                            <td>28 Jan, 12:30 AM</td>
-                            <td>Barangay Official</td>
-                            <td><button class="view-btn">View</button><button class="edit-btn">Edit</button></td>
-                        </tr>
-                        <tr>
-                            <td>Free Rabies Vaccine</td>
-                            <td>25 Jan, 10:40 PM</td>
-                            <td>John Doe</td>
-                            <td><button class="view-btn">View</button><button class="edit-btn">Edit</button></td>
-                        </tr>
-                        <tr>
-                            <td>Pakipon mga Basura</td>
-                            <td>20 Jan, 10:49 PM</td>
-                            <td>John Doe</td>
-                            <td><button class="view-btn">View</button><button class="edit-btn">Edit</button></td>
-                        </tr>
-                        <tr>
-                            <td>Potholes</td>
-                            <td>15 Jan, 03:29 PM</td>
-                            <td>Nallah Sheng</td>
-                            <td><button class="view-btn">View</button><button class="edit-btn">Edit</button></td>
-                        </tr>
-                        <tr>
-                            <td>Potholes</td>
-                            <td>14 Jan, 10:40 PM</td>
-                            <td>John Doe</td>
-                            <td><button class="view-btn">View</button><button class="edit-btn">Edit</button></td>
-                        </tr>
+                    <tbody>         
+                    <?php
+                    $sql = "SELECT * FROM all_notice";
+                    $result = mysqli_query($con, $sql);
+
+                    while($row = mysqli_fetch_assoc($result)){
+
+                        echo'<tr>
+                        <td>'.$row["title"].'</td>
+                           <td>'.$row["date"].'</td>
+                            <td>'.$row["user"].'</td>
+                             <td><button class="view-btn">View</button><button class="edit-btn">Edit</button></td>
+                            </tr>';
+                    }
+                    ?>
                     </tbody>
                 </table>
             </section>
@@ -96,3 +88,14 @@
 
 </body>
 </html>
+
+
+<script>
+
+function addNotice(){
+
+    window.location.href = 'addnotice.php';
+
+}
+
+</script>

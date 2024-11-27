@@ -1,3 +1,24 @@
+<?php
+session_start();
+include("all_usersdb.php"); 
+include("functions.php");
+$user_data = check_login($con);
+
+if(isset($_POST['send_feedback'])){ 
+
+$title = $_POST['feedback_title'];
+$user = $user_data['first_name']." ".$user_data['last_name'];
+$type = $_POST['complaint_type'];
+$message = $_POST['description'];
+$barangay = $_POST['barangay'];
+$current_user = $_SESSION['id'];
+
+$sql = "INSERT INTO all_feedback(user_current, title, message, type, status, user, barangay) 
+        VALUE('$current_user', '$title', '$message', '$type', 'Open', '$user','$barangay')";
+ mysqli_query($con, $sql);
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,10 +34,10 @@
         <div class="sidebar">
             <h2><img src="Icons/brgy icon.png" alt="brgy">Barangay Feedback Portal</h2>
             <ul>
-                <li><img src="Icons/home1.png" alt="home"><a href="#"><i class="but home"></i>Home</a></li>
-                <li><img src="Icons/transfer1.png" alt="feedback"><a href="#"><i class="but feedbacks"></i>Feedbacks</a></li>
+            <li><img src="Icons/home1.png" alt="home"><a href="homeuser.php"><i class="but home"></i>Home</a></li>
+                <li><img src="Icons/transfer1.png" alt="feedback"><a href="allFeedbackuser.php"><i class="but feedbacks"></i>Feedbacks</a></li>
                 <li><img src="Icons/account1.png" alt="accounts"><a href="#"><i class="but accounts"></i>Accounts</a></li>
-                <li><img src="Icons/settings1.png" alt="settings"><a href="#"><i class="but settings"></i>Settings</a></li>
+                <li><img src="Icons/settings1.png" alt="settings"><a href="profileedituser.php"><i class="but settings"></i>Settings</a></li>
                 <li><img src="Icons/logout1.png" alt="logout"><a href="#"><i class="but logout">Log Out</a></li>
             </ul>
         </div>
@@ -41,18 +62,18 @@
                 <span>Message</span>
             </div>
         </div>
-    
+ <form action="addfeedback.php" method="post">
         <div class="flex-row-c" style="margin-top: 5px;">
             <div class="title-container">
                 <span class="title">Title</span>
-                <input type="text" name="feedback_title" class="group-input" placeholder="Enter feedback title" required />
+                <input type="text" name="feedback_title" id="feedback_title" maxlength="30" class="group-input" placeholder="Enter feedback title" required />
             </div>
             
             <div class="barangay-container" style="margin-left: 53px;">
                 <span class="barangay">Barangay</span>
-                <select name="barangay" class="group-input" style="width: 256px;">
+                <select name="barangay" id="barangay" class="group-input" style="width: 256px;">
                     <option value="" disabled selected>Select Barangay</option>
-                    <option value="Barangay 1">Barangay 1</option>
+                    <option value="Barangay 1">Barangay 1</option>  
                     <option value="Barangay 2">Barangay 2</option>
                     <option value="Barangay 3">Barangay 3</option>
                 </select>
@@ -60,15 +81,15 @@
         </div>
     
         <span class="message">Description</span>
-        <textarea name="description" class="group-input" placeholder="Enter your description here" required></textarea>
+        <textarea name="description" id="description" class="group-input" placeholder="Enter your description here" required></textarea>
 
         <div class="rectangle-f">
             <div class="complaint-type-container">
                 <span class="complaint">Type of Feedback</span>
-                <select name="complaint_type" class="complaint-type-dropdown">
-                    <option value="Complaint" disabled selected>Complaint</option>
+                <select name="complaint_type" id="complaint_type" class="complaint-type-dropdown">
+                    <option value="Complaint">Complaint</option>
                     <option value="Suggestion">Suggestion</option>
-                    <option value="Assistance">Assistance</option>
+                    <option value="Assistance">Requests</option>
                 </select>
             </div>
             
@@ -79,8 +100,9 @@
                 </label>
             </div>
             
-            <button type="submit" class="send-feedback-button">Send</button>
+            <button type="submit" name ="send_feedback" id="send_feedback" class="send-feedback-button">Send</button>
         </div>
+        </form>   
     </div>
 </div>
 </body>

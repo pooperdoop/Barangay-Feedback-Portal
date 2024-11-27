@@ -333,6 +333,7 @@ body{
   color: #ffffff;
   border-radius: 9px;
   transition: 0.5s;
+  text-wrap: wrap;
 }
 
 .group-12:hover{

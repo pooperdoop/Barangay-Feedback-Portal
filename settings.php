@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Barangay Feedback Portal - Settings</title>
-    <link rel="stylesheet" href="profileeditadmin.css">
+    <link rel="stylesheet" href="settings.css">
     <link rel="stylesheet" href="home.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap" rel="stylesheet">
 </head>
@@ -15,7 +15,7 @@
             <h2><img src="Icons/brgy icon.png" alt="brgy">Barangay Feedback Portal</h2>
             <ul>
                 <li><img src="Icons/home1.png" alt="home"><a href="#"><i class="but home"></i>Home</a></li>
-                <li><img src="Icons/transfer1.png" alt="feedback"><a href="#"><i class="but feedbacks"></i>Feedbacks</a></li>
+                <li><img src="Icons/transfer1.png" alt="feedback"><a href="allFeedbackuser.php"><i class="but feedbacks"></i>Feedbacks</a></li>
                 <li><img src="Icons/account1.png" alt="accounts"><a href="#"><i class="but accounts"></i>Accounts</a></li>
                 <li><img src="Icons/settings1.png" alt="settings"><a href="#"><i class="but settings"></i>Settings</a></li>
                 <li><img src="Icons/logout1.png" alt="logout"><a href="#"><i class="but logout">Log Out</a></li>
@@ -56,8 +56,7 @@
                                 <div class="pencil-icon"></div>
                             </button>
                         </div>
-                        <button class="cancel-button" type="cancel">Cancel</button>
-                        <button class="save-button" type="save">Save</button>
+                        <button class="edit-button" type="edit">Edit</button>
                     </div>
             
                     <div class="rightdiv" style="flex-grow: 1; height: 568px;">
@@ -104,7 +103,6 @@
                                 <div class="form-group">
                                     <label for="sex">Sex</label>
                                     <select id="sex" style="width: 225px; height: 40px; margin-right: 20px; background-image: url('Icons/droplist.png'); background-repeat: no-repeat; background-position: right 10px center; padding-right: 30px;">
-                                        <option value="" disabled selected>Select your gender</option>
                                         <option value="male">Male</option>
                                         <option value="female">Female</option>
                                         <option value="other">Other</option>
@@ -121,15 +119,6 @@
                             </div>
             
                             <div class="form-row" style="width: 225px; height: 40px;">
-                                <div class="form-group">
-                                    <label for="position">Barangay Position</label>
-                                    <select id="position" style="width: 225px; height: 40px; margin-right: 20px; background-image: url('Icons/droplist.png'); background-repeat: no-repeat; background-position: right 10px center; padding-right: 30px;">
-                                        <option value="" disabled selected>Select your position</option>
-                                        <option value="captain">Captain</option>
-                                        <option value="vice-Captain">Vice-Captain</option>
-                                        <option value="secretary">Secretary</option>
-                                    </select>
-                                </div>
                                 <div class="form-group">
                                     <label for="username">Username</label>
                                     <input type="text" id="username" placeholder="Choose a username" style="width: 225px; height: 40px; margin-right: 20px;">

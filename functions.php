@@ -1,4 +1,6 @@
 <?php
+include("all_usersdb.php");
+
 function check_login($con){
 
     if(isset($_SESSION['id'])){
@@ -10,6 +12,7 @@ function check_login($con){
 
         if(mysqli_num_rows($result) > 0){
             $user_data = mysqli_fetch_assoc($result);
+
             return $user_data;
         }
     }

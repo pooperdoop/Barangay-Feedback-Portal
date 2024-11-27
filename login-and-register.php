@@ -25,15 +25,15 @@
 
             <div class="group-1">
               <span class="username_lbl">User Name</span>
-                <input type = "text"class="username_input" name = "username_input" placeholder="Charlene Reed"/>
+                <input type = "text"class="username_input" name = "username_input" placeholder="Charlene Reed" required/>
             </div>
 
             <div class="group-3">
               <span class="password_lbl">Password</span>
-                <input type = "password" class="password_input" name ="password_input" placeholder="*********"/>
+                <input type = "password" class="password_input" name ="password_input" placeholder="*********" required/>
             </div>
 
-            <button class="login_btn">Log In</span></button>
+            <input type="submit" class="login_btn" value="Log In" >
 
         </form>
 
@@ -87,7 +87,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
             if($user_data['password'] == $password){
               $_SESSION['id'] = $user_data['id'];
-              header('Location: testHomePage.php');
+
+              if($user_data['type'] == "User"){
+              header('Location: homeuser.php');
+              }else{
+                header('Location: homeadmin.php');
+              }
             }
             else{
               echo'<script>alert("incorrect password") </script>';

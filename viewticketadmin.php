@@ -1,3 +1,49 @@
+<?php
+
+use LDAP\Result;
+
+session_start();
+include("all_usersdb.php"); 
+include("functions.php");
+$user_data = check_login($con);
+
+if(isset($_POST['view_btn'])){
+    
+    $feedback = $_POST['view_btn'];
+
+    $sql = "SELECT * FROM all_feedback WHERE ticketID = '$feedback' limit 1";
+    $result = mysqli_query($con, $sql);
+
+    if(mysqli_num_rows($result) > 0){
+
+        $data = mysqli_fetch_assoc($result);
+
+        $ticketID = $data['ticketID'];
+        $title = $data['title'];
+        $message = $data['message'];
+        $date = $data['date'];
+        $type = $data['type'];
+
+        $user = $data['user_current'];
+    $sqlUser = "SELECT * FROM all_users WHERE id = '$user' limit 1";
+    $resultUser = mysqli_query($con, $sqlUser);
+   
+    if(mysqli_num_rows($resultUser) > 0){
+        $data = mysqli_fetch_assoc($resultUser);
+
+        $fullname = $data['first_name']." ".$data['middle_name']." ".$data['last_name'];
+        $bday = $data['birthday'];
+        $address = $data['full_address'];
+        $email = $data['email'];
+        $contact = $data['phonenumber'];
+
+
+      }
+    }   
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,10 +60,10 @@
         <div class="sidebar">
             <h2><img src="Icons/brgy icon.png" alt="brgy">Barangay Feedback Portal</h2>
             <ul>
-                <li><img src="Icons/home1.png" alt="home"><a href="#"><i class="but home"></i>Home</a></li>
-                <li><img src="Icons/transfer1.png" alt="feedback"><a href="#"><i class="but feedbacks"></i>Feedbacks</a></li>
+            <li><img src="Icons/home1.png" alt="home"><a href="homeadmin.php"><i class="but home"></i>Home</a></li>
+                <li><img src="Icons/transfer1.png" alt="feedback"><a href="allFeedbackAdmin.php"><i class="but feedbacks"></i>Feedbacks</a></li>
                 <li><img src="Icons/account1.png" alt="accounts"><a href="#"><i class="but accounts"></i>Accounts</a></li>
-                <li><img src="Icons/settings1.png" alt="settings"><a href="#"><i class="but settings"></i>Settings</a></li>
+                <li><img src="Icons/settings1.png" alt="settings"><a href="profileeditadmin.php"><i class="but settings"></i>Settings</a></li>
                 <li><img src="Icons/logout1.png" alt="logout"><a href="#"><i class="but logout">Log Out</a></li>
             </ul>
         </div>
@@ -39,7 +85,7 @@
             <div class="rectangle-5">
                 <div class="flex-row-c" style="margin-top: 7px;">
                     <div class="top">
-                        <span class="title">#00000 - Main Subject</span>
+                        <span class="title"><?php echo "#".$ticketID." - ".$title;   ?></span>
                         <button class="return">
                             <div class="arrow-back"></div>
                             Return
@@ -49,21 +95,21 @@
                 <div class="divider"></div>
 
                 <div class="centerdiv">
-                    <p><strong>Ticket No:</strong> #00000</p>
-                    <p><strong>Date:</strong> 25 Jan, 10:40 PM</p>
+                    <p><strong>Ticket No:</strong> <?php echo $ticketID  ?></p>
+                    <p><strong>Date:</strong><?php echo $date  ?></p>
                     <br>
-                    <p><strong>Name:</strong> John Doe</p>
-                    <p><strong>Birthday:</strong> January 25 1980</p>
-                    <p><strong>Address:</strong> Mangga 2 Matatalaib Tarlac City</p>
-                    <p><strong>Feedback Type:</strong> Request</p>
-                    <p><strong>Email:</strong> sdjaids@gmail.com</p>
-                    <p><strong>Contact No:</strong> 21312312</p>
+                    <p><strong>Name:</strong><?php echo $fullname  ?></p>
+                    <p><strong>Birthday:</strong> <?php echo $bday  ?></p>
+                    <p><strong>Address:</strong><?php echo $address  ?></p>
+                    <p><strong>Feedback Type:</strong> <?php echo $type  ?></p>
+                    <p><strong>Email:</strong> <?php echo $email  ?></p>
+                    <p><strong>Contact No:</strong> <?php echo $contact  ?></p>
                     <br>
                     <br>
-                    <p><strong>Title:</strong> Pakitapon mga Basura</p>
+                    <p><strong>Title:</strong> <?php echo $title  ?></p>
                     <br>
                     <p><strong>Description:</strong></p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac quam tortor. Pellentesque id vulputate nulla. Fusce scelerisque augue justo, ac commodo lacus fringilla pulvinar. Etiam eleifend magna eu enim scelerisque sodales a sit amet mauris. Maecenas ultrices purus nisl, vitae convallis lacus luctus nec. In posuere tellus nibh, et hendrerit turpis semper vel. Duis nibh diam, aliquam eu posuere in, molestie id ipsum. Donec facilisis ut leo auctor ornare. Morbi ullamcorper porttitor mauris. Donec sed scelerisque nisl, sed pharetra turpis. Vivamus felis erat, dapibus in mattis et, pharetra non diam. Vestibulum volutpat, diam at volutpat accumsan, orci urna fringilla nulla, eu mollis felis eros non velit. Nullam lobortis dui est, id vehicula leo vestibulum sed. In sit amet felis et erat molestie pharetra. Nullam fermentum congue tempor.</p>
+                    <p><?php echo $message  ?></p>
                     <br>
                     <p><strong>Attachment Links:</strong></p>
                     <p><a href="https://drive.google.com/drive/u/0/folders/1VY-U0_K1vpO_3WVs8EW5kwPbQn60FeFa">View Attachments</a></p>

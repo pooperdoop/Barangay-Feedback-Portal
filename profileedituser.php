@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Barangay Feedback Portal - Settings</title>
-    <link rel="stylesheet" href="settings.css">
+    <link rel="stylesheet" href="profileedit.css">
     <link rel="stylesheet" href="home.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap" rel="stylesheet">
 </head>
@@ -14,10 +14,10 @@
         <div class="sidebar">
             <h2><img src="Icons/brgy icon.png" alt="brgy">Barangay Feedback Portal</h2>
             <ul>
-                <li><img src="Icons/home1.png" alt="home"><a href="#"><i class="but home"></i>Home</a></li>
-                <li><img src="Icons/transfer1.png" alt="feedback"><a href="#"><i class="but feedbacks"></i>Feedbacks</a></li>
+                <li><img src="Icons/home1.png" alt="home"><a href="homeuser.php"><i class="but home"></i>Home</a></li>
+                <li><img src="Icons/transfer1.png" alt="feedback"><a href="allFeedbackuser.php"><i class="but feedbacks"></i>Feedbacks</a></li>
                 <li><img src="Icons/account1.png" alt="accounts"><a href="#"><i class="but accounts"></i>Accounts</a></li>
-                <li><img src="Icons/settings1.png" alt="settings"><a href="#"><i class="but settings"></i>Settings</a></li>
+                <li><img src="Icons/settings1.png" alt="settings"><a href="profileedituser.php"><i class="but settings"></i>Settings</a></li>
                 <li><img src="Icons/logout1.png" alt="logout"><a href="#"><i class="but logout">Log Out</a></li>
             </ul>
         </div>
@@ -40,7 +40,7 @@
                 <div class="flex-row-c" style="margin-top: 7px;">
                     <div class="top">
                         <span class="title">Edit your personal information here</span>
-                        <button class="return">
+                        <button class="return" >
                             <div class="arrow-back"></div>
                             Return
                         </button>
@@ -56,7 +56,8 @@
                                 <div class="pencil-icon"></div>
                             </button>
                         </div>
-                        <button class="edit-button" type="edit">Edit</button>
+                        <button class="cancel-button" type="cancel">Cancel</button>
+                        <button class="save-button" type="save">Save</button>
                     </div>
             
                     <div class="rightdiv" style="flex-grow: 1; height: 568px;">
