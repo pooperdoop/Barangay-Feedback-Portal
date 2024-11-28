@@ -48,7 +48,7 @@ $sql = "INSERT INTO all_feedback(user_current, title, message, type, status, use
                 <div class="header-content">
                     <h2>Feedbacks</h2>
                     <input class="search" type="text" placeholder="Search for something">
-                    <p>Welcome, Username</p>
+                    <p>Welcome, <?php echo $user_data['username'] ?></p>
                 </div>
             </div>
 
@@ -89,7 +89,7 @@ $sql = "INSERT INTO all_feedback(user_current, title, message, type, status, use
                 <select name="complaint_type" id="complaint_type" class="complaint-type-dropdown">
                     <option value="Complaint">Complaint</option>
                     <option value="Suggestion">Suggestion</option>
-                    <option value="Assistance">Requests</option>
+                    <option value="Request">Request</option>
                 </select>
             </div>
             

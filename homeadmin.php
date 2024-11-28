@@ -5,6 +5,26 @@ include("all_usersdb.php");
 include("functions.php");
 $user_data = check_login($con);
 
+if(isset($_POST['view_btn'])){
+
+    $notice = $_POST["view_btn"];
+    $sql = "SELECT * FROM all_notice WHERE noticeID = '$notice'";
+    $result = mysqli_query($con, $sql);
+
+    if(mysqli_num_rows($result)>0){
+
+        $notice_data = mysqli_fetch_assoc($result);
+
+        $ID = $notice_data['noticeID'];
+        $title = $notice_data['title'];
+        $link = $notice_data['link'];
+        $barangay = $notice_data['barangay'];
+
+        header("Location:".$link);
+        die;
+    }
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -26,7 +46,7 @@ $user_data = check_login($con);
         <div class="sidebar">
             <h2><img src="Icons/brgy icon.png" alt="brgy">Barangay Feedback Portal</h2>
             <ul>
-                <li><img src="Icons/home1.png" alt="home"><a href="#"><i class="but home"></i>Home</a></li>
+                <li><img src="Icons/home1.png" alt="home"><a href="homeadmin.php"><i class="but home"></i>Home</a></li>
                 <li><img src="Icons/transfer1.png" alt="feedback"><a href="allFeedbackAdmin.php"><i class="but feedbacks"></i>Feedbacks</a></li>
                 <li><img src="Icons/account1.png" alt="accounts"><a href="#"><i class="but accounts"></i>Accounts</a></li>
                 <li><img src="Icons/settings1.png" alt="settings"><a href="profileeditadmin.php"><i class="but settings"></i>Settings</a></li>
@@ -44,7 +64,7 @@ $user_data = check_login($con);
                     <input class="search" type="text" placeholder="Search for something">
                 </div>
                 <div>
-                    <p>Welcome, Username</p>
+                    <p>Welcome, <?php echo $user_data['username'] ?></p>
                 </div>
             </div>
 
@@ -75,7 +95,16 @@ $user_data = check_login($con);
                         <td>'.$row["title"].'</td>
                            <td>'.$row["date"].'</td>
                             <td>'.$row["user"].'</td>
-                             <td><button class="view-btn">View</button><button class="edit-btn">Edit</button></td>
+
+                             <td><form action = "homeadmin.php" method = "post" style = "display: inline-block">
+                             <button value ='.$row["noticeID"].'  name ="view_btn" id="view_btn" class="view-btn">View</button>
+                             </form>
+
+                             <form action = "editnotice.php" method = "post" style = "display: inline-block"><button value ='.$row["noticeID"].' 
+                             class="edit-btn" name = "edit_btn" id="edit_btn" >Edit</button>
+                             </form>
+
+                             </td>
                             </tr>';
                     }
                     ?>
@@ -97,5 +126,7 @@ function addNotice(){
     window.location.href = 'addnotice.php';
 
 }
+
+
 
 </script>

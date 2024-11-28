@@ -78,7 +78,7 @@ if(isset($_POST['view_btn'])){
                     <input class="search" type="text" placeholder="Search for something">
                 </div>
                 <div>
-                    <p>Welcome, Username</p>
+                    <p>Welcome, <?php echo $user_data['username'] ?></p>
                 </div>
             </div>
             
@@ -86,7 +86,7 @@ if(isset($_POST['view_btn'])){
                 <div class="flex-row-c" style="margin-top: 7px;">
                     <div class="top">
                         <span class="title"><?php echo "#".$ticketID." - ".$title;   ?></span>
-                        <button class="return">
+                        <button onclick="ReturnPage()"  class="return">
                             <div class="arrow-back"></div>
                             Return
                         </button>
@@ -143,3 +143,11 @@ if(isset($_POST['view_btn'])){
     </div>
 </body>
 </html>
+
+<script>
+function ReturnPage(){
+    
+    window.location.href = 'allFeedbackAdmin.php';
+}
+
+</script>

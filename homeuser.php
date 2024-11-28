@@ -44,7 +44,7 @@ $user_data = check_login($con);
                     <input class="search" type="text" placeholder="Search for something">
                 </div>
                 <div>
-                    <p>Welcome, Username</p>
+                    <p>Welcome, <?php echo $user_data['username'] ?></p>
                 </div>
             </div>
 
