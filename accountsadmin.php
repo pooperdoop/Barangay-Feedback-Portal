@@ -1,3 +1,11 @@
+<?php
+
+session_start();
+include("all_usersdb.php"); 
+include("functions.php");
+$user_data = check_login($con);
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,10 +24,10 @@
         <div class="sidebar">
             <h2><img src="Icons/brgy icon.png" alt="brgy">Barangay Feedback Portal</h2>
             <ul>
-                <li><img src="Icons/home1.png" alt="home"><a href="#"><i class="but home"></i>Home</a></li>
-                <li><img src="Icons/transfer1.png" alt="feedback"><a href="#"><i class="but feedbacks"></i>Feedbacks</a></li>
+                <li><img src="Icons/home1.png" alt="home"><a href="homeadmin.php"><i class="but home"></i>Home</a></li>
+                <li><img src="Icons/transfer1.png" alt="feedback"><a href="allFeedbackAdmin.php"><i class="but feedbacks"></i>Feedbacks</a></li>
                 <li><img src="Icons/account1.png" alt="accounts"><a href="#"><i class="but accounts"></i>Accounts</a></li>
-                <li><img src="Icons/settings1.png" alt="settings"><a href="#"><i class="but settings"></i>Settings</a></li>
+                <li><img src="Icons/settings1.png" alt="settings"><a href="profileeditadmin.php "><i class="but settings"></i>Settings</a></li>
                 <li><img src="Icons/logout1.png" alt="logout"><a href="#"><i class="but logout">Log Out</a></li>
             </ul>
         </div>

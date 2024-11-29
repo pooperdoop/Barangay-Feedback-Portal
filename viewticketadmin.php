@@ -1,7 +1,5 @@
 <?php
 
-use LDAP\Result;
-
 session_start();
 include("all_usersdb.php"); 
 include("functions.php");
@@ -14,15 +12,16 @@ if(isset($_POST['view_btn'])){
     $sql = "SELECT * FROM all_feedback WHERE ticketID = '$feedback' limit 1";
     $result = mysqli_query($con, $sql);
 
+    
     if(mysqli_num_rows($result) > 0){
-
         $data = mysqli_fetch_assoc($result);
-
         $ticketID = $data['ticketID'];
         $title = $data['title'];
         $message = $data['message'];
+        $status = $data['status'];
         $date = $data['date'];
         $type = $data['type'];
+        $_SESSION['ticketID'] = $ticketID;
 
         $user = $data['user_current'];
     $sqlUser = "SELECT * FROM all_users WHERE id = '$user' limit 1";
@@ -42,6 +41,15 @@ if(isset($_POST['view_btn'])){
     }   
 }
 
+if(isset($_POST['save_btn'])){
+    echo "WALTUH";
+    $changeStatus = $_POST['status_chg'];
+    $ticket_val = $_POST['ticket_value'];
+    $sql = "UPDATE all_feedback SET status = '$changeStatus' WHERE ticketID =  '$ticket_val'";
+    mysqli_query($con, $sql);
+    header("Location: allFeedbackAdmin.php");
+    die;
+}
 ?>
 
 <!DOCTYPE html>
@@ -115,23 +123,25 @@ if(isset($_POST['view_btn'])){
                     <p><a href="https://drive.google.com/drive/u/0/folders/1VY-U0_K1vpO_3WVs8EW5kwPbQn60FeFa">View Attachments</a></p>
 
 
-                    
                     <div class="rectangle-f">
                         <div class="set-status">
                             <span class="status">Set Status</span>
                             <div class="dropdown-container">
-                                <select id="status" class="status-dropdown">
-                                    <option value="open">Open</option>
-                                    <option value="in_progress">In Progress</option>
-                                    <option value="resolved">Resolved</option>
-                                    <option value="closed">Closed</option>
+                                
+                 <form action="viewticketadmin.php" method="post">
+                                <select id="status" name="status_chg" class="status-dropdown">
+                                    <option value=<?php echo $status  ?>><?php echo $status  ?></option>
+                                    <option value="Open">Open</option>
+                                    <option value="In Progress">In Progress</option>
+                                    <option value="Resolved">Resolved</option>
+                                    <option value="Closed">Closed</option>
                                 </select>
                             </div>
                         </div>
-
-                        <button type="save" class="save-feedback-button">Save Changes</button>
-                        <button type="reply" class="reply-feedback-button">Reply</button>
-
+                        <input type='text' name="ticket_value" style="display: none;" value= '<?php echo $ticketID ?>'>
+                        <button name='save_btn' class="save-feedback-button">Save Changes</button>
+                    </form>
+                            <button onclick="ReplyPage()" class="reply-feedback-button">Reply</button>
                     </div>
 
                 </div>
@@ -148,6 +158,11 @@ if(isset($_POST['view_btn'])){
 function ReturnPage(){
     
     window.location.href = 'allFeedbackAdmin.php';
+}
+
+function ReplyPage(){
+    
+    location.replace('replyticket.php') ;
 }
 
 </script>
