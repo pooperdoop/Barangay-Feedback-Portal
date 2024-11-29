@@ -25,7 +25,7 @@ $sql = "INSERT INTO all_feedback(user_current, title, message, type, status, use
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Barangay Feedback Porta - Enter Feedback</title>
-    <link rel="stylesheet" href="addfeedbackuser.css"/>
+    <link rel="stylesheet" href="css/addfeedbackuser.css"/>
 
 </head>
 <body>

@@ -40,9 +40,9 @@ if (isset($_POST["register_button"])){
 
     }
     else{
-    $sql = "INSERT INTO all_users(username, email, password, first_name, middle_name, last_name, birthday, full_address, type, position, barangay, sex, phonenumber) 
+    $sql = "INSERT INTO all_users(username, email, password, first_name, middle_name, last_name, birthday, full_address, type, position, barangay, sex, phonenumber, verified) 
                         VALUE ('$username', '$email', '$password', '$firstname', '$middlename', '$lastname', '$birthday', '$fulladdress', 'Official', '$position', '$barangay', '$sex', 
-                        '$phonenumber')";
+                        '$phonenumber', 'no')";
   mysqli_query($con, $sql);
 
   $sqlImgName = "SELECT * FROM all_users WHERE email = '$email' AND password = '$password'";
@@ -231,26 +231,4 @@ submit_profile.onchange = evt => {
       user_profile.src = URL.createObjectURL(file);
     }
 }
-
-// $(document).ready(function(){
-//   $("#register_button").click(function(){
-//     document.getElementById("email_to_pass").value = document.getElementById("email").value;  
-//     // $(document).on('click', '#register_button', function(){
-//       var formdata = new FormData();
-//       var files = $('#submit_profile')[0].files;
-//       formdata.append('submit_profile', files[0]);
-
-//       $.ajax({
-//         url: 'profileImg.php',
-//         type: 'post',
-//         data: formdata,
-//         contentType: false,
-//         processData: false,
-
-//         success:function(result){
-//          alert(document.getElementById("email_to_pass").value );
-//         }
-//       })
-//     });
-//   });
 </script>

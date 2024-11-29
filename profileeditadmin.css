@@ -82,7 +82,6 @@ body {
 }
 
 .arrow-back {
-    background: url(Icons/arrow_back.png) no-repeat center; /* Set the background image */
     background-size: contain; /* Ensure the image fits within the element */
     width: 33px;
     height: 33px;
@@ -143,6 +142,7 @@ body {
     margin-bottom: 20px;
     margin-top: 39px;
     margin-left: 40px;
+    border-radius: 100px;
 }
 
 .pencil-button {
@@ -233,7 +233,7 @@ input, select {
     border: 1px solid #DFEAF2; /* Border styling */
     background: #FFF; /* Background color */
     padding: 10px; /* Padding inside inputs */
-    color: #718EBF; /* Text color */
+    color: #000000; /* Text color */
     font-family: 'Inter', sans-serif; /* Font family */
     font-size: 12px; /* Font size */
     font-style: normal; /* Font style */
@@ -242,7 +242,7 @@ input, select {
 }
 
 input::placeholder, select option {
-    color: #718EBF; /* Placeholder color */
+    color: #000000; /* Placeholder color */
     font-family: 'Inter', sans-serif; /* Font family for placeholder */
     font-size: 12px; /* Font size for placeholder */
     font-style: normal; /* Font style for placeholder */
