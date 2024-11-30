@@ -53,3 +53,31 @@ else{
 }
     
 }
+
+function checkUser($con){
+
+        $id = $_SESSION['id'];
+
+        $query =  "SELECT * FROM all_users WHERE id ='$id' LIMIT 1";
+        $result = mysqli_query($con, $query);
+
+        if(mysqli_num_rows($result) > 0){
+            $user_data = mysqli_fetch_assoc($result);
+            if($user_data['type'] == "User" ){
+                    return true;
+            }
+            else{
+                return false;
+            }
+        }
+}
+
+function checkIfReply($con, $feedback){
+
+        if($feedback == "yes"){
+                return true;
+        }
+        else{
+            return false;
+        }
+    }

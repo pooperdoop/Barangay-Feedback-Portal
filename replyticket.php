@@ -10,6 +10,7 @@ $result = mysqli_query($con, $sql);
 $currentTicket = mysqli_fetch_assoc($result);
 $ticketTitle = $currentTicket['title'];
 $ticketWriter = $currentTicket['user_current'];
+$respondent = $user_data['first_name']." ".$user_data['last_name'];
 
 if(isset($_POST['sub_btn'])){
 
@@ -17,12 +18,14 @@ if(isset($_POST['sub_btn'])){
     $title = $_POST['title'];
     $desc  = $_POST['description'];
 
-    $sql = "INSERT INTO all_reply(replyTo, user, message, title) VALUES('$ticketID','$currentUser','$desc', '$title')";
+    $sql = "INSERT INTO all_reply(replyTo, user, message, title, replyuser, respondent) VALUES('$ticketID','$currentUser','$desc', '$title', '$ticketWriter', '$respondent')";
     mysqli_query($con, $sql);
     echo'<script>alert("Replay Successful")</script>';
     header('Location: allFeedbackAdmin.php');
     die;
 }
+
+
 
 ?>
 

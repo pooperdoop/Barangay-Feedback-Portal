@@ -9,15 +9,15 @@ $user = $user_data['id'];
 
 $changeView;
 
-if(isset($_POST['all'])){
+if(isset($_POST['all']) || isset($_POST['all_user'])  ){
     $sql = "UPDATE all_users SET feedback_view = '0' WHERE id = '$user'";
     mysqli_query($con, $sql);
 }
-elseif(isset($_POST['comp'])){
+elseif(isset($_POST['comp']) || isset($_POST['sent'])){
     $sql = "UPDATE all_users SET feedback_view = '1' WHERE id = '$user'";
     mysqli_query($con, $sql);
 }
-elseif(isset($_POST['req'])){
+elseif(isset($_POST['req']) || isset($_POST['rec'])){
     $sql = "UPDATE all_users SET feedback_view = '2' WHERE id = '$user'";
     mysqli_query($con, $sql);
 }
@@ -57,9 +57,13 @@ elseif(isset($_POST['cld'])){
             <ul>
             <li><img src="Icons/home1.png" alt="home"><a href="homeadmin.php"><i class="but home"></i>Home</a></li>
                 <li><img src="Icons/transfer1.png" alt="feedback"><a href="allFeedbackAdmin.php"><i class="but feedbacks"></i>Feedbacks</a></li>
-                <li><img src="Icons/account1.png" alt="accounts"><a href="accountsadmin.php"><i class="but accounts"></i>Accounts</a></li>
+<?php
+if(!checkUser($con)){echo'
+                <li><img src="Icons/account1.png" alt="accounts"><a href="accountsadmin.php"><i class="but accounts"></i>Accounts</a></li>';
+            }
+?>
                 <li><img src="Icons/settings1.png" alt="settings"><a href="profileeditadmin.php "><i class="but settings"></i>Settings</a></li>
-                <li><img src="Icons/logout1.png" alt="logout"><a href="#"><i class="but logout">Log Out</a></li>
+                <li><img src="Icons/logout1.png" alt="logout"><a href="logout.php"><i class="but logout">Log Out</a></li>
             </ul>
         </div>
 
@@ -78,12 +82,25 @@ elseif(isset($_POST['cld'])){
             </div>
             <form action="allFeedbackAdmin.php" method="post">
             <div class="buttons" style="margin-left: 20px;">   
+
+            <?php if(!checkUser($con)){
+            echo' 
                 <button name = "all">All Feedbacks</button>
                 <button name = "comp">Complaints</button>
                 <button name = "req">Request</button>
                 <button name = "sug">Suggestions</button>
                 <button name = "open">Open</button>
-                <button name = "cld">Closed</button>
+                <button name = "cld">Closed</button>';}
+
+                else{
+
+            echo'
+                  
+                <button name = "all_user" class="regular-button">My Feedbacks</button>
+                <button name = "sent" class="regular-button">Sent</button>
+                <button name = "rec" class="regular-button">Received</button>
+                <button type = "button" onclick = "addfeedback()"> Add Feedback</button>'
+                ;}?>
             </div>
             </form>
 
@@ -114,7 +131,7 @@ elseif(isset($_POST['cld'])){
 
                 $feedbackView = mysqli_fetch_assoc($initialresult);
                 $currentView = $feedbackView['feedback_view'];
-
+if(!checkUser($con)){
                 if($currentView == 0){
 $sql = "SELECT * FROM all_feedback";
 $result = mysqli_query($con, $sql);
@@ -218,8 +235,77 @@ $result6 = mysqli_query($con, $sql6);
                         </tr>';
                 }
             }
+        } else{
+            if($currentView == 0){
+                $sql = "SELECT * FROM all_feedback WHERE user_current = '$user'";
+                $result = mysqli_query($con, $sql);
 
+            while($row = mysqli_fetch_assoc($result)){
+
+                echo'<tr id="all_feedback" >
+                    <td>'.$row["title"].'</td>
+                    <td> #'.$row["ticketID"].'</td>
+                    <td>'.$row["type"].'</td>
+                    <td>'.$row["date"].'</td>
+                        <td>'.$row["status"].'</td>
+                        <td>'.$row["user"].'</td>
+                        <td><button value='.$row["ticketID"].' name="view_btn" id="view_btn" class="view-btn">View</button></td>
+                        </tr>';
+                }
+                $sql = "SELECT * FROM all_reply WHERE replyuser = '$user'";
+                $result = mysqli_query($con, $sql);
+
+                while($row = mysqli_fetch_assoc($result)){
+
+                    echo'<tr>
+                        <td>'.$row["title"].'</td>
+                         <td> - </td>
+                          <td>Reply</td>
+                           <td>'.$row["date"].'</td>
+                            <td> - </td>
+                            <td>'.$row['respondent'].'</td>                                 
+                            <td><button value='.$row["replyID"].' name="view_btn_rep" id="view_btn_rep" class="view-btn">View</button></td>                           
+                            </tr>';
+                }
             }
+            if($currentView == 1){
+
+                $sql = "SELECT * FROM all_feedback WHERE user_current = '$user'";
+                $result = mysqli_query($con, $sql);
+
+            while($row = mysqli_fetch_assoc($result)){
+
+                echo'<tr id="all_feedback" >
+                    <td>'.$row["title"].'</td>
+                    <td> #'.$row["ticketID"].'</td>
+                    <td>'.$row["type"].'</td>
+                    <td>'.$row["date"].'</td>
+                        <td>'.$row["status"].'</td>
+                        <td>'.$row["user"].'</td>
+                        <td><button value='.$row["ticketID"].' name="view_btn" id="view_btn" class="view-btn">View</button></td>
+                        </tr>';
+                }
+            }
+            if($currentView == 2){
+                $sql = "SELECT * FROM all_reply WHERE replyuser = '$user'";
+                $result = mysqli_query($con, $sql);
+
+                while($row = mysqli_fetch_assoc($result)){
+
+                    echo'<tr>
+                        <td>'.$row["title"].'</td>
+                         <td> - </td>
+                          <td>Reply</td>
+                           <td>'.$row["date"].'</td>
+                            <td> - </td>
+                            <td>'.$row['respondent'].'</td>                                 
+                            <td><button value='.$row["replyID"].' name="view_btn_rep" id="view_btn_rep" class="view-btn">View</button></td>                           
+                            </tr>';
+                }
+            }
+
+        }
+    }
                 ?>
 
                     </tbody>
@@ -230,3 +316,12 @@ $result6 = mysqli_query($con, $sql6);
 
 </body>
 </html>
+<script>
+    if ( window.history.replaceState ) {
+  window.history.replaceState( null, null, window.location.href );
+}
+
+    function addfeedback(){
+        location.replace("addfeedback.php");
+    }
+</script>

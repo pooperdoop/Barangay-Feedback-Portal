@@ -6,7 +6,7 @@ include("functions.php");
 $user_data = check_login($con);
 
 if(isset($_POST['view_btn'])){
-    
+
     $feedback = $_POST['view_btn'];
 
     $sql = "SELECT * FROM all_feedback WHERE ticketID = '$feedback' limit 1";
@@ -22,12 +22,14 @@ if(isset($_POST['view_btn'])){
         $date = $data['date'];
         $type = $data['type'];
         $_SESSION['ticketID'] = $ticketID;
-
+        $_SESSION['ticketType'] = $type;
+        $Isfeedback = 'yes';
         $user = $data['user_current'];
     $sqlUser = "SELECT * FROM all_users WHERE id = '$user' limit 1";
     $resultUser = mysqli_query($con, $sqlUser);
    
     if(mysqli_num_rows($resultUser) > 0){
+        
         $data = mysqli_fetch_assoc($resultUser);
 
         $fullname = $data['first_name']." ".$data['middle_name']." ".$data['last_name'];
@@ -41,8 +43,25 @@ if(isset($_POST['view_btn'])){
     }   
 }
 
+if(isset($_POST['view_btn_rep'])){
+    //   echo "<script>alert('what')</script>";
+       $reply = $_POST['view_btn_rep'];
+   
+       $sql = "SELECT * FROM all_reply WHERE replyID = '$reply' limit 1";
+       $result = mysqli_query($con, $sql);
+   
+       
+       if(mysqli_num_rows($result) > 0){
+           $data = mysqli_fetch_assoc($result);
+           $ticketID = $data['replyID'];
+           $title = $data['title'];
+           $message = $data['message'];
+           $Isfeedback = 'no';
+
+         }
+   }
+
 if(isset($_POST['save_btn'])){
-    echo "WALTUH";
     $changeStatus = $_POST['status_chg'];
     $ticket_val = $_POST['ticket_value'];
     $sql = "UPDATE all_feedback SET status = '$changeStatus' WHERE ticketID =  '$ticket_val'";
@@ -101,47 +120,78 @@ if(isset($_POST['save_btn'])){
                     </div>
                 </div>
                 <div class="divider"></div>
+                <div class='centerdiv'>
+            <?php 
 
-                <div class="centerdiv">
-                    <p><strong>Ticket No:</strong> <?php echo $ticketID  ?></p>
-                    <p><strong>Date:</strong><?php echo $date  ?></p>
-                    <br>
-                    <p><strong>Name:</strong><?php echo $fullname  ?></p>
-                    <p><strong>Birthday:</strong> <?php echo $bday  ?></p>
-                    <p><strong>Address:</strong><?php echo $address  ?></p>
-                    <p><strong>Feedback Type:</strong> <?php echo $type  ?></p>
-                    <p><strong>Email:</strong> <?php echo $email  ?></p>
-                    <p><strong>Contact No:</strong> <?php echo $contact  ?></p>
-                    <br>
-                    <br>
-                    <p><strong>Title:</strong> <?php echo $title  ?></p>
-                    <br>
-                    <p><strong>Description:</strong></p>
-                    <p><?php echo $message  ?></p>
-                    <br>
-                    <p><strong>Attachment Links:</strong></p>
-                    <p><a href="https://drive.google.com/drive/u/0/folders/1VY-U0_K1vpO_3WVs8EW5kwPbQn60FeFa">View Attachments</a></p>
+                if(checkIfReply($con, $Isfeedback)){
+                    echo "
+                        <p><strong>Ticket No:</strong". $ticketID  ."</p>
+                        <p><strong>Date:</strong>".  $date  ."</p>
+                        <br>
+                        <p><strong>Name:</strong>" . $fullname ." </p>
+                        <p><strong>Birthday:</strong>".  $bday . "</p>
+                        <p><strong>Address:</strong>" . $address ." </p>
+                        <p><strong>Feedback Type:</strong>".  $type . "</p>
+                        <p><strong>Email:</strong> ". $email . "</p>
+                        <p><strong>Contact No:</strong>" . $contact  ."</p>
+                        <br>
+                        <br>
+                        <p><strong>Title:</strong>" .  $title. " </p>
+                        <br>";} ?>
+                        <p><strong>Description:</strong></p>
+                        <p><?php echo $message?></p>
+                        <br>
+                        <?php
+                         if(checkIfReply($con,$Isfeedback)){
+                    echo "
+                        <p><strong>Attachment Links:</strong></p>
+                        <img src".$.">";}
 
 
+                    ?>
+                    <?php 
+                            if(checkUser($con)){
+                            } 
+                            else{
+                                echo '
                     <div class="rectangle-f">
                         <div class="set-status">
                             <span class="status">Set Status</span>
-                            <div class="dropdown-container">
-                                
+                            <div class="dropdown-container">';}
+                             ?>   
                  <form action="viewticketadmin.php" method="post">
-                                <select id="status" name="status_chg" class="status-dropdown">
-                                    <option value=<?php echo $status  ?>><?php echo $status  ?></option>
+                 <?php 
+                            if(checkUser($con)){
+                            } 
+                            else{
+                                echo '<select id="status" name="status_chg" class="status-dropdown">
+                                    <option value="' .$status.'" >'.$status.'</option>
                                     <option value="Open">Open</option>
                                     <option value="In Progress">In Progress</option>
                                     <option value="Resolved">Resolved</option>
                                     <option value="Closed">Closed</option>
                                 </select>
                             </div>
-                        </div>
+                        </div> ';}
+                                    
+                        ?>
+
                         <input type='text' name="ticket_value" style="display: none;" value= '<?php echo $ticketID ?>'>
-                        <button name='save_btn' class="save-feedback-button">Save Changes</button>
+                        <?php 
+                            if(checkUser($con)){
+                            }
+                            else{
+                                echo ' <button name="save_btn" class="save-feedback-button">Save Changes</button>';
+                            }
+                            ?>
                     </form>
-                            <button onclick="ReplyPage()" class="reply-feedback-button">Reply</button>
+                        <?php 
+                            if(checkUser($con)){
+                            }
+                            else{
+                                echo '<button onclick="ReplyPage()" class="reply-feedback-button">Reply</button>';
+                            }
+                            ?>
                     </div>
 
                 </div>
@@ -156,8 +206,9 @@ if(isset($_POST['save_btn'])){
 
 <script>
 function ReturnPage(){
-    
-    window.location.href = 'allFeedbackAdmin.php';
+
+window.location.href = 'allFeedbackAdmin.php';
+
 }
 
 function ReplyPage(){

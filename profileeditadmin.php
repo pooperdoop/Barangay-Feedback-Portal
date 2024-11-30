@@ -56,13 +56,19 @@ if(isset($_POST['save_btn'])){
     $new_barangay = $_POST["barangay"];
     $new_sex = $_POST["sex"];
     $new_birthday = $_POST["bday"];
-    header("Refresh:0");
+    header("Refresh:0");        
 
-
+      if(!checkUser($con)){
     $sql = "UPDATE all_users SET first_name = '$new_firstname', middle_name = '$new_middlename', last_name = '$new_lastname', email = '$email',
     password = '$new_password', position = '$new_position', phonenumber = '$new_phonenumber', username = '$new_username', full_address = '$new_fulladdress',
     barangay = '$new_barangay', sex = '$new_sex', birthday = '$new_birthday' WHERE id = $id";
     mysqli_query($con, $sql);
+}else{
+    $sql = "UPDATE all_users SET first_name = '$new_firstname', middle_name = '$new_middlename', last_name = '$new_lastname', email = '$email',
+    password = '$new_password', phonenumber = '$new_phonenumber', username = '$new_username', full_address = '$new_fulladdress',
+    barangay = '$new_barangay', sex = '$new_sex', birthday = '$new_birthday' WHERE id = $id";
+    mysqli_query($con, $sql);
+}
 }
 
 ?>
@@ -85,7 +91,9 @@ if(isset($_POST['save_btn'])){
             <ul>
             <li><img src="Icons/home1.png" alt="home"><a href="homeadmin.php"><i class="but home"></i>Home</a></li>
                 <li><img src="Icons/transfer1.png" alt="feedback"><a href="allFeedbackAdmin.php"><i class="but feedbacks"></i>Feedbacks</a></li>
-                <li><img src="Icons/account1.png" alt="accounts"><a href="accountsadmin.php"><i class="but accounts"></i>Accounts</a></li>
+<?php if(!checkUser($con)){
+               echo ' <li><img src="Icons/account1.png" alt="accounts"><a href="accountsadmin.php"><i class="but accounts"></i>Accounts</a></li>';
+ }?>               
                 <li><img src="Icons/settings1.png" alt="settings"><a href="profileeditadmin.php "><i class="but settings"></i>Settings</a></li>
                 <li><img src="Icons/logout1.png" alt="logout"><a href="#"><i class="but logout">Log Out</a></li>
             </ul>   
@@ -196,17 +204,19 @@ if(isset($_POST['save_btn'])){
                             </div>
             
                             <div class="form-row" style="width: 225px; height: 40px;">
+
+                            <?php if(!checkUser($con)){ echo'
                                 <div class="form-group">
                                     <label for="position">Barangay Position</label>
-                                    <select  value="<?php echo $position ?>" name="position" id="position" style="width: 225px; height: 
-                                    40px; margin-right: 20px; background-image: url('Icons/droplist.png'); 
+                                    <select  value="'.$position.'" name="position" id="position" style="width: 225px; height: 
+                                    40px; margin-right: 20px; background-image: url("Icons/droplist.png"); 
                                     background-repeat: no-repeat; background-position: right 10px center; padding-right: 30px;" disabled required >
-                                        <option value="<?php echo $position ?>"  selected><?php echo $position ?></option>
-                                        <option value="captain">Captain</option>
-                                        <option value="vice-Captain">Vice-Captain</option>
+                                        <option value="'. $position.'"  selected>'.$position.'</option>
+                                        <option value="Vaptain">Captain</option>
+                                        <option value="Vice-Captain">Vice-Captain</option>
                                         <option value="secretary">Secretary</option>
                                     </select>
-                                </div>
+                                </div>'   ;} ?>
                                 <div class="form-group">
                                     <label for="username">Username</label>
                                     <input name = "username" value=<?php echo $username ?> type="text" id="username" placeholder="Choose a username" style="width: 225px; height: 40px; margin-right: 20px;" readonly required>
@@ -262,7 +272,9 @@ function removeReadOnly(){
     document.getElementById('sex').disabled = false;
     document.getElementById('email').readOnly = false;
     document.getElementById('contact').readOnly = false;
-    document.getElementById('position').disabled = false;
+    <?php if(!checkUser($con)){
+    echo "document.getElementById('position').disabled = false";
+    }?>
     document.getElementById('username').readOnly = false;
     document.getElementById('password').readOnly = false;
     document.getElementById('submit_lbl').htmlFor = 'submit_profile';
@@ -278,7 +290,9 @@ function makeReadOnly(){
     document.getElementById('sex').disabled = true;
     document.getElementById('email').readOnly = true;
     document.getElementById('contact').readOnly = true;
-    document.getElementById('position').disabled = true;
+<?php if(!checkUser($con)){
+  echo  "document.getElementById('position').disabled = true";
+}?>
     document.getElementById('username').readOnly = true;
     document.getElementById('password').readOnly = true;
     document.getElementById('submit_lbl').htmlFor = '';
@@ -294,7 +308,9 @@ function removeEditted(){
     document.getElementById('sex').value ='<?php echo $sex ?>';
     document.getElementById('email').value ='<?php echo $email ?>';
     document.getElementById('contact').value ='<?php echo $phonenumber ?>';
-    document.getElementById('position').value ='<?php echo $position ?>';
+<?php if(!checkUser($con)){
+    echo "document.getElementById('position').value =".$position;
+}?>
     document.getElementById('username').value ='<?php echo $username ?>';
     document.getElementById('password').value ='<?php echo $password ?>';
     document.getElementById('user_profile').src = '<?php echo $profile ?>';

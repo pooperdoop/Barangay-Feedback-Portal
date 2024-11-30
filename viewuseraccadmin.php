@@ -27,6 +27,10 @@ if(isset($_POST['delete'])){
 
     $sql = "DELETE FROM all_users WHERE id = $userID";
     mysqli_query($con, $sql);
+    $sql2 = "DELETE FROM all_feedback WHERE user_current = $userID";
+    mysqli_query($con, $sql2);
+    $sql3 = "DELETE FROM all_reply WHERE replyuser = $userID";
+    mysqli_query($con, $sql3);
     header("Location: accountsadmin.php");
     die;
 }

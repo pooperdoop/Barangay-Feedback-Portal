@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <title>Barangay Feedback Portal</title>
-    <link rel="stylesheet" href="css/login_register.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="login_register.css?v=<?php echo time(); ?>">
 
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -88,15 +88,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             if($user_data['password'] == $password){
               $_SESSION['id'] = $user_data['id'];
 
-              if($user_data['type'] == "User"){
-              header('Location: homeuser.php');
-              }else{
-                if($user_data['verified'] == "no"){
-                  echo'<script>alert("ACCOUNT IS NOT VERIFIED, PLS WAIT FOR VERIFICATION") </script>';
-                }else{
-                header('Location: homeadmin.php');
-                }
-              }
+              header('Location: homeadmin.php');
+         
             }
             else{
               echo'<script>alert("incorrect password") </script>';

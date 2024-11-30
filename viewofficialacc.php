@@ -22,6 +22,7 @@ $type = $user_data['type'];
 $pos = $user_data['position'];
 $email = $user_data['email'];
 $contact = $user_data['phonenumber'];
+$validid = $user_data['valid_id_dir'];
 
 if(isset($_POST['reject'])){
     
@@ -101,6 +102,7 @@ if(isset($_POST['accept'])){
                     <p><strong>Official Position: <?php echo $pos ?></strong></p>
                     <p><strong>Email: <?php echo $email ?></strong></p>
                     <p><strong>Contact No.: <?php echo $contact ?></strong></p>
+                    <img src= <?php echo $validid?>>
                     <br>
                     
                     

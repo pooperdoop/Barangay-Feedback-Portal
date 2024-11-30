@@ -34,10 +34,9 @@ $sql = "INSERT INTO all_feedback(user_current, title, message, type, status, use
         <div class="sidebar">
             <h2><img src="Icons/brgy icon.png" alt="brgy">Barangay Feedback Portal</h2>
             <ul>
-            <li><img src="Icons/home1.png" alt="home"><a href="homeuser.php"><i class="but home"></i>Home</a></li>
-                <li><img src="Icons/transfer1.png" alt="feedback"><a href="allFeedbackuser.php"><i class="but feedbacks"></i>Feedbacks</a></li>
-                <li><img src="Icons/account1.png" alt="accounts"><a href="#"><i class="but accounts"></i>Accounts</a></li>
-                <li><img src="Icons/settings1.png" alt="settings"><a href="profileedituser.php"><i class="but settings"></i>Settings</a></li>
+            <li><img src="Icons/home1.png" alt="home"><a href="homeadmin.php"><i class="but home"></i>Home</a></li>
+                <li><img src="Icons/transfer1.png" alt="feedback"><a href="allFeedbackAdmin.php"><i class="but feedbacks"></i>Feedbacks</a></li>
+                <li><img src="Icons/settings1.png" alt="settings"><a href="profileeditadmin.php "><i class="but settings"></i>Settings</a></li>
                 <li><img src="Icons/logout1.png" alt="logout"><a href="#"><i class="but logout">Log Out</a></li>
             </ul>
         </div>
@@ -58,7 +57,9 @@ $sql = "INSERT INTO all_feedback(user_current, title, message, type, status, use
         <div class="flex-row-c" style="margin-top: 7px;">
             <div class="top">
                 <h1>Write your feedbacks here</h1>
+                
                 <div class="divider"></div>
+                
                 <span>Message</span>
             </div>
         </div>
@@ -71,7 +72,7 @@ $sql = "INSERT INTO all_feedback(user_current, title, message, type, status, use
             
             <div class="barangay-container" style="margin-left: 53px;">
                 <span class="barangay">Barangay</span>
-                <select name="barangay" id="barangay" class="group-input" style="width: 256px;">
+                <select name="barangay" id="barangay" class="group-input" style="width: 256px;" required    >
                     <option value="" disabled selected>Select Barangay</option>
                     <option value="Barangay 1">Barangay 1</option>  
                     <option value="Barangay 2">Barangay 2</option>

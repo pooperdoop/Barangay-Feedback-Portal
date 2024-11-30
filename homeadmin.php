@@ -48,9 +48,13 @@ if(isset($_POST['view_btn'])){
             <ul>
             <li><img src="Icons/home1.png" alt="home"><a href="homeadmin.php"><i class="but home"></i>Home</a></li>
                 <li><img src="Icons/transfer1.png" alt="feedback"><a href="allFeedbackAdmin.php"><i class="but feedbacks"></i>Feedbacks</a></li>
-                <li><img src="Icons/account1.png" alt="accounts"><a href="accountsadmin.php"><i class="but accounts"></i>Accounts</a></li>
+                 <?php  if(!checkUser($con)){ 
+           echo'  
+                <li><img src="Icons/account1.png" alt="accounts"><a href="accountsadmin.php"><i class="but accounts"></i>Accounts</a></li>';} ?>
                 <li><img src="Icons/settings1.png" alt="settings"><a href="profileeditadmin.php "><i class="but settings"></i>Settings</a></li>
-                <li><img src="Icons/logout1.png" alt="logout"><a href="#"><i class="but logout">Log Out</a></li>
+                 <li><img src="Icons/logout1.png" alt="logout"><a href="#"><i class="but logout">Log Out</a></li> 
+           
+
             </ul>
         </div>
 
@@ -70,8 +74,12 @@ if(isset($_POST['view_btn'])){
 
             <div class="buttons">
                 <button class="notices-btn">Notices</button>
-                <button id="add_notice" class="add-notices-btn" onclick="addNotice()">Add Notices</button>
-            </div>
+
+                <?php  if(!checkUser($con)){ 
+                echo'   
+                <button id="add_notice" class="add-notices-btn" onclick="addNotice()">Add Notices</button>';}      
+                 ?>
+              </div>
             
 
             <section class="feedback-section" style="margin-left: 20px;">
@@ -100,8 +108,15 @@ if(isset($_POST['view_btn'])){
                              <button value ='.$row["noticeID"].'  name ="view_btn" id="view_btn" class="view-btn">View</button>
                              </form>
 
-                             <form action = "editnotice.php" method = "post" style = "display: inline-block"><button value ='.$row["noticeID"].' 
-                             class="edit-btn" name = "edit_btn" id="edit_btn" >Edit</button>
+                             <form action = "editnotice.php" method = "post" style = "display: inline-block">';
+                             
+                             if(!checkUser($con)){ 
+                             echo '
+                             <button value ='.$row["noticeID"].' 
+                             class="edit-btn" name = "edit_btn" id="edit_btn" >Edit</button>';
+                            }
+
+                             echo'
                              </form>
 
                              </td>
