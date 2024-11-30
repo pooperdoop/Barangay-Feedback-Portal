@@ -113,7 +113,7 @@ if (isset($_POST["register_button"])){
         </div>
 
 
-        <a href ="login-and-register.php"  class="return">Return</a>
+        <a href ="index.php"  class="return">Return</a>
 
   <form action="register-page.php" method="post" enctype="multipart/form-data">
 

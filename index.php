@@ -21,7 +21,7 @@
           <div class="iconfinder-vector"></div>
         </div>
 
-      <form action="login-and-register.php" method="post">
+      <form action="index.php" method="post">
 
             <div class="group-1">
               <span class="username_lbl">User Name</span>
@@ -87,8 +87,15 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
             if($user_data['password'] == $password){
               $_SESSION['id'] = $user_data['id'];
-
-              header('Location: homeadmin.php');
+              if($user_data['type'] == "Official"){
+              if($user_data['verified'] == "yes" ){
+              header('Location: homeadmin.php');}
+              else{
+                echo"<script>alert('Account not verified, wait for verification!')</script>";
+              }
+            } else{
+              header('Location: homeadmin.php');}
+            
          
             }
             else{
