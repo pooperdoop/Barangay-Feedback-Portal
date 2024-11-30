@@ -51,6 +51,7 @@ if (isset($_POST["register_button"])){
   if(mysqli_num_rows($result)>0){
 
     $currentid = mysqli_fetch_assoc($result);
+   
     $imgnewname = "user".$currentid['id']."id".".".$imgext; 
     $valididdir = 'images/'.$imgnewname;
     move_uploaded_file($img['tmp_name'], $valididdir);
@@ -59,10 +60,11 @@ if (isset($_POST["register_button"])){
     mysqli_query($con, $sqlimginsert);  
 
       if (file_exists($_FILES['submit_profile']['tmp_name']) || is_uploaded_file($_FILES['submit_profile']['tmp_name'])){
+        $imageid = $currentid['profileid'];
         $profile = $_FILES['submit_profile'];
         $profilesplit = explode('.',$profile['name']);
         $profileext = strtolower(end($profilesplit));
-        $profilenewname = "user".$currentid['id']."profile".".".$profileext; 
+        $profilenewname = "user".$currentid['id']."profile".$imageid.".".$profileext; 
         $profiledir = 'profiles/'.$profilenewname;
         move_uploaded_file($profile['tmp_name'], $profiledir);
 

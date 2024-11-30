@@ -119,6 +119,21 @@ body {
     margin-left: 40px;
 }
 
+.edit-button {
+    width: 130px;
+    height: 40px;
+    flex-shrink: 0;
+    border-radius: 9px;
+    background: #1814F3;
+    color: #FFF; /* Optional: Set text color to white for better contrast */
+    border: none; /* Optional: Remove border */
+    cursor: pointer; /* Pointer cursor on hover */
+    font-family: Inter; /* Ensure the font matches */
+    font-size: 16px; /* Optional: Set font size */
+    font-weight: 500; /* Optional: Set font weight */
+    margin-left: 40px;
+}
+
 .save-button {
     margin-top: 18px;
     width: 130px;
