@@ -90,7 +90,9 @@ if(isset($_POST['save_btn'])){
             <ul>
             <li><img src="Icons/home1.png" alt="home"><a href="homeadmin.php"><i class="but home"></i>Home</a></li>
                 <li><img src="Icons/transfer1.png" alt="feedback"><a href="allFeedbackAdmin.php"><i class="but feedbacks"></i>Feedbacks</a></li>
-                <li><img src="Icons/account1.png" alt="accounts"><a href="accountsadmin.php"><i class="but accounts"></i>Accounts</a></li>
+                <?php if(!checkUser($con)){
+               echo ' <li><img src="Icons/account1.png" alt="accounts"><a href="accountsadmin.php"><i class="but accounts"></i>Accounts</a></li>';
+                }?>        
                 <li><img src="Icons/settings1.png" alt="settings"><a href="profileeditadmin.php "><i class="but settings"></i>Settings</a></li>
                 <li><img src="Icons/logout1.png" alt="logout"><a href="logout.php"><i class="but logout">Log Out</a></li>
             </ul>
@@ -146,7 +148,7 @@ if(isset($_POST['save_btn'])){
                          if(checkIfReply($con,$Isfeedback)){
                     echo "
                         <p><strong>Attachments: </strong></p>
-                        <img style ='max-width:800px' src =". $attachment.">
+                        <img style ='max-width:800px'  src=". $attachment." >
                         ";}
 
 

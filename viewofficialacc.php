@@ -107,7 +107,7 @@ if(isset($_POST['accept'])){
                     <p><strong>Email: <?php echo $email ?></strong></p>
                     <p><strong>Contact No.: <?php echo $contact ?></strong></p>
                     <p><strong>Attachment: </strong></p>
-                    <img src= <?php echo $validid?>>
+                    <img src= <?php echo $validid?> style = 'max-width:800px'>
                     <br>
                     
                     

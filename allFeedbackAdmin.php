@@ -131,9 +131,10 @@ if(!checkUser($con)){echo'
 
                 $feedbackView = mysqli_fetch_assoc($initialresult);
                 $currentView = $feedbackView['feedback_view'];
+                $barangay = $feedbackView['barangay'];
 if(!checkUser($con)){
                 if($currentView == 0){
-$sql = "SELECT * FROM all_feedback";
+$sql = "SELECT * FROM all_feedback WHERE barangay = '$barangay'";
 $result = mysqli_query($con, $sql);
 
             while($row = mysqli_fetch_assoc($result)){
@@ -151,7 +152,7 @@ $result = mysqli_query($con, $sql);
             }
             elseif($currentView == 1){
 
-$sql2 = "SELECT * FROM all_feedback WHERE type = 'Complaint'";
+$sql2 = "SELECT * FROM all_feedback WHERE type = 'Complaint' AND barangay = '$barangay'";
 $result2 = mysqli_query($con, $sql2);
 
             while($row = mysqli_fetch_assoc($result2)){
@@ -168,7 +169,7 @@ $result2 = mysqli_query($con, $sql2);
                 }
             }
             elseif($currentView == 2){
-$sql3 = "SELECT * FROM all_feedback WHERE type = 'Request'";
+$sql3 = "SELECT * FROM all_feedback WHERE type = 'Request' AND barangay = '$barangay'";
 $result3 = mysqli_query($con, $sql3);
 
             while($row = mysqli_fetch_assoc($result3)){
@@ -185,7 +186,7 @@ $result3 = mysqli_query($con, $sql3);
                 }
             }
             elseif($currentView == 3){
-$sql4 = "SELECT * FROM all_feedback WHERE type = 'Suggestion'";
+$sql4 = "SELECT * FROM all_feedback WHERE type = 'Suggestion' AND barangay = '$barangay'";
 $result4 = mysqli_query($con, $sql4);
 
             while($row = mysqli_fetch_assoc($result4)){
@@ -202,7 +203,7 @@ $result4 = mysqli_query($con, $sql4);
                 }
             }
             elseif($currentView == 4){
-$sql5 = "SELECT * FROM all_feedback WHERE status = 'Open'";
+$sql5 = "SELECT * FROM all_feedback WHERE status = 'Open' AND barangay = '$barangay'";
 $result5 = mysqli_query($con, $sql5);
 
             while($row = mysqli_fetch_assoc($result5)){
@@ -219,7 +220,7 @@ $result5 = mysqli_query($con, $sql5);
                 }
             }
             elseif($currentView == 5){
-$sql6 = "SELECT * FROM all_feedback WHERE status = 'Closed'";
+$sql6 = "SELECT * FROM all_feedback WHERE status = 'Closed' AND barangay = '$barangay'";
 $result6 = mysqli_query($con, $sql6);
 
             while($row = mysqli_fetch_assoc($result6)){

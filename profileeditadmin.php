@@ -30,7 +30,11 @@ $imageid = $current_user['profileid'];
 if(isset($_POST['save_btn'])){
       
     if (file_exists($_FILES['submit_profile']['tmp_name']) || is_uploaded_file($_FILES['submit_profile']['tmp_name'])){
-        unlink($profile);
+        if($profile == "Icons/profile.png"){
+
+        }else{      
+              
+            unlink($profile);}
         $imageid ++;
         $profilpic = $_FILES['submit_profile'];
         $profilesplit = explode('.',$profilpic['name']);
@@ -69,6 +73,11 @@ if(isset($_POST['save_btn'])){
     barangay = '$new_barangay', sex = '$new_sex', birthday = '$new_birthday' WHERE id = $id";
     mysqli_query($con, $sql);
 }
+
+$new_user = $new_firstname." ".$new_lastname;
+$sql = "UPDATE all_feedback SET user = '$new_user' WHERE user_current = '$id' ";
+mysqli_query($con, $sql);
+
 }
 
 ?>

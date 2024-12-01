@@ -18,14 +18,14 @@ function check_login($con){
     }
     else{
         
-        header('Location: login-and-register.php');
+        header('Location: index.php');
         die;
     }
 
 }
 
 function after_signup(){
-    header('Location: login-and-register.php');
+    header('Location: index.php');
 }
 
 
