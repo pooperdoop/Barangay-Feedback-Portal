@@ -81,3 +81,4 @@ function checkIfReply($con, $feedback){
             return false;
         }
     }
+?>
