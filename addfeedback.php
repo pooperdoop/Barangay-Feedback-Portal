@@ -13,9 +13,33 @@ $message = $_POST['description'];
 $barangay = $_POST['barangay'];
 $current_user = $_SESSION['id'];
 
+
 $sql = "INSERT INTO all_feedback(user_current, title, message, type, status, user, barangay) 
         VALUE('$current_user', '$title', '$message', '$type', 'Open', '$user','$barangay')";
  mysqli_query($con, $sql);
+
+if (file_exists($_FILES['feedback_file']['tmp_name']) || is_uploaded_file($_FILES['feedback_file']['tmp_name'])){
+    $sql = "SELECT * FROM all_feedback WHERE title = '$title' AND message = '$message' AND user_current = '$current_user'";
+    $result = mysqli_query($con, $sql);
+
+    if(mysqli_num_rows($result)>0){
+        
+    $feedbackID = mysqli_fetch_assoc($result);
+
+    $attachment = $_FILES['feedback_file'];
+    $imageid = $feedbackID['ticketID'];
+    $imgsplit = explode('.',$attachment['name']);
+    $imgext = strtolower(end($imgsplit));
+    $imgnewname = "feedback".$imageid."attachment".".".$imgext; 
+    $imgdir = 'images/'.$imgnewname;
+    move_uploaded_file($attachment['tmp_name'], $imgdir);
+
+    $sqlprofileinsert = "UPDATE all_feedback SET attachments = '$imgdir' WHERE title = '$title' AND message = '$message' AND user_current = '$current_user'";
+    mysqli_query($con, $sqlprofileinsert);
+    }
+}
+
+ header("Location: allFeedbackAdmin.php");
 }
 ?>
 
@@ -63,7 +87,7 @@ $sql = "INSERT INTO all_feedback(user_current, title, message, type, status, use
                 <span>Message</span>
             </div>
         </div>
- <form action="addfeedback.php" method="post">
+ <form action="addfeedback.php" method="post"  enctype="multipart/form-data">
         <div class="flex-row-c" style="margin-top: 5px;">
             <div class="title-container">
                 <span class="title">Title</span>

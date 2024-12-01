@@ -13,20 +13,20 @@ $user_account = $_SESSION['account_view'];
 
 $sql = "SELECT * FROM all_users WHERE id = '$user_account' limit 1";
 $result = mysqli_query($con, $sql);
-$user_data = mysqli_fetch_assoc($result);
+$user = mysqli_fetch_assoc($result);
 
-$userID = $user_data['id'];
-$full_name = $user_data['first_name']." ".$user_data['middle_name']." ".$user_data['last_name'];
-$name = $user_data['first_name']." ".$user_data['last_name'];
-$date = $user_data['date_time'];
-$bday = $user_data['birthday'];
-$address = $user_data['full_address'];
-$barangay = $user_data['barangay'];
-$type = $user_data['type'];
-$pos = $user_data['position'];
-$email = $user_data['email'];
-$contact = $user_data['phonenumber'];
-$validid = $user_data['valid_id_dir'];
+$userID = $user['id'];
+$full_name = $user['first_name']." ".$user['middle_name']." ".$user['last_name'];
+$name = $user['first_name']." ".$user['last_name'];
+$date = $user['date_time'];
+$bday = $user['birthday'];
+$address = $user['full_address'];
+$barangay = $user['barangay'];
+$type = $user['type'];
+$pos = $user['position'];
+$email = $user['email'];
+$contact = $user['phonenumber'];
+$validid = $user['valid_id_dir'];
 
 if(isset($_POST['reject'])){
     
@@ -50,8 +50,8 @@ if(isset($_POST['accept'])){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Barangay Feedback Portal - Settings</title>
-    <link rel="stylesheet" href="css/viewofficialacc.css">
-    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/viewofficialacc.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="css/home.css?v=<?php echo time(); ?>">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -106,6 +106,7 @@ if(isset($_POST['accept'])){
                     <p><strong>Official Position: <?php echo $pos ?></strong></p>
                     <p><strong>Email: <?php echo $email ?></strong></p>
                     <p><strong>Contact No.: <?php echo $contact ?></strong></p>
+                    <p><strong>Attachment: </strong></p>
                     <img src= <?php echo $validid?>>
                     <br>
                     

@@ -25,7 +25,7 @@
 
             <div class="group-1">
               <span class="username_lbl">User Name</span>
-                <input type = "text"class="username_input" name = "username_input" placeholder="Charlene Reed" required/>
+                <input type = "text"class="username_input" name = "username_input" placeholder="Enter Username" required/>
             </div>
 
             <div class="group-3">

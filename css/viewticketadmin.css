@@ -19,7 +19,7 @@ body {
 
 .rectangle-5 {
     width: 1110px;
-    height: 660px;
+    height: auto;
     flex-shrink: 0;
     margin-top: 20px; /* Space above the rectangle */
     padding: 20px; /* Padding inside the rectangle */
@@ -200,10 +200,8 @@ body {
     font-size: 14px; /* Font size */
     font-weight: 400; /* Font weight */
     padding: 0 40px 0 10px; /* Padding for text positioning, extra space for the icon */
-    cursor: pointer; /* Pointer cursor on hover */
-    appearance: none; /* Remove default dropdown arrow */
-    -webkit-appearance: none; /* Remove default dropdown arrow for Safari */
-    -moz-appearance: none; /* Remove default dropdown arrow for Firefox */
+    cursor: pointer; /* Pointer cursor on hover */  
+    -webkit-appearance: listbox !important;
 }
 
 .status-dropdown:focus {

@@ -160,8 +160,14 @@ if (isset($_POST["register_button"])){
 
         <div class="group-17">
           <span class="barangay">Barangay</span>
-          <input type="text" name="barangay" class="group-input-c" placeholder="Matatalaib" value="<?php if (isset($_POST['barangay'])) echo $_POST['barangay']; ?>"
-           style="transform: translatey(20px);"required />
+          <select name="barangay" class="group-input-c" placeholder="Matatalaib" value="<?php if (isset($_POST['barangay'])) echo $_POST['barangay']; ?>"
+           style="transform: translatey(20px);" required>
+          <option value="Barangay 1">Barangay 1</option>
+          <option value="Barangay 2">Barangay 2</option>
+          <option value="Barangay 3">Barangay 3</option>
+          <option value="Barangay 4">Barangay 4</option>
+          <option value="Barangay 5">Barangay 5</option>
+          </select>
         </div>
 
 

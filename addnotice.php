@@ -20,7 +20,7 @@ $current_user = $_SESSION['id'];
 $sql = "INSERT INTO all_notice(title, link, barangay, user, user_current) VALUE('$title', '$url', '$barangay', '$user', '$current_user')";
 
 mysqli_query($con, $sql);
-
+header("Location: homeadmin.php");
 }
 
 if(isset($_POST['rtn_btn'])){

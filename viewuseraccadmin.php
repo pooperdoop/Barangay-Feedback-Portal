@@ -12,19 +12,19 @@ $user_account = $_SESSION['account_view'];
 
 $sql = "SELECT * FROM all_users WHERE id = '$user_account' limit 1";
 $result = mysqli_query($con, $sql);
-$user_data = mysqli_fetch_assoc($result);
+$user= mysqli_fetch_assoc($result);
 
-$userID = $user_data['id'];
-$full_name = $user_data['first_name']." ".$user_data['middle_name']." ".$user_data['last_name'];
-$name = $user_data['first_name']." ".$user_data['last_name'];
-$date = $user_data['date_time'];
-$bday = $user_data['birthday'];
-$address = $user_data['full_address'];
-$barangay = $user_data['barangay'];
-$type = $user_data['type'];
-$pos = $user_data['position'];
-$email = $user_data['email'];
-$contact = $user_data['phonenumber'];
+$userID = $user['id'];
+$full_name = $user['first_name']." ".$user['middle_name']." ".$user['last_name'];
+$name = $user['first_name']." ".$user['last_name'];
+$date = $user['date_time'];
+$bday = $user['birthday'];
+$address = $user['full_address'];
+$barangay = $user['barangay'];
+$type = $user['type'];
+$pos = $user['position'];
+$email = $user['email'];
+$contact = $user['phonenumber'];
 
 if(isset($_POST['delete'])){
 

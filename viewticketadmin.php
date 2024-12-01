@@ -21,6 +21,7 @@ if(isset($_POST['view_btn'])){
         $status = $data['status'];
         $date = $data['date'];
         $type = $data['type'];
+        $attachment = $data['attachments'];
         $_SESSION['ticketID'] = $ticketID;
         $_SESSION['ticketType'] = $type;
         $Isfeedback = 'yes';
@@ -77,8 +78,8 @@ if(isset($_POST['save_btn'])){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Barangay Feedback Portal - Settings</title>
-    <link rel="stylesheet" href="css/viewticketadmin.css">
-    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/viewticketadmin.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="css/home.css?v=<?php echo time(); ?>">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -144,7 +145,8 @@ if(isset($_POST['save_btn'])){
                         <?php
                          if(checkIfReply($con,$Isfeedback)){
                     echo "
-                        <p><strong>Attachment Links:</strong></p>
+                        <p><strong>Attachments: </strong></p>
+                        <img style ='max-width:800px' src =". $attachment.">
                         ";}
 
 

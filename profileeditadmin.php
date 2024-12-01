@@ -132,7 +132,7 @@ if(isset($_POST['save_btn'])){
                                 <label id="submit_lbl"  class="pencil-icon"></label>
                             </div>
                         </div>
-                        <button type="button" onclick="editUser()" class="edit-button" id = edit_button type="cancel" >Edit</button>
+                        <button type="button" onclick="editUser()" class="edit-button" id = edit_button type="cancel">Edit </button>
                         <button type="button" onclick="cancelEdit()" class="cancel-button" id="cancel_btn" type="cancel" style="display: none;">Cancel</button>
                              <input type="submit" value="Save"  name = "save_btn" id="save_btn" class="save-button" type="save" style="display: none;">
 
@@ -166,11 +166,11 @@ if(isset($_POST['save_btn'])){
                                     <label for="barangay">Barangay</label>
                                     <select value="<?php echo $barangay?>" name="barangay" id="barangay" style="width: 225px; height: 40px; margin-right: 20px; background-image: url('Icons/droplist.png'); background-repeat: no-repeat; background-position: right 10px center; padding-right: 30px;" disabled required>
                                         <option value="<?php echo $barangay ?>"  selected><?php echo $barangay?> </option>
-                                        <option value="barangay1">Barangay 1</option>
-                                        <option value="barangay2">Barangay 2</option>
-                                        <option value="barangay3">Barangay 3</option>
-                                        <option value="barangay4">Barangay 4</option>
-                                        <option value="barangay5">Barangay 5</option>
+                                        <option value="Barangay 1">Barangay 1</option>
+                                        <option value="Barangay 2">Barangay 2</option>
+                                        <option value="Barangay 3">Barangay 3</option>
+                                        <option value="Barangay 4">Barangay 4</option>
+                                        <option value="Barangay 5">Barangay 5</option>
                                         <!-- Add more options as needed -->
                                     </select>
                                 </div>
@@ -208,14 +208,9 @@ if(isset($_POST['save_btn'])){
                             <?php if(!checkUser($con)){ echo'
                                 <div class="form-group">
                                     <label for="position">Barangay Position</label>
-                                    <select  value="'.$position.'" name="position" id="position" style="width: 225px; height: 
+                                    <input type="text"  value="'.$position.'" name="position" id="position" style="width: 225px; height: 
                                     40px; margin-right: 20px; background-image: url("Icons/droplist.png"); 
-                                    background-repeat: no-repeat; background-position: right 10px center; padding-right: 30px;" disabled required >
-                                        <option value="'. $position.'"  selected>'.$position.'</option>
-                                        <option value="Vaptain">Captain</option>
-                                        <option value="Vice-Captain">Vice-Captain</option>
-                                        <option value="secretary">Secretary</option>
-                                    </select>
+                                    background-repeat: no-repeat; background-position: right 10px center; padding-right: 30px;" readonly required >
                                 </div>'   ;} ?>
                                 <div class="form-group">
                                     <label for="username">Username</label>
@@ -268,12 +263,12 @@ function removeReadOnly(){
     document.getElementById('lastname').readOnly = false;
     document.getElementById('bday').readOnly = false;
     document.getElementById('barangay').disabled = false;
-    document.getElementById('address').required = false;
+    document.getElementById('address').readOnly = false;
     document.getElementById('sex').disabled = false;
     document.getElementById('email').readOnly = false;
     document.getElementById('contact').readOnly = false;
     <?php if(!checkUser($con)){
-    echo "document.getElementById('position').disabled = false";
+    echo "document.getElementById('position').readOnly = false;";
     }?>
     document.getElementById('username').readOnly = false;
     document.getElementById('password').readOnly = false;
@@ -286,12 +281,12 @@ function makeReadOnly(){
     document.getElementById('lastname').readOnly = true;
     document.getElementById('bday').readOnly = true;
     document.getElementById('barangay').disabled = true;
-    document.getElementById('address').required = true;
+    document.getElementById('address').readOnly = true;
     document.getElementById('sex').disabled = true;
-    document.getElementById('email').readOnly = true;
+    document.getElementById('email').readOnly = true;   
     document.getElementById('contact').readOnly = true;
 <?php if(!checkUser($con)){
-  echo  "document.getElementById('position').disabled = true";
+  echo  "document.getElementById('position').readOnly = true;";
 }?>
     document.getElementById('username').readOnly = true;
     document.getElementById('password').readOnly = true;
@@ -309,7 +304,7 @@ function removeEditted(){
     document.getElementById('email').value ='<?php echo $email ?>';
     document.getElementById('contact').value ='<?php echo $phonenumber ?>';
 <?php if(!checkUser($con)){
-    echo "document.getElementById('position').value =".$position;
+    echo "document.getElementById('position').value ='".$position."';";
 }?>
     document.getElementById('username').value ='<?php echo $username ?>';
     document.getElementById('password').value ='<?php echo $password ?>';
