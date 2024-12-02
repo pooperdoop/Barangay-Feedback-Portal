@@ -37,8 +37,7 @@ if(isset($_POST['rtn_btn'])){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Barangay Feedback Portal - Settings</title>
-    <link rel="stylesheet" href="css/addnotice.css">
-    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/addnotice.css?v=<?php echo time(); ?>">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -62,9 +61,6 @@ if(isset($_POST['rtn_btn'])){
                     <h2>Feedbacks</h2>
                 </div>
                 <div>
-                    <input class="search" type="text" placeholder="Search for something">
-                </div>
-                <div>
                     <p>Welcome, <?php echo $user_data['username'] ?></p>
                 </div>
             </div>
@@ -79,7 +75,7 @@ if(isset($_POST['rtn_btn'])){
                         </button>
                     </div>
                 </div>
-                <div class="divider"></div>
+                <hr>
                 <span class="subtitle">Notice</span>
                 <form action="addnotice.php" method="post"> 
                 <div class="flex-row-c" style="margin-top: 5px;">
@@ -101,7 +97,7 @@ if(isset($_POST['rtn_btn'])){
 
                 <div class="description-container">
                     <span class="description">Link</span>
-                    <input type="url" name="link" id="link" class="group-input" placeholder="Enter a link here" required />
+                    <input type="url" name="link" id="link" class="group-input" placeholder="Enter a link here" style="margin-bottom: 19px;" required />
                 </div>
                 
                 <button type="submit" id="post_button" name="post_button" class="post-button">Post</button>

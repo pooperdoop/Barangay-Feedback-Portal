@@ -89,7 +89,6 @@ mysqli_query($con, $sql);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Barangay Feedback Portal - Settings</title>
     <link rel="stylesheet" href="profileeditadmin.css?v=<?php echo time(); ?>">
-    <link rel="stylesheet" href="css/home.css?v=<?php echo time(); ?>">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -113,9 +112,6 @@ mysqli_query($con, $sql);
             <div class="header">
                 <div>
                     <h2>Feedbacks</h2>
-                </div>
-                <div>
-                    <input class="search" type="text" placeholder="Search for something">
                 </div>
                 <div>
                     <p>Welcome, <?php echo $user_data['username'] ?></p>
@@ -212,7 +208,7 @@ mysqli_query($con, $sql);
                                 </div>
                             </div>
             
-                            <div class="form-row" style="width: 225px; height: 40px;">
+                            <div class="form-row">
 
                             <?php if(!checkUser($con)){ echo'
                                 <div class="form-group">

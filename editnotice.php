@@ -63,7 +63,6 @@ if(isset($_POST['post_btn'])){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Barangay Feedback Portal - Settings</title>
     <link rel="stylesheet" href="css/editnotice.css?v=<?php echo time(); ?>">
-    <link rel="stylesheet" href="css/home.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -91,9 +90,6 @@ if(!checkUser($con)){echo'
                     <h2>Feedbacks</h2>
                 </div>
                 <div>
-                    <input class="search" type="text" placeholder="Search for something">
-                </div>
-                <div>
                     <p>Welcome, <?php echo $user_data['username'] ?></p>
                 </div>
             </div>
@@ -108,7 +104,7 @@ if(!checkUser($con)){echo'
                         </button>
                     </div>
                 </div>
-                <div class="divider"></div>
+                <hr>
                 <span class="subtitle">Notice</span>
                 <form action="editnotice.php" method = "post">
                 <div class="flex-row-c" style="margin-top: 5px;">
@@ -130,12 +126,12 @@ if(!checkUser($con)){echo'
 
                 <div class="description-container">
                     <span class="description">Link</span>
-                    <input type="url" name="notice_link" id="notice_link" class="group-input" value=<?php echo $link?> placeholder="Enter a link here" required />
+                    <input type="url" name="notice_link" id="notice_link" class="group-input" value=<?php echo $link?> placeholder="Enter a link here" style="margin-bottom:19px" required />
                 </div>
                 
                 <div class="button-container">
+                <button type="submit" value=<?php echo $ID?> name="post_btn" id="post_btn" class="post-button">Post</button>
                     <button type="submit" value=<?php echo $ID?> name="del_btn" id="del_btn" class="delete-button">Delete</button>
-                    <button type="submit" value=<?php echo $ID?> name="post_btn" id="post_btn" class="post-button">Post</button>
                 </div>
 
             </div>

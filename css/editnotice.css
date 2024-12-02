@@ -17,24 +17,147 @@ body {
     background-color: #F5F7FA;
 }
 
+.wrapper {
+    min-width: 100%;
+    min-height: 100vh;
+}
+
+.wrapper .sidebar {
+    position: relative;
+    width:13%;
+    height: 100vh;
+    background: #FFF;
+    padding: 30px 0;
+    float: left;
+}
+
+.wrapper .sidebar h2 {
+    color: #1814F3;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.wrapper .sidebar brgy {
+    width: 30px;
+    height: 30px;
+    display: block;
+}
+
+.wrapper .sidebar ul li {
+    padding: 15px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    border-top: 1px solid rgba(225, 225, 225, 0.05);
+}
+
+.wrapper .sidebar ul li a {
+    color: #B1B1B1;
+    display: inline-block;
+    position: absolute;
+    margin-top: 5px;
+    margin-left: 15px;
+}
+
+.wrapper .sidebar ul li a .but {
+    width: 25px;
+    color: #B1B1B1;
+}
+
+.wrapper .sidebar ul li:hover {
+    background: #1814F3;
+}
+
+.wrapper .sidebar ul li:hover {
+    color: #ca1414;
+}
+
+.wrapper .main_content {
+    width:86.7%;
+    float: left;
+    height: 100px;
+    align-items: center;
+    justify-content: center;
+    margin-left: 0.3%;
+}
+
+.wrapper .main_content .header {
+    width: 100%;
+    padding: 20px;
+    background: #FFF;
+    color: #343C6A;
+    font-family: Inter;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    height: 100px;
+}
+
+.wrapper .main_content .header h2 {
+    padding: 20px;
+    background: #FFF;
+    color: #343C6A;
+    font-family: Inter;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.wrapper .main_content .header p {
+    padding: 20px;
+    background: #FFF;
+    color: #343C6A;
+    font-family: Inter;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.wrapper .main_content .box1 {
+    margin-top: 20px;
+    margin-left: 51px;
+    color: #1814F3;
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.header {
+    display: flex;  
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.header .search {
+    margin-right: 20px;
+}
+
+.header p {
+    margin: 0;
+    margin-left: 20px;
+}
+
+
 .rectangle-5 {
-    width: 1110px;
-    height: 660px;
-    flex-shrink: 0;
-    margin-top: 20px; /* Space above the rectangle */
-    padding: 29px; /* Padding inside the rectangle */
+    width: 75%;
+    margin: 20px auto;
+    padding: 20px;
     border-radius: 20px;
     background: #FFF;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-    display: flex; /* Use flexbox for layout */
-    flex-direction: column; /* Stack children vertically */
-    position: relative; /* Allow absolute positioning of children */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
 }
 
 .top {
-    display: flex; /* Use flexbox for layout */
+    width: 100%;
     align-items: center; /* Align items vertically centered */
-    margin-bottom: 10px; /* Space below the title section */
+
 }
 
 .top span {
@@ -62,8 +185,7 @@ body {
 
 .return {
     display: flex;
-    align-items: center; /* Center the icon and text vertically */
-    justify-content: flex-end; /* Align items to the start */
+    justify-content:end; /* Align items to the start */
     width: 67.463px;
     height: 30px;
     flex-shrink: 0;
@@ -76,65 +198,16 @@ body {
     background: transparent; /* No background color */
     border: none; /* No border */
     cursor: pointer; /* Pointer cursor on hover */
-    margin-left: 670px; /* Optional: Add some margin to the left of the button */
+float: right;
 }
 
 .arrow-back {
-    background: url(Icons/arrow_back.png) no-repeat center; /* Set the background image */
+    background: url(Icons\arrow_back.png) no-repeat center; /* Set the background image */
     background-size: contain; /* Ensure the image fits within the element */
     width: 33px;
     height: 33px;
     flex-shrink: 0;
     margin-right: 4.65px; /* Space between the icon and text */
-}
-
-.button-container {
-    display: flex; /* Use flexbox to align buttons horizontally */
-    justify-content: flex-end; /* Align buttons to the right */
-    position: absolute; /* Position absolutely within the rectangle */
-    bottom: 35px; /* Margin bottom */
-    right: 29px; /* Margin right */
-}
-
-.delete-button {
-    width: 130px;
-    height: 40px;
-    flex-shrink: 0;
-    border-radius: 9px;
-    background: #FE5C73;
-    color: #FFF;
-    text-align: center;
-    font-family: Inter;
-    font-size: 15px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
-    margin-right: 19px; /* Space between buttons */
-    border: none; /* Remove border */
-}
-
-.post-button {
-    width: 130px;
-    height: 40px;
-    flex-shrink: 0;
-    border-radius: 9px;
-    background: #1814F3;
-    color: #FFF;
-    text-align: center;
-    font-family: Inter;
-    font-size: 15px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
-    border: none; /* Remove border */
-}
-
-.post-button:hover {
-    background-color: #0056b3; /* Darker shade on hover for Send button */
-}
-
-.delete-button:hover {
-    background-color: #f70777; /* Darker shade on hover for Send button */
 }
 
 .subtitle{
@@ -157,7 +230,7 @@ body {
     border-radius: 15px; /* Rounded corners */
     border: 1px solid #DFEAF2; /* Border style */
     background: #FFF; /* Background color */
-    color: #000000; /* Text color */
+    color: #718EBF; /* Text color */
     font-family: Inter; /* Font family */
     font-size: 12px; /* Font size */
     font-style: normal; /* Font style */
@@ -219,3 +292,47 @@ input[type="url"].group-input {
     margin-bottom: 5px; /* Space below the label */
 }
 
+
+
+.delete-button {
+    width: 130px;
+    height: 40px;
+    flex-shrink: 0;
+    border-radius: 9px;
+    background: #FE5C73;
+    color: #FFF;
+    text-align: center;
+    font-family: Inter;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    margin-right: 19px; /* Space between buttons */
+    border: none; /* Remove border */
+    float: right;
+}
+
+.post-button {
+    width: 130px;
+    height: 40px;
+    flex-shrink: 0;
+    border-radius: 9px;
+    background: #1814F3;
+    color: #FFF;
+    text-align: center;
+    font-family: Inter;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    border: none; /* Remove border */
+    float: right;
+}
+
+.post-button:hover {
+    background-color: #0056b3; /* Darker shade on hover for Send button */
+}
+
+.delete-button:hover {
+    background-color: #f70777; /* Darker shade on hover for Send button */
+}

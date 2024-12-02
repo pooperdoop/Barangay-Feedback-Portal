@@ -45,8 +45,7 @@ if(isset($_POST['delete'])){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Barangay Feedback Portal - Settings</title>
-    <link rel="stylesheet" href="css/viewuseraccadmin.css">
-    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/viewuseraccadmin.css ?v=<?php echo time(); ?>">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap" rel="stylesheet">
 </head>
 <body>

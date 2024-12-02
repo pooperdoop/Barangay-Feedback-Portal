@@ -39,10 +39,7 @@ elseif(isset($_POST['cld'])){
 <html lang="en">
 <head>
     <title>Barangay Feedback Portal</title>
-    <link rel="stylesheet" href="css/home.css"/>
-    <link rel="stylesheet" href="css/addfeedbackuser.css"/>
-    <link rel="stylesheet" href="css/settings.css"/>
-    <link rel="stylesheet" href="css/allFeedback.css"/>
+    <link rel="stylesheet" href="css/allFeedback.css?v=<?php echo time(); ?>"/>
 
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -74,9 +71,6 @@ if(!checkUser($con)){echo'
                     <h2>Feedbacks</h2>
                 </div>
                 <div>
-                    <input class="search" type="text" placeholder="Search for something">
-                </div>
-                <div>
                     <p>Welcome, <?php echo $user_data['username'] ?></p>
                 </div>
             </div>
@@ -104,7 +98,7 @@ if(!checkUser($con)){echo'
             </div>
             </form>
 
-            <section class="feedback-section" style="margin-left: 20px;">
+            <section class="feedback-section">
 
             <form action="viewticketadmin.php" method="post">
                 <table>

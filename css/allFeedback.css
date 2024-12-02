@@ -18,16 +18,17 @@ body {
 }
 
 .wrapper {
-    display: flex;
-    position: relative;
+    min-width: 100%;
+    min-height: 100vh;
 }
 
 .wrapper .sidebar {
-    position: fixed;
-    width: 249px;
-    height: 100%;
+    position: relative;
+    width:13%;
+    height: 100vh;
     background: #FFF;
     padding: 30px 0;
+    float: left;
 }
 
 .wrapper .sidebar h2 {
@@ -71,12 +72,16 @@ body {
 }
 
 .wrapper .main_content {
-    width: 100%;
+    width:86.7%;
+    float: left;
     height: 100px;
-    margin-left: 251px;
+    align-items: center;
+    justify-content: center;
+    margin-left: 0.3%;
 }
 
 .wrapper .main_content .header {
+    width: 100%;
     padding: 20px;
     background: #FFF;
     color: #343C6A;
@@ -181,11 +186,7 @@ body {
 }
 
 .buttons button {
-    margin: 0 10px;
-}
-
-.buttons button {
-    margin-right: 10 px;
+    margin-right: 5 px;
 }
 
 .buttons {
@@ -236,6 +237,7 @@ table {
     border-radius: 25px;
     overflow: hidden;
     background: white;
+    align-self: center;
 }
 
 th, td {
@@ -303,3 +305,63 @@ tr:hover {
     background-color: #74b2f3;
 }
 
+.edit-btn {
+    width: 75px;
+    height: 35px;
+    flex-shrink: 0;
+    border-radius: 50px;
+    border: 1px solid #123288;
+    background: #1814F3;
+    color: #FFF;
+    font-family: 'Inter', sans-serif; /* Make sure to include the font-family */
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    cursor: pointer; /* Change cursor to pointer for better UX */
+    margin-left: 16px;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table th {
+    width: 500px; /* First column width */
+    height: 52px; /* Height for the first row */
+    background-color: transparent; /* Optional: set a background color */
+    color: #718EBF; /* Optional: set text color */
+    font-family: Inter;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 20px;
+}
+
+.table th:nth-child(2),
+.table th:nth-child(3) {
+    width: 175px; /* Width for the second and third columns */
+}
+
+.table th:nth-child(4) {
+    width: 170px; /* Width for the fourth column */
+}
+
+.table td {
+    height: 66px; /* Height for the rest of the rows */
+    padding: 15px; /* Adjust padding to 10px for a more compact look */
+    text-align: left;
+    color: #232323; /* Optional: set text color */
+    font-family: Inter;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.table tr:hover {
+    background-color: #f1f1f1; /* Optional: hover effect */
+}
+.feedback-section{
+   margin: auto;
+    width: 95%;
+
+}

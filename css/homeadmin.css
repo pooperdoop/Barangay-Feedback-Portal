@@ -18,16 +18,17 @@ body {
 }
 
 .wrapper {
-    display: flex;
-    position: relative;
+    min-width: 100%;
+    min-height: 100vh;
 }
 
 .wrapper .sidebar {
-    position: fixed;
-    width: 249px;
-    height: 100%;
+    position: relative;
+    width:13%;
+    height: 100vh;
     background: #FFF;
     padding: 30px 0;
+    float: left;
 }
 
 .wrapper .sidebar h2 {
@@ -71,12 +72,16 @@ body {
 }
 
 .wrapper .main_content {
-    width: 100%;
+    width:86.7%;
+    float: left;
     height: 100px;
-    margin-left: 251px;
+    align-items: center;
+    justify-content: center;
+    margin-left: 0.3%;
 }
 
 .wrapper .main_content .header {
+    width: 100%;
     padding: 20px;
     background: #FFF;
     color: #343C6A;
@@ -232,6 +237,7 @@ table {
     border-radius: 25px;
     overflow: hidden;
     background: white;
+    align-self: center;
 }
 
 th, td {
@@ -353,4 +359,9 @@ tr:hover {
 
 .table tr:hover {
     background-color: #f1f1f1; /* Optional: hover effect */
+}
+.feedback-section{
+   margin: auto;
+    width: 95%;
+
 }

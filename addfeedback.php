@@ -49,7 +49,8 @@ if (file_exists($_FILES['feedback_file']['tmp_name']) || is_uploaded_file($_FILE
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Barangay Feedback Porta - Enter Feedback</title>
-    <link rel="stylesheet" href="css/addfeedbackuser.css"/>
+    <link rel="stylesheet" href="css/addfeedbackuser.css?v=<?php echo time(); ?>"/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap" rel="stylesheet">
 
 </head>
 <body>
@@ -67,10 +68,11 @@ if (file_exists($_FILES['feedback_file']['tmp_name']) || is_uploaded_file($_FILE
 
         <div class="main_content">
 
-            <div class="header">
-                <div class="header-content">
+        <div class="header">
+                <div>
                     <h2>Feedbacks</h2>
-                    <input class="search" type="text" placeholder="Search for something">
+                </div>
+                <div>
                     <p>Welcome, <?php echo $user_data['username'] ?></p>
                 </div>
             </div>
@@ -81,12 +83,13 @@ if (file_exists($_FILES['feedback_file']['tmp_name']) || is_uploaded_file($_FILE
         <div class="flex-row-c" style="margin-top: 7px;">
             <div class="top">
                 <h1>Write your feedbacks here</h1>
-                
-                <div class="divider"></div>
-                
-                <span>Message</span>
+
             </div>
         </div>
+                        
+        <hr>
+                
+                <span class="msg_span">Message</span>
  <form action="addfeedback.php" method="post"  enctype="multipart/form-data">
         <div class="flex-row-c" style="margin-top: 5px;">
             <div class="title-container">

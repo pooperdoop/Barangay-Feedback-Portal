@@ -18,22 +18,20 @@ body {
 }
 
 .rectangle-5 {
-    width: 1110px;
-    height: auto;
-    flex-shrink: 0;
-    margin-top: 20px; /* Space above the rectangle */
-    padding: 20px; /* Padding inside the rectangle */
+    width: 95%;
+    margin: 20px auto;
+    padding: 20px;
     border-radius: 20px;
     background: #FFF;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-    display: flex; /* Use flexbox for layout */
-    flex-direction: column; /* Stack children vertically */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
 }
 
 .top {
-    display: flex; /* Use flexbox for layout */
+    width: 100%;
     align-items: center; /* Align items vertically centered */
-    margin-bottom: 10px; /* Space below the title section */
+
 }
 
 .top span {
@@ -61,8 +59,7 @@ body {
 
 .return {
     display: flex;
-    align-items: center; /* Center the icon and text vertically */
-    justify-content: flex-end; /* Align items to the start */
+    justify-content:end; /* Align items to the start */
     width: 67.463px;
     height: 30px;
     flex-shrink: 0;
@@ -75,11 +72,11 @@ body {
     background: transparent; /* No background color */
     border: none; /* No border */
     cursor: pointer; /* Pointer cursor on hover */
-    margin-left: 650px; /* Optional: Add some margin to the left of the button */
+float: right;
 }
 
 .arrow-back {
-    background: url(Icons/arrow_back.png) no-repeat center; /* Set the background image */
+    background: url(Icons\arrow_back.png) no-repeat center; /* Set the background image */
     background-size: contain; /* Ensure the image fits within the element */
     width: 33px;
     height: 33px;
@@ -88,7 +85,7 @@ body {
 }
 
 .centerdiv {
-    padding: 15px 5px 0 5px;
+    padding: 15px 30px 40px 30px;
 }
 
 .centerdiv p {
@@ -110,10 +107,8 @@ body {
 }
 
 .rectangle-f {
-    display: flex; /* Use flexbox for layout */
-    justify-content: space-between; /* Space between items */
-    align-items: center; /* Center items vertically */
-    margin-top: 20px; /* Optional: Space above the rectangle */
+    align-items: center; /* Center items vertically *//* Optional: Space above the rectangle */
+    width: 100%;
 }
 
 .status {
@@ -135,22 +130,7 @@ body {
     line-height: normal;
 }
 
-.reply-feedback-button {
-    width: 130px; /* Set width */
-    height: 40px; /* Set height */
-    flex-shrink: 0; /* Prevent the button from shrinking */
-    border-radius: 9px; /* Rounded corners */
-    background: #16DBAA;
-    color: white; /* Text color */
-    border: none; /* No border */
-    cursor: pointer; /* Pointer cursor on hover */
-    font-size: 14px; /* Font size */
-    transition: background-color 0.3s; /* Transition for hover effect */
-}
 
-.reply-feedback-button:hover {
-    background-color: #148d6f; /* Darker shade on hover for Send button */
-}
 
 .complaint-type-container {
     flex: 1; /* Allow this container to grow */
@@ -158,8 +138,8 @@ body {
 }
 
 .save-feedback-button {
-    margin-right: 0px; /* Space between Attach Files and Send button */
-    margin-left: 500px;
+    margin-left: 19px;
+    float: right;
 }
 
 .save-feedback-button {
@@ -167,7 +147,7 @@ body {
     height: 40px; /* Set height */
     flex-shrink: 0; /* Prevent the button from shrinking */
     border-radius: 9px; /* Rounded corners */
-    background: #FE5C73;
+    background: #16DBAA; /* Background color for Attach Files button */
     color: white; /* Text color */
     border: none; /* No border */
     cursor: pointer; /* Pointer cursor on hover */
@@ -179,9 +159,219 @@ body {
     transition: background-color 0.3s; /* Transition for hover effect */
 }
 
-.save-feedback-button:hover {
-    background-color: #ff4c4c; /* Darker shade on hover for Attach Files button */
+.save-feedback-button {
+    background-color: #14b59f; /* Darker shade on hover for Attach Files button */
 }
+.reply-feedback-button {
+    width: 130px; /* Set width */
+    height: 40px; /* Set height */
+    flex-shrink: 0; /* Prevent the button from shrinking */
+    border-radius: 9px; /* Rounded corners */
+    background:  #FE5C73; /* Background color for Send button */
+    color: white; /* Text color */
+    border: none; /* No border */
+    cursor: pointer; /* Pointer cursor on hover */
+    font-size: 14px; /* Font size */
+    transition: background-color 0.3s; /* Transition for hover effect */
+    float: right;
+}
+.dropdown-container {
+    position: relative; /* Position relative for absolute positioning of the icon */
+    width: 256px; /* Same width as the dropdown */
+}
+
+.status-dropdown {
+    width: 100%; /* Full width of the container */
+    height: 40px; /* Set height */
+    flex-shrink: 0; /* Prevent dropdown from shrinking */
+    border-radius: 15px; /* Rounded corners */
+    border: 1px solid #DFEAF2; /* Border color and style */
+    background: #FFF; /* Background color */
+    color: #718EBF; /* Text color */
+    font-family: 'Inter', sans-serif; /* Font family */
+    font-size: 14px; /* Font size */
+    font-weight: 400; /* Font weight */
+    padding: 0 40px 0 10px; /* Padding for text positioning, extra space for the icon */
+    cursor: pointer; /* Pointer cursor on hover */  
+    -webkit-appearance: listbox !important;
+}
+
+.status-dropdown:focus {
+    outline: none; /* Remove outline on focus */
+    border-color: #1814F3; /* Change border color on focus */
+}
+
+.status-dropdown:hover {
+    background-color: #F0F4FF; /* Light background on hover */
+}
+
+/* Icon styles */
+.dropdown-container::after {
+    content: ""; /* Empty content for the icon */
+    background: url('Icons/droplist.png') no-repeat center; /* Path to your icon */
+    background-size: contain; /* Ensure the icon fits */
+    position: absolute; /* Position it absolutely */
+    right: 10px; /* Position from the right */
+    top: 50%; /* Center vertically */
+    transform: translateY(-50%); /* Adjust for centering */
+    width: 15px; /* Set width of the icon */
+    height: 15px; /* Set height of the icon */
+    pointer-events: none; /* Prevent interaction with the icon */
+}
+
+.wrapper {
+    min-width: 100%;
+    min-height: 100vh;
+}
+
+.wrapper .sidebar {
+    position: relative;
+    width:13%;
+    height: 100vh;
+    background: #FFF;
+    padding: 30px 0;
+    float: left;
+}
+
+.wrapper .sidebar h2 {
+    color: #1814F3;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.wrapper .sidebar brgy {
+    width: 30px;
+    height: 30px;
+    display: block;
+}
+
+.wrapper .sidebar ul li {
+    padding: 15px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    border-top: 1px solid rgba(225, 225, 225, 0.05);
+}
+
+.wrapper .sidebar ul li a {
+    color: #B1B1B1;
+    display: inline-block;
+    position: absolute;
+    margin-top: 5px;
+    margin-left: 15px;
+}
+
+.wrapper .sidebar ul li a .but {
+    width: 25px;
+    color: #B1B1B1;
+}
+
+.wrapper .sidebar ul li:hover {
+    background: #1814F3;
+}
+
+.wrapper .sidebar ul li:hover {
+    color: #ca1414;
+}
+
+.wrapper .main_content {
+    width:86.7%;
+    float: left;
+    height: 100px;
+    align-items: center;
+    justify-content: center;
+    margin-left: 0.3%;
+}
+
+.wrapper .main_content .header {
+    width: 100%;
+    padding: 20px;
+    background: #FFF;
+    color: #343C6A;
+    font-family: Inter;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    height: 100px;
+}
+
+.wrapper .main_content .header h2 {
+    padding: 20px;
+    background: #FFF;
+    color: #343C6A;
+    font-family: Inter;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.wrapper .main_content .header p {
+    padding: 20px;
+    background: #FFF;
+    color: #343C6A;
+    font-family: Inter;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.wrapper .main_content .box1 {
+    margin-top: 20px;
+    margin-left: 51px;
+    color: #1814F3;
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.wrapper .main_content .header input[type=text] {
+    float: right;
+    padding: 6px;
+    margin-top: 10px;
+    margin-right: 322px;
+    border: 10px;
+    font-size: 17px;
+    border-radius: 40px;
+    width: 255px;
+    height: 50px;
+    flex-shrink: 0;
+    border: none;
+    background: #F5F7FA;
+}
+
+.search {
+    color: #8BA3CB;
+    font-family: Inter;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-left: 5px;
+}
+
+.header {
+    display: flex;  
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.header .search {
+    margin-right: 20px;
+}
+
+.header p {
+    margin: 0;
+    margin-left: 20px;
+}
+
+.header input[type=text] {
+    margin-right: 20px;
+}   
 
 .readonly-input {
     width: 256px;

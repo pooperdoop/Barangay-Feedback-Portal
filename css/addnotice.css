@@ -17,23 +17,150 @@ body {
     background-color: #F5F7FA;
 }
 
+.wrapper {
+    min-width: 100%;
+    min-height: 100vh;
+}
+
+.wrapper .sidebar {
+    position: relative;
+    width:13%;
+    height: 100vh;
+    background: #FFF;
+    padding: 30px 0;
+    float: left;
+}
+
+.wrapper .sidebar h2 {
+    color: #1814F3;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.wrapper .sidebar brgy {
+    width: 30px;
+    height: 30px;
+    display: block;
+}
+
+.wrapper .sidebar ul li {
+    padding: 15px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    border-top: 1px solid rgba(225, 225, 225, 0.05);
+}
+
+.wrapper .sidebar ul li a {
+    color: #B1B1B1;
+    display: inline-block;
+    position: absolute;
+    margin-top: 5px;
+    margin-left: 15px;
+}
+
+.wrapper .sidebar ul li a .but {
+    width: 25px;
+    color: #B1B1B1;
+}
+
+.wrapper .sidebar ul li:hover {
+    background: #1814F3;
+}
+
+.wrapper .sidebar ul li:hover {
+    color: #ca1414;
+}
+
+.wrapper .main_content {
+    width:86.7%;
+    float: left;
+    height: 100px;
+    align-items: center;
+    justify-content: center;
+    margin-left: 0.3%;
+}
+
+.wrapper .main_content .header {
+    width: 100%;
+    padding: 20px;
+    background: #FFF;
+    color: #343C6A;
+    font-family: Inter;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    height: 100px;
+}
+
+.wrapper .main_content .header h2 {
+    padding: 20px;
+    background: #FFF;
+    color: #343C6A;
+    font-family: Inter;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.wrapper .main_content .header p {
+    padding: 20px;
+    background: #FFF;
+    color: #343C6A;
+    font-family: Inter;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.wrapper .main_content .box1 {
+    margin-top: 20px;
+    margin-left: 51px;
+    color: #1814F3;
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.header {
+    display: flex;  
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.header .search {
+    margin-right: 20px;
+}
+
+.header p {
+    margin: 0;
+    margin-left: 20px;
+}
+
+.header input[type=text] {
+    margin-right: 20px;
+}
+
 .rectangle-5 {
-    width: 1110px;
-    height: 660px;
-    flex-shrink: 0;
-    margin-top: 20px; /* Space above the rectangle */
-    padding: 29px; /* Padding inside the rectangle */
+    width: 75%;
+    margin: 20px auto;
+    padding: 20px;
     border-radius: 20px;
     background: #FFF;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-    display: flex; /* Use flexbox for layout */
-    flex-direction: column; /* Stack children vertically */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
 }
 
 .top {
-    display: flex; /* Use flexbox for layout */
+    width: 100%;
     align-items: center; /* Align items vertically centered */
-    margin-bottom: 10px; /* Space below the title section */
+
 }
 
 .top span {
@@ -61,8 +188,7 @@ body {
 
 .return {
     display: flex;
-    align-items: center; /* Center the icon and text vertically */
-    justify-content: flex-end; /* Align items to the start */
+    justify-content:end; /* Align items to the start */
     width: 67.463px;
     height: 30px;
     flex-shrink: 0;
@@ -75,11 +201,11 @@ body {
     background: transparent; /* No background color */
     border: none; /* No border */
     cursor: pointer; /* Pointer cursor on hover */
-    margin-left: 670px; /* Optional: Add some margin to the left of the button */
+float: right;
 }
 
 .arrow-back {
-    background: url(Icons/arrow_back.png) no-repeat center; /* Set the background image */
+    background: url(Icons\arrow_back.png) no-repeat center; /* Set the background image */
     background-size: contain; /* Ensure the image fits within the element */
     width: 33px;
     height: 33px;
@@ -102,12 +228,11 @@ body {
     font-weight: 500; /* Font weight */
     line-height: normal; /* Line height */
     transition: background-color 0.3s; /* Transition for hover effect */
-    margin-top: 315px;
-    margin-left: 921px;
     text-align: center; /* Center the text inside the button */
     display: flex; /* Use flexbox for layout */
     justify-content: center; /* Center the text horizontally */
     align-items: center; /* Center the text vertically */
+    float: right    ;
 }
 
 .post-button:hover {

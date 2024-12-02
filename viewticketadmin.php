@@ -79,7 +79,6 @@ if(isset($_POST['save_btn'])){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Barangay Feedback Portal - Settings</title>
     <link rel="stylesheet" href="css/viewticketadmin.css?v=<?php echo time(); ?>">
-    <link rel="stylesheet" href="css/home.css?v=<?php echo time(); ?>">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -105,15 +104,12 @@ if(isset($_POST['save_btn'])){
                     <h2>Feedbacks</h2>
                 </div>
                 <div>
-                    <input class="search" type="text" placeholder="Search for something">
-                </div>
-                <div>
                     <p>Welcome, <?php echo $user_data['username'] ?></p>
                 </div>
             </div>
             
             <div class="rectangle-5">
-                <div class="flex-row-c" style="margin-top: 7px;">
+                <div class="flex-row-c" style="margin-top: 7px; margin-bottom:7px">
                     <div class="top">
                         <span class="title"><?php echo "#".$ticketID." - ".$title;   ?></span>
                         <button onclick="ReturnPage()"  class="return">
@@ -122,7 +118,7 @@ if(isset($_POST['save_btn'])){
                         </button>
                     </div>
                 </div>
-                <div class="divider"></div>
+                <hr>
                 <div class='centerdiv'>
             <?php 
 
@@ -185,17 +181,12 @@ if(isset($_POST['save_btn'])){
                             if(checkUser($con)){
                             }
                             else{
-                                echo ' <button name="save_btn" class="save-feedback-button">Save Changes</button>';
+
+                                echo '<button type="button" onclick="ReplyPage()" class="reply-feedback-button">Reply</button>';
+                                echo ' <button  name="save_btn" class="save-feedback-button">Save Changes</button>';
                             }
                             ?>
                     </form>
-                        <?php 
-                            if(checkUser($con)){
-                            }
-                            else{
-                                echo '<button onclick="ReplyPage()" class="reply-feedback-button">Reply</button>';
-                            }
-                            ?>
                     </div>
 
                 </div>

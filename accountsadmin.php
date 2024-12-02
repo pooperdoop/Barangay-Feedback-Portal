@@ -36,8 +36,7 @@ if(isset($_POST['users'])){
 <html lang="en">
 <head>
     <title>Barangay Feedback Portal</title>
-    <link rel="stylesheet" href="css/home.css"/>
-    <link rel="stylesheet" href="css/accountsadmin.css"/>
+    <link rel="stylesheet" href="css/accountsadmin.css?v=<?php echo time(); ?>"/>
 
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -81,7 +80,7 @@ if(isset($_POST['users'])){
                 </div>
                 </form>
                 
-                <section class="feedback-section" style="margin-left: 20px;">
+                <section class="feedback-section" >
                     <form action="accountsadmin.php" method="post">
                     <table>
                         <thead>
