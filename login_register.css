@@ -167,8 +167,18 @@
     border-radius:20px ;
     z-index: 14;
   }
-  .login_btn {
 
+  .username_input,
+  .password_input {
+    padding-left: 20px; /* Adjust the value as needed */
+    padding-top: 20px; /* Optional: Add top padding if desired */
+    padding-bottom: 20px; /* Optional: Add bottom padding if desired */
+    padding-right: 20px; /* Optional: Add right padding if desired */
+    box-sizing: border-box; /* Ensure padding is included in the total width/height */
+  }
+
+
+  .login_btn {
     position: relative;
     width: 129.111px;
     height: 38.6px;
@@ -222,8 +232,9 @@
     height: 28.143px;
     top: 24.625px;
     left: 25.59px;
-    z-index: 31 ;
+    z-index: 31;
   }
+  
   .icon {
     position: relative;
     width: 18.611px;
