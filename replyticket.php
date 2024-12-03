@@ -54,7 +54,7 @@ if(!checkUser($con)){echo'
             }
 ?>
                 <li><img src="Icons/settings1.png" alt="settings"><a href="profileeditadmin.php "><i class="but settings"></i>Settings</a></li>
-                <li><img src="Icons/logout1.png" alt="logout"><a href="logout.php"><i class="but logout">Log Out</a></li>
+                <li><img src="Icons/logout1.png" alt="logout"><a><i class="but logout">Log Out</a></li>
            
 
             </ul>

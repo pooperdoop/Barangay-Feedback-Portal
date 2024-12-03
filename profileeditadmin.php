@@ -110,7 +110,7 @@ if(!checkUser($con)){echo'
             }
 ?>
                 <li id="settingsli" class="settingsli"><img src="Icons/settingssolid1.png" id="settings-img" alt="settings"><a style="color:#1814F3;" href="profileeditadmin.php "><i class="but settings"></i>Settings</a></li>
-                <li id ="logoutli" class ="logoutli"><img src="Icons/logout1.png" id="logout-img" alt="logout"><a href="logout.php"><i class="but logout">Log Out</a></li>
+                <li id ="logoutli" class ="logoutli"><img src="Icons/logout1.png" id="logout-img" alt="logout"><a><i class="but logout">Log Out</a></li>
            
 
             </ul>

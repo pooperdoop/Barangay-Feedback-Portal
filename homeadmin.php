@@ -56,7 +56,7 @@ if(!checkUser($con)){echo'
             }
 ?>
                 <li id="settingsli" class="settingsli"><img src="Icons/settings1.png" id="settings-img" alt="settings"><a href="profileeditadmin.php "><i class="but settings"></i>Settings</a></li>
-                <li id ="logoutli" class ="logoutli"><img src="Icons/logout1.png" id="logout-img" alt="logout"><a href="logout.php"><i class="but logout">Log Out</a></li>
+                <li id ="logoutli" class ="logoutli"><img src="Icons/logout1.png" id="logout-img" alt="logout"><a><i class="but logout">Log Out</a></li>
            
 
             </ul>
@@ -87,9 +87,9 @@ if(!checkUser($con)){echo'
                 <table class="table">
                     <thead>
                         <tr>
-                            <th>Title</th>
-                            <th>Date</th>
-                            <th>User</th>
+                            <th class="thtitle">Title</th>
+                            <th class ="thdate">Date</th>
+                            <th class = "thuser">User</th>
                             <th></th>
                         </tr>
                     </thead>
@@ -101,9 +101,9 @@ if(!checkUser($con)){echo'
                     while($row = mysqli_fetch_assoc($result)){
 
                         echo'<tr>
-                        <td>'.$row["title"].'</td>
-                           <td>'.$row["date"].'</td>
-                            <td>'.$row["user"].'</td>
+                        <td class="thtitle">'.$row["title"].'</td>
+                           <td class ="thdate">'.$row["date"].'</td>
+                            <td class = "thuser">'.$row["user"].'</td>
 
                              <td><form action = "homeadmin.php" method = "post" style = "display: inline-block">
                              <button value ='.$row["noticeID"].'  name ="view_btn" id="view_btn" class="view-btn">View</button>

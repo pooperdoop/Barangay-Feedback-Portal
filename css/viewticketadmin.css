@@ -262,7 +262,7 @@ float: right;
 .wrapper .sidebar ul li {
     padding: 15px;
     width: 100%;
-    border-left: 10px solid rgba(0, 0, 0, 0.05); ;
+    border-left: 10px solid rgba(255, 255, 255, 0.05); ;
     
     border-radius: 9px;
     transition-duration: 0.5s;
@@ -285,9 +285,8 @@ float: right;
 .wrapper .sidebar ul li:hover {
     border-color: #1814F3;
 }
-.wrapper .sidebar ul li:hover {
-    color: #ca1414;
-}
+.wrapper .sidebar ul li:hover a{
+    color: #1814F3;}
 
 .wrapper .main_content {
     width:86.7%;
@@ -387,4 +386,219 @@ float: right;
 
 .header input[type=text] {
     margin-right: 20px;
+}
+
+
+@media (max-width: 1324px) {
+    a{
+       font-size: 0px;
+    }
+    .sidebar {
+        width: 75px; /* Adjusted sidebar width */
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Center content in the sidebar */
+    }
+
+    .sidebar-header {
+        display: flex;
+        flex-direction: column;
+        transform: translate(8px, -25px);
+        padding: 10px 0;
+        width: 100%;
+    }
+
+    .sidebar h2 {
+        display: none; /* Hide the <h2> text in the sidebar header */
+    }
+
+
+    .sidebar ul {
+        padding: 0;
+        list-style: none;
+        margin: 0;
+        display: flex;
+        flex-direction: column; /* Ensure the list stays vertically aligned */
+        align-items: center; /* Center the list items horizontally */
+        width: 100%;
+        flex-grow: 1; /* Ensure the list takes up available space */
+    }
+
+    .sidebar ul li {
+        display: flex;
+        justify-content: center; /* Center the icons */
+        transform: translate(-5px, 0px);
+        margin-top: 30px;
+        align-items: center;
+        height: 40px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        width: 100%;
+    }
+
+    .sidebar ul li label {
+        color: transparent; /* Hide text but keep the icon */
+        font-size: 0; /* Remove text */
+        margin-left: 10px;
+    }
+
+    .sidebar ul li img {
+        width: 30px; /* Adjust icon size */
+        height: 30px;
+        transition: transform 0.2s ease; /* Smooth transition for scaling */
+    }
+
+    /* Hover effect: Scale up the icon without changing color */
+    .sidebar ul li:hover img {
+        transform: scale(1.2); /* Scale up icon on hover */
+    }
+
+    /* Active effect when clicking the list item: Scale up the icon without changing color */
+    .sidebar ul li:active img {
+        transform: scale(1.1); /* Slightly reduce scale while clicking */
+    }
+
+    .main_content {
+        margin-left: 75px; /* Adjust the main content's margin */
+    }
+
+    .header {
+        height: 80px; /* Adjust header height */
+        padding: 10px 20px;
+    }
+
+    .header h2 {
+        font-size: 18px;
+    }
+
+    .header p {
+        font-size: 14px;
+        margin-left: auto;
+        margin-right: 10px;
+    }
+
+    .header img {
+        width: 30px; /* Adjust profile icon size */
+        height: 30px;
+    }
+}
+
+/* For screens smaller than 768px */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 50px; /* Adjusted sidebar width */
+    }
+
+    .sidebar-header {
+        display: flex;
+        flex-direction: column;
+        transform: translate(0px, -25px);
+        padding: 10px 0;
+        width: 100%;
+    }
+
+    .sidebar h2 {
+        display: none; /* Hide the <h2> text in the sidebar header */
+    }
+
+    .sidebar-icon {
+        width: 50px; /* Adjust icon size for the smallest sidebar */
+        height: 40px;
+        margin: 0;
+    }
+
+    .sidebar ul {
+        padding: 0;
+        list-style: none;
+        margin: 0;
+        display: flex;
+        flex-direction: column; /* Keep items in a vertical column */
+        align-items: center;
+        width: 100%;
+        flex-grow: 1; /* Ensure the list fills the sidebar */
+    }
+
+    .sidebar ul li {
+        display: flex;
+        justify-content: center; /* Center the icons */
+        align-items: center;
+        height: 30px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        width: 100%;
+    }
+
+    .sidebar ul li a {
+        display: none;
+        color: red;
+
+    }
+
+    .sidebar ul li label {
+        color: transparent; /* Hide text but keep the icon */
+        font-size: 0; /* Remove text */
+        margin-left: -12px;
+    }
+
+    .sidebar ul li img {
+        width: 25px; /* Adjust icon size */
+        height: 25px;
+        transition: transform 0.2s ease; /* Smooth transition for scaling */
+    }
+
+    /* Hover effect: Scale up the icon without changing color */
+    .sidebar ul li:hover img {
+        transform: scale(1.2); /* Scale up icon on hover */
+    }
+
+    /* Active effect when clicking the list item: Scale up the icon without changing color */
+    .sidebar ul li:active img {
+        transform: scale(1.1); /* Slightly reduce scale while clicking */
+    }
+
+    .main_content {
+        margin-left: 50px; /* Adjust the main content's margin */
+    }
+
+    .header {
+        height: 55px; /* Adjust header height */
+        padding: 10px 20px;
+    }
+
+    .header h2 {
+        font-size: 16px;
+    }
+
+    .header p {
+        font-size: 12px;
+        margin-left: auto;
+        margin-right: 10px;
+    }
+
+    .header img {
+        width: 25px; /* Adjust profile icon size */
+        height: 25px;
+    }
+}
+
+/* Prevent excessive shrinking */
+.sidebar {
+    min-width: 50px; /* Prevent the sidebar from shrinking below 50px */
+}
+
+.main_content {
+    min-width: 300px; /* Ensure main content doesn't shrink excessively */
+}
+.sidebar ul li img {
+    width: 30px; /* Adjust icon size */
+    height: 30px;
+    transition: transform 0.2s ease; /* Smooth transition for scaling */
+}
+.sidebar ul li:hover img {
+    transform: scale(1.2); /* Scale up icon on hover */
+}
+
+/* Active effect when clicking the list item: Scale up the icon without changing color */
+.sidebar ul li:active img {
+    transform: scale(1.1); /* Slightly reduce scale while clicking */
 }
