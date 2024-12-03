@@ -198,7 +198,6 @@ float: right;
     font-weight: 400; /* Font weight */
     padding: 0 40px 0 10px; /* Padding for text positioning, extra space for the icon */
     cursor: pointer; /* Pointer cursor on hover */  
-    -webkit-appearance: listbox !important;
 }
 
 .status-dropdown:focus {
@@ -210,19 +209,6 @@ float: right;
     background-color: #F0F4FF; /* Light background on hover */
 }
 
-/* Icon styles */
-.dropdown-container::after {
-    content: ""; /* Empty content for the icon */
-    background: url('Icons/droplist.png') no-repeat center; /* Path to your icon */
-    background-size: contain; /* Ensure the icon fits */
-    position: absolute; /* Position it absolutely */
-    right: 10px; /* Position from the right */
-    top: 50%; /* Center vertically */
-    transform: translateY(-50%); /* Adjust for centering */
-    width: 15px; /* Set width of the icon */
-    height: 15px; /* Set height of the icon */
-    pointer-events: none; /* Prevent interaction with the icon */
-}
 
 .wrapper {
     min-width: 100%;

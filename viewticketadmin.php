@@ -133,7 +133,7 @@ if(!checkUser($con)){echo'
 
                 if(checkIfReply($con, $Isfeedback)){
                     echo "
-                        <p><strong>Ticket No:</strong". $ticketID  ."</p>
+                        <p><strong>Ticket No:</strong>". $ticketID  ."</p>
                         <p><strong>Date:</strong>".  $date  ."</p>
                         <br>
                         <p><strong>Name:</strong>" . $fullname ." </p>
