@@ -37,21 +37,28 @@ if(isset($_POST['sub_btn'])){
 
 </head>
 <body>
-
+  
 <div class="wrapper">
+<div class= "filler"></div>
         <div class="sidebar">
-            <h2><img src="Icons/brgy icon.png" alt="brgy">Barangay Feedback Portal</h2>
+        <div class="sidebar-header">
+                <img src="Icons/brgy icon.png" alt="Barangay Icon" class="sidebar-icon">
+                <h2>Barangay <br> Feedback <br> Portal</h2>
+            </div>
             <ul>
             <li><img src="Icons/home1.png" alt="home"><a href="homeadmin.php"><i class="but home"></i>Home</a></li>
                 <li><img src="Icons/transfer1.png" alt="feedback"><a href="allFeedbackAdmin.php"><i class="but feedbacks"></i>Feedbacks</a></li>
-                <?php if(!checkUser($con)){
-               echo ' <li><img src="Icons/account1.png" alt="accounts"><a href="accountsadmin.php"><i class="but accounts"></i>Accounts</a></li>';
-                }?>        
+<?php
+if(!checkUser($con)){echo'
+                <li><img src="Icons/account1.png" alt="accounts"><a href="accountsadmin.php"><i class="but accounts"></i>Accounts</a></li>';
+            }
+?>
                 <li><img src="Icons/settings1.png" alt="settings"><a href="profileeditadmin.php "><i class="but settings"></i>Settings</a></li>
                 <li><img src="Icons/logout1.png" alt="logout"><a href="logout.php"><i class="but logout">Log Out</a></li>
+           
+
             </ul>
         </div>
-
         <div class="main_content">
 
             <div class="header">

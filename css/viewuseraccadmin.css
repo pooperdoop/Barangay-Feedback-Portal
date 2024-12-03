@@ -132,6 +132,10 @@ float: right;
 
 
 
+.reply-feedback-button:hover {
+    background-color: #0056b3; /* Darker shade on hover for Send button */
+}
+
 .complaint-type-container {
     flex: 1; /* Allow this container to grow */
     margin-right: 19px; /* Optional: Space between Complaint Type and Attach Files button */
@@ -159,15 +163,12 @@ float: right;
     transition: background-color 0.3s; /* Transition for hover effect */
 }
 
-.save-feedback-button {
-    background-color: #14b59f; /* Darker shade on hover for Attach Files button */
-}
 .reply-feedback-button {
     width: 130px; /* Set width */
     height: 40px; /* Set height */
     flex-shrink: 0; /* Prevent the button from shrinking */
     border-radius: 9px; /* Rounded corners */
-    background:  #FE5C73; /* Background color for Send button */
+    background: #FE5C73;; /* Background color for Send button */
     color: white; /* Text color */
     border: none; /* No border */
     cursor: pointer; /* Pointer cursor on hover */
@@ -225,7 +226,7 @@ float: right;
 }
 
 .wrapper .sidebar {
-    position: relative;
+    position: fixed;
     width:13%;
     height: 100vh;
     background: #FFF;
@@ -233,11 +234,26 @@ float: right;
     float: left;
 }
 
-.wrapper .sidebar h2 {
-    color: #1814F3;
-    text-transform: uppercase;
-    text-align: center;
-    margin-bottom: 30px;
+.sidebar-header {
+    display: flex;
+    align-items: center;
+    padding: 0 30px 20px 20px;
+}
+
+.sidebar-icon {
+    width: 95px;
+    height: 72px;
+    margin-right: 15px;
+    margin-top: 17px;
+}
+
+.sidebar h2 {
+    color: var(--Primary-2, #343C6A);
+    font-size: 20px;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-top: 23px;
+    font-family: Inter;
 }
 
 .wrapper .sidebar brgy {
@@ -248,8 +264,12 @@ float: right;
 
 .wrapper .sidebar ul li {
     padding: 15px;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-    border-top: 1px solid rgba(225, 225, 225, 0.05);
+    width: 100%;
+    border-left: 10px solid rgba(0, 0, 0, 0.05); ;
+    
+    border-radius: 9px;
+    transition-duration: 0.5s;
+    font-family: Inter;
 }
 
 .wrapper .sidebar ul li a {
@@ -266,7 +286,7 @@ float: right;
 }
 
 .wrapper .sidebar ul li:hover {
-    background: #1814F3;
+    border-color: #1814F3;
 }
 
 .wrapper .sidebar ul li:hover {
@@ -358,6 +378,14 @@ float: right;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 20px;
+}
+.filler{
+    position: relative;
+    width:13%;
+    height: 100vh;
+    background: #FFF;
+    padding: 30px 0;
+    float: left;
 }
 
 .header .search {
