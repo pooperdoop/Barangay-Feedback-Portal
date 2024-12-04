@@ -24,25 +24,25 @@
       <form action="index.php" method="post">
 
             <div class="group-1">
-              <span class="username_lbl">User Name</span>
-                <input type = "text"class="username_input" name = "username_input" placeholder="Enter Username" required/>
+              <span class="username_lbl"><b>User Name</b></span>
+              <input type = "text"class="username_input" name = "username_input" placeholder="Enter Username" required/>
             </div>
 
             <div class="group-3">
-              <span class="password_lbl">Password</span>
-                <input type = "password" class="password_input" name ="password_input" placeholder="*********" required/>
+              <span class="password_lbl"><b>Password</b></span>
+              <input type = "password" class="password_input" name ="password_input" placeholder="*********" required/>
             </div>
 
             <input type="submit" class="login_btn" value="Log In" >
 
-        </form>
+      </form>
 
-        <div class="rectangle-8"></div>
+        <div class="rectangle-8">
+          
+        </div>
   
-            <button onclick="gotoRegisterUser()" class="register">Register</button>
-
-
-        <button onclick="gotoRegisterOfficial()" class="register-officialbtn">Register as an Official </button>
+        <button onclick="gotoRegisterUser()" class="register"><b>Register</b></button>
+        <button onclick="gotoRegisterOfficial()" class="register-officialbtn"><b>Register as an Official</b></button>
 
       </div>
 
