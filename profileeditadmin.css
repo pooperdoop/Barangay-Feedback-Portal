@@ -533,6 +533,8 @@ select {
 @media (max-width:1180px){  
     .form-rowlast{
         display: inline;
+        padding: 0;
+        margin: 0;
     }
     .form-row {
         display: inline;
@@ -550,10 +552,18 @@ select {
         margin:0px;
         padding: 0px;
     }
+    .form-rowlast .form-group input, select{
+        width: 100%;
+        margin:0px;
+        padding: 0px;
+    }
     .form-row .form-group label{
         margin-top: 15px;
     }
     .form-rowlast .form-grouplast label{
+        margin-top: 15px;
+    }
+    .form-rowlast .form-group label{
         margin-top: 15px;
     }
 }
@@ -754,12 +764,15 @@ select {
 
 @media (max-width:1600px){  
     .form-row .form-group input, select{
-        width: 100%;
+        width: 95%;
     }
     .form-group{
         margin-right: 0;
     }
     .form-rowlast .form-grouplast input, select{
+        width: 100%;
+    }
+    .form-rowlast .form-group input, select{
         width: 100%;
     }
     .form-grouplast{
