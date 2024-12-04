@@ -78,7 +78,7 @@ if(!checkUser($con)){echo'
             <div class="rectangle-5">
                 <div class="flex-row-c" style="margin-top: 7px;">
                     <div class="top">
-                        <span class="title">Post your notice</span>
+                        <span class="posttitle">Post your notice</span>
                         <button onclick="ReturnPage()" class="return">
                             <div class="arrow-back"></div>
                             Return
@@ -89,21 +89,21 @@ if(!checkUser($con)){echo'
                 <span class="subtitle">Notice</span>
                 <form action="addnotice.php" method="post"> 
                 <div class="flex-row-c" style="margin-top: 5px;">
-                    <div class="title-container" style="margin-right: 53px;">
+                    <div class="title-container" style="margin-right: 45px;">
                         <span class="title">Title</span>
                         <input type="text" name="notice_title" id="notice_title" class="group-input" placeholder="Enter notice title" required />
                     </div>
-                    
-                    <div class="barangay-container" style="margin-right: 53px;">
+                    <div class="barangay-container">
                         <span class="barangay">Barangay</span>
-                        <select name="barangay" id="barangay" class="group-input" style="width: 256px;" required>
+                        <select name="barangay" id="barangay" class="group-input" required>
                             <option value="" disabled selected>Select Barangay</option>
                             <option value="Barangay 1">Barangay 1</option>
                             <option value="Barangay 2">Barangay 2</option>
                             <option value="Barangay 3">Barangay 3</option>
                         </select>
-                    </div>
+                    </div>  
                 </div>
+
 
                 <div class="description-container">
                     <span class="description">Link</span>

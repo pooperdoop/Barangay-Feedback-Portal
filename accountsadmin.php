@@ -182,15 +182,25 @@ if(!checkUser($con)){echo'
 </html>
 <script src = "script.js"></script>
 <script>
-    const homeLi = document.getElementById("homeli");
+
+<?php
+if(!checkUser($con))
+{echo'
+    const accountsLi = document.getElementById("accountsli");
+const accountsImg = document.getElementById("accounts-img");';
+}
+?>
+
+
+const homeLi = document.getElementById("homeli");
 const feedbackLi = document.getElementById("feedbackli");
-const accountsLi = document.getElementById("accountsli");
+
 const settingsLi = document.getElementById("settingsli")
 const logoutLi = document.getElementById("logoutli");
 
 const homeImg = document.getElementById("home-img");
 const feedbackImg = document.getElementById("feedback-img");
-const accountsImg = document.getElementById("accounts-img");
+
 const settingsImg = document.getElementById("settings-img")
 const logoutImg = document.getElementById("logout-img");
 

@@ -212,11 +212,6 @@ body {
     display: flex;
     justify-content: center;
 }
-
-.buttons button {
-    margin-right: 5 px;
-}
-
 .buttons {
     display: flex;
     flex-wrap: wrap;
@@ -394,7 +389,29 @@ tr:hover {
 
 }
 
+@media (max-width: 1700px) {
+    .sidebar h2 {
+        transform: translateX(-20px); 
+    }
+    .edit-btn{
+        margin-left: 0;
+        margin-top: 5px;
+    }
+}
+@media (max-width: 1700px) {    
+    .sidebar h2 {
+        transform: translateX(-20px); 
+    }
+}
+@media (max-width: 900px) {
+    .thdate{
+        display:none;
+    }
+}
 @media (max-width: 1324px) {
+    .thID{
+        display:none;
+    }
     a{
        font-size: 0px;
     }
@@ -408,7 +425,7 @@ tr:hover {
     .sidebar-header {
         display: flex;
         flex-direction: column;
-        transform: translate(8px, -25px);
+        transform: translate(8px, -15px);
         padding: 10px 0;
         width: 100%;
     }
@@ -493,11 +510,21 @@ tr:hover {
     .sidebar {
         width: 50px; /* Adjusted sidebar width */
     }
+    .all_feed{
+        display:none;
+    }
+    .buttons{
+        flex-wrap: nowrap;
+        margin-left: 0px;
+    }
+    .thuser, .thdate, .thtype, .thID{
+        display:none;
+    }
 
     .sidebar-header {
         display: flex;
         flex-direction: column;
-        transform: translate(0px, -25px);
+        transform: translate(4px, -15px);
         padding: 10px 0;
         width: 100%;
     }
@@ -530,6 +557,7 @@ tr:hover {
         height: 30px;
         cursor: pointer;
         transition: background-color 0.3s ease;
+        transform: translate(0px);
         width: 100%;
     }
 
@@ -584,6 +612,19 @@ tr:hover {
         width: 25px; /* Adjust profile icon size */
         height: 25px;
     }
+    .edit-btn{
+        margin-left: 0;
+        margin-top: 5px;
+    }
+}
+
+/* Prevent excessive shrinking */
+.sidebar {
+    min-width: 50px; /* Prevent the sidebar from shrinking below 50px */
+}
+
+.main_content {
+    min-width: 300px; /* Ensure main content doesn't shrink excessively */
 }
 
 /* Prevent excessive shrinking */

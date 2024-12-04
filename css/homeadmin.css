@@ -409,6 +409,10 @@ tr:hover {
     .sidebar h2 {
         transform: translateX(-20px); 
     }
+    .edit-btn{
+        margin-left: 0;
+        margin-top: 5px;
+    }
 }
 @media (max-width: 1700px) {    
     .sidebar h2 {
@@ -523,7 +527,7 @@ tr:hover {
     .sidebar-header {
         display: flex;
         flex-direction: column;
-        transform: translate(0px, -15px);
+        transform: translate(4px, -15px);
         padding: 10px 0;
         width: 100%;
     }
@@ -556,6 +560,7 @@ tr:hover {
         height: 30px;
         cursor: pointer;
         transition: background-color 0.3s ease;
+        transform: translate(0px);
         width: 100%;
     }
 

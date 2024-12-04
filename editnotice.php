@@ -121,7 +121,7 @@ if(!checkUser($con)){echo'
                     
                     <div class="barangay-container" style="margin-right: 53px;">
                         <span class="barangay">Barangay</span>
-                        <select name="barangay" class="group-input" style="width: 256px;" required>
+                        <select name="barangay" class="group-input" required>
                             <option value=<?php echo $barangay?> ><?php echo $barangay?></option>
                             <option value="Barangay 1">Barangay 1</option>
                             <option value="Barangay 2">Barangay 2</option>

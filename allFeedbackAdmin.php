@@ -81,7 +81,7 @@ if(!checkUser($con)){echo'
                 </div>
             </div>
             <form action="allFeedbackAdmin.php" method="post">
-            <div class="buttons" style="margin-left: 20px;">   
+            <div class="buttons">   
 
             <?php if(!checkUser($con)){
             echo' 
@@ -96,7 +96,7 @@ if(!checkUser($con)){echo'
 
             echo'
                   
-                <button name = "all_user" class="regular-button">My Feedbacks</button>
+                <button name = "all_user" class="all_feed">My Feedbacks</button>
                 <button name = "sent" class="regular-button">Sent</button>
                 <button name = "rec" class="regular-button">Received</button>
                 <button type = "button" onclick = "addfeedback()"> Add Feedback</button>'
@@ -110,12 +110,12 @@ if(!checkUser($con)){echo'
                 <table>
                     <thead>
                         <tr>
-                            <th id="test">Title</th>
-                            <th>Ticket ID</th>
-                            <th>Type</th>
-                            <th>Date</th>
-                            <th>Status</th>
-                            <th>User</th>
+                            <th class="thtitle">Title</th>
+                            <th class="thID">Ticket ID</th>
+                            <th class= "thtype">Type</th>
+                            <th class="thdate">Date</th>
+                            <th class="thstat">Status</th>
+                            <th class="thuser">User</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -140,12 +140,12 @@ $result = mysqli_query($con, $sql);
             while($row = mysqli_fetch_assoc($result)){
 
                 echo'<tr id="all_feedback" >
-                    <td>'.$row["title"].'</td>
-                    <td> #'.$row["ticketID"].'</td>
-                    <td>'.$row["type"].'</td>
-                    <td>'.$row["date"].'</td>
-                        <td>'.$row["status"].'</td>
-                        <td>'.$row["user"].'</td>
+                    <td class="thtitle">'.$row["title"].'</td>
+                    <td class="thID"> #'.$row["ticketID"].'</td>
+                    <td class= "thtype">'.$row["type"].'</td>
+                    <td class="thdate">'.$row["date"].'</td>
+                        <td class="thstat">'.$row["status"].'</td>
+                        <td class="thuser">'.$row["user"].'</td>
                         <td><button value='.$row["ticketID"].' name="view_btn" id="view_btn" class="view-btn">View</button></td>
                         </tr>';
                 }
@@ -156,14 +156,13 @@ $sql2 = "SELECT * FROM all_feedback WHERE type = 'Complaint' AND barangay = '$ba
 $result2 = mysqli_query($con, $sql2);
 
             while($row = mysqli_fetch_assoc($result2)){
-
-                echo'<tr id="complaints">
-                    <td>'.$row["title"].'</td>
-                    <td> #'.$row["ticketID"].'</td>
-                    <td>'.$row["type"].'</td>
-                    <td>'.$row["date"].'</td>
-                        <td>'.$row["status"].'</td>
-                        <td>'.$row["user"].'</td>
+                echo'<tr id="all_feedback" >
+                    <td class="thtitle">'.$row["title"].'</td>
+                    <td class="thID"> #'.$row["ticketID"].'</td>
+                    <td class= "thtype">'.$row["type"].'</td>
+                    <td class="thdate">'.$row["date"].'</td>
+                        <td class="thstat">'.$row["status"].'</td>
+                        <td class="thuser">'.$row["user"].'</td>
                         <td><button value='.$row["ticketID"].' name="view_btn" id="view_btn" class="view-btn">View</button></td>
                         </tr>';
                 }
@@ -174,13 +173,13 @@ $result3 = mysqli_query($con, $sql3);
 
             while($row = mysqli_fetch_assoc($result3)){
 
-                echo'<tr id="requests">
-                    <td>'.$row["title"].'</td>
-                    <td> #'.$row["ticketID"].'</td>
-                    <td>'.$row["type"].'</td>
-                    <td>'.$row["date"].'</td>
-                        <td>'.$row["status"].'</td>
-                        <td>'.$row["user"].'</td>
+                echo'<tr id="all_feedback" >
+                    <td class="thtitle">'.$row["title"].'</td>
+                    <td class="thID"> #'.$row["ticketID"].'</td>
+                    <td class= "thtype">'.$row["type"].'</td>
+                    <td class="thdate">'.$row["date"].'</td>
+                        <td class="thstat">'.$row["status"].'</td>
+                        <td class="thuser">'.$row["user"].'</td>
                         <td><button value='.$row["ticketID"].' name="view_btn" id="view_btn" class="view-btn">View</button></td>
                         </tr>';
                 }
@@ -191,13 +190,13 @@ $result4 = mysqli_query($con, $sql4);
 
             while($row = mysqli_fetch_assoc($result4)){
 
-                echo'<tr id="suggestions">
-                    <td>'.$row["title"].'</td>
-                    <td> #'.$row["ticketID"].'</td>
-                    <td>'.$row["type"].'</td>
-                    <td>'.$row["date"].'</td>
-                        <td>'.$row["status"].'</td>
-                        <td>'.$row["user"].'</td>
+                echo'<tr id="all_feedback" >
+                    <td class="thtitle">'.$row["title"].'</td>
+                    <td class="thID"> #'.$row["ticketID"].'</td>
+                    <td class= "thtype">'.$row["type"].'</td>
+                    <td class="thdate">'.$row["date"].'</td>
+                        <td class="thstat">'.$row["status"].'</td>
+                        <td class="thuser">'.$row["user"].'</td>
                         <td><button value='.$row["ticketID"].' name="view_btn" id="view_btn" class="view-btn">View</button></td>
                         </tr>';
                 }
@@ -208,13 +207,13 @@ $result5 = mysqli_query($con, $sql5);
 
             while($row = mysqli_fetch_assoc($result5)){
 
-                echo'<tr id="open">
-                    <td>'.$row["title"].'</td>
-                    <td> #'.$row["ticketID"].'</td>
-                    <td>'.$row["type"].'</td>
-                    <td>'.$row["date"].'</td>
-                        <td>'.$row["status"].'</td>
-                        <td>'.$row["user"].'</td>
+                echo'<tr id="all_feedback" >
+                    <td class="thtitle">'.$row["title"].'</td>
+                    <td class="thID"> #'.$row["ticketID"].'</td>
+                    <td class= "thtype">'.$row["type"].'</td>
+                    <td class="thdate">'.$row["date"].'</td>
+                        <td class="thstat">'.$row["status"].'</td>
+                        <td class="thuser">'.$row["user"].'</td>
                         <td><button value='.$row["ticketID"].' name="view_btn" id="view_btn" class="view-btn">View</button></td>
                         </tr>';
                 }
@@ -224,14 +223,13 @@ $sql6 = "SELECT * FROM all_feedback WHERE status = 'Closed' AND barangay = '$bar
 $result6 = mysqli_query($con, $sql6);
 
             while($row = mysqli_fetch_assoc($result6)){
-
-                echo'<tr id="closed">
-                    <td>'.$row["title"].'</td>
-                    <td> #'.$row["ticketID"].'</td>
-                    <td>'.$row["type"].'</td>
-                    <td>'.$row["date"].'</td>
-                        <td>'.$row["status"].'</td>
-                        <td>'.$row["user"].'</td>
+                echo'<tr id="all_feedback" >
+                    <td class="thtitle">'.$row["title"].'</td>
+                    <td class="thID"> #'.$row["ticketID"].'</td>
+                    <td class= "thtype">'.$row["type"].'</td>
+                    <td class="thdate">'.$row["date"].'</td>
+                        <td class="thstat">'.$row["status"].'</td>
+                        <td class="thuser">'.$row["user"].'</td>
                         <td><button value='.$row["ticketID"].' name="view_btn" id="view_btn" class="view-btn">View</button></td>
                         </tr>';
                 }
@@ -244,12 +242,12 @@ $result6 = mysqli_query($con, $sql6);
             while($row = mysqli_fetch_assoc($result)){
 
                 echo'<tr id="all_feedback" >
-                    <td>'.$row["title"].'</td>
-                    <td> #'.$row["ticketID"].'</td>
-                    <td>'.$row["type"].'</td>
-                    <td>'.$row["date"].'</td>
-                        <td>'.$row["status"].'</td>
-                        <td>'.$row["user"].'</td>
+                    <td class="thtitle">'.$row["title"].'</td>
+                    <td class="thID"> #'.$row["ticketID"].'</td>
+                    <td class= "thtype">'.$row["type"].'</td>
+                    <td class="thdate">'.$row["date"].'</td>
+                        <td class="thstat">'.$row["status"].'</td>
+                        <td class="thuser">'.$row["user"].'</td>
                         <td><button value='.$row["ticketID"].' name="view_btn" id="view_btn" class="view-btn">View</button></td>
                         </tr>';
                 }
@@ -258,15 +256,15 @@ $result6 = mysqli_query($con, $sql6);
 
                 while($row = mysqli_fetch_assoc($result)){
 
-                    echo'<tr>
-                        <td>'.$row["title"].'</td>
-                         <td> - </td>
-                          <td>Reply</td>
-                           <td>'.$row["date"].'</td>
-                            <td> - </td>
-                            <td>'.$row['respondent'].'</td>                                 
-                            <td><button value='.$row["replyID"].' name="view_btn_rep" id="view_btn_rep" class="view-btn">View</button></td>                           
-                            </tr>';
+                    echo'<tr id="all_feedback" >
+                    <td class="thtitle">'.$row["title"].'</td>
+                    <td class="thID"> #'.$row["ticketID"].'</td>
+                    <td class= "thtype">'.$row["type"].'</td>
+                    <td class="thdate">'.$row["date"].'</td>
+                        <td class="thstat">'.$row["status"].'</td>
+                        <td class="thuser">'.$row["user"].'</td>
+                        <td><button value='.$row["ticketID"].' name="view_btn" id="view_btn" class="view-btn">View</button></td>
+                        </tr>';
                 }
             }
             if($currentView == 1){
@@ -277,12 +275,12 @@ $result6 = mysqli_query($con, $sql6);
             while($row = mysqli_fetch_assoc($result)){
 
                 echo'<tr id="all_feedback" >
-                    <td>'.$row["title"].'</td>
-                    <td> #'.$row["ticketID"].'</td>
-                    <td>'.$row["type"].'</td>
-                    <td>'.$row["date"].'</td>
-                        <td>'.$row["status"].'</td>
-                        <td>'.$row["user"].'</td>
+                    <td class="thtitle">'.$row["title"].'</td>
+                    <td class="thID"> #'.$row["ticketID"].'</td>
+                    <td class= "thtype">'.$row["type"].'</td>
+                    <td class="thdate">'.$row["date"].'</td>
+                        <td class="thstat">'.$row["status"].'</td>
+                        <td class="thuser">'.$row["user"].'</td>
                         <td><button value='.$row["ticketID"].' name="view_btn" id="view_btn" class="view-btn">View</button></td>
                         </tr>';
                 }
@@ -293,15 +291,15 @@ $result6 = mysqli_query($con, $sql6);
 
                 while($row = mysqli_fetch_assoc($result)){
 
-                    echo'<tr>
-                        <td>'.$row["title"].'</td>
-                         <td> - </td>
-                          <td>Reply</td>
-                           <td>'.$row["date"].'</td>
-                            <td> - </td>
-                            <td>'.$row['respondent'].'</td>                                 
-                            <td><button value='.$row["replyID"].' name="view_btn_rep" id="view_btn_rep" class="view-btn">View</button></td>                           
-                            </tr>';
+                echo'<tr id="all_feedback" >
+                    <td class="thtitle">'.$row["title"].'</td>
+                    <td class="thID"> #'.$row["ticketID"].'</td>
+                    <td class= "thtype">'.$row["type"].'</td>
+                    <td class="thdate">'.$row["date"].'</td>
+                        <td class="thstat">'.$row["status"].'</td>
+                        <td class="thuser">'.$row["user"].'</td>
+                        <td><button value='.$row["ticketID"].' name="view_btn" id="view_btn" class="view-btn">View</button></td>
+                        </tr>';
                 }
             }
 
@@ -317,7 +315,7 @@ $result6 = mysqli_query($con, $sql6);
 
 </body>
 </html>
-<script src = "script.js"></script>
+<script src = "script.js?v=<?php echo time(); ?>"></script>
 <script>
     if ( window.history.replaceState ) {
   window.history.replaceState( null, null, window.location.href );
@@ -360,12 +358,17 @@ homeLi.addEventListener("mouseleave", () => {
 //     feedbackImg.src = "Icons/transfer1.png"; // Reset image when hover ends
 // });
 
-accountsLi.addEventListener("mouseenter", () => {
+<?php
+if(!checkUser($con)){echo'
+    accountsLi.addEventListener("mouseenter", () => {
     accountsImg.src = accountsHover; // Change the image on hover
 });
 accountsLi.addEventListener("mouseleave", () => {
     accountsImg.src = "Icons/account1.png"; // Reset image when hover ends
-});
+});        ';}
+?>
+
+
 
 settingsLi.addEventListener("mouseenter", () => {
     settingsImg.src = settingsHover; // Change the image on hover

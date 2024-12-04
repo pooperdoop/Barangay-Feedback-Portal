@@ -94,8 +94,11 @@ if(!checkUser($con)){echo'
     <div class="feedback_write_page ">
         <div class="flex-row-c" style="margin-top: 7px;">
             <div class="top">
-                <h1>Write your feedbacks here</h1>
-
+                <span>Write your feedbacks here</span>
+                <button onclick="ReturnPage()" class="return">
+                            <div class="arrow-back"></div>
+                            Return
+                        </button>
             </div>
         </div>
                         
@@ -109,9 +112,9 @@ if(!checkUser($con)){echo'
                 <input type="text" name="feedback_title" id="feedback_title" maxlength="30" class="group-input" placeholder="Enter feedback title" required />
             </div>
             
-            <div class="barangay-container" style="margin-left: 53px;">
+            <div class="barangay-container">
                 <span class="barangay">Barangay</span>
-                <select name="barangay" id="barangay" class="group-input" style="width: 256px;" required    >
+                <select name="barangay" id="barangay" class="group-input"    required    >
                     <option value="" disabled selected>Select Barangay</option>
                     <option value="Barangay 1">Barangay 1</option>  
                     <option value="Barangay 2">Barangay 2</option>
@@ -150,6 +153,10 @@ if(!checkUser($con)){echo'
 
 <script src="script.js"></script>
 <script>
+
+    function ReturnPage(){
+        location.replace("allFeedbackAdmin.php")
+    }
     const homeLi = document.getElementById("homeli");
 const feedbackLi = document.getElementById("feedbackli");
 const accountsLi = document.getElementById("accountsli");
@@ -182,12 +189,15 @@ homeLi.addEventListener("mouseleave", () => {
 //     feedbackImg.src = "Icons/transfer1.png"; // Reset image when hover ends
 // });
 
-accountsLi.addEventListener("mouseenter", () => {
+<?php
+if(!checkUser($con)){echo'
+    accountsLi.addEventListener("mouseenter", () => {
     accountsImg.src = accountsHover; // Change the image on hover
 });
 accountsLi.addEventListener("mouseleave", () => {
     accountsImg.src = "Icons/account1.png"; // Reset image when hover ends
-});
+});        ';}
+?>
 
 settingsLi.addEventListener("mouseenter", () => {
     settingsImg.src = settingsHover; // Change the image on hover

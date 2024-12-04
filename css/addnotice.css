@@ -232,7 +232,7 @@ float: right;
 }
 
 .arrow-back {
-    background: url(Icons\arrow_back.png) no-repeat center; /* Set the background image */
+    background: url(Icons/arrow_back.png) no-repeat center; /* Set the background image */
     background-size: contain; /* Ensure the image fits within the element */
     width: 33px;
     height: 33px;
@@ -311,8 +311,8 @@ input[type="url"].group-input {
 
 .flex-row-c {
     display: flex; /* Use flexbox for layout */
-    align-items: flex-start; /* Align items at the start */
     margin-top: 10px; /* Space above the row */
+    width: 100%;
 }
 
 .flex-row-c span {
@@ -321,10 +321,12 @@ input[type="url"].group-input {
 
 .flex-row-c .title {
     margin-bottom: 7px; /* Space between title label and input */
+    
 }
 
 .flex-row-c .barangay {
     margin-bottom: 7px; /* Space between barangay label and combo box */
+    width: 150px;
 }
 
 .title-container,
@@ -348,6 +350,12 @@ input[type="url"].group-input {
     margin-bottom: 5px; /* Space below the label */
 }
 
+@media (max-width: 1700px) {
+    .sidebar h2 {
+        transform: translateX(-20px); 
+    }
+}
+
 @media (max-width: 1324px) {
     a{
        font-size: 0px;
@@ -362,7 +370,7 @@ input[type="url"].group-input {
     .sidebar-header {
         display: flex;
         flex-direction: column;
-        transform: translate(8px, -25px);
+        transform: translate(8px, -15px);
         padding: 10px 0;
         width: 100%;
     }
@@ -444,14 +452,36 @@ input[type="url"].group-input {
 
 /* For screens smaller than 768px */
 @media (max-width: 768px) {
+
+    .title-container,
+.barangay-container,
+.description-container {
+width: 100%;
+}
+
+    .flex-row-c input{
+        width: 100%;
+    }
+    .flex-row-c {
+        display: inline; /* Use flexbox for layout */
+        margin-top: 10px; /* Space above the row */
+        width: 100%;
+    }
     .sidebar {
         width: 50px; /* Adjusted sidebar width */
+    }
+    .return{
+        font-size: 0px;
+        transform: translateY(-5px);
+    }
+    .top span{
+        font-size: 20px;
     }
 
     .sidebar-header {
         display: flex;
         flex-direction: column;
-        transform: translate(0px, -25px);
+        transform: translate(4px, -15px);
         padding: 10px 0;
         width: 100%;
     }
@@ -484,6 +514,7 @@ input[type="url"].group-input {
         height: 30px;
         cursor: pointer;
         transition: background-color 0.3s ease;
+        transform: translate(0px);
         width: 100%;
     }
 
@@ -538,6 +569,10 @@ input[type="url"].group-input {
         width: 25px; /* Adjust profile icon size */
         height: 25px;
     }
+    .edit-btn{
+        margin-left: 0;
+        margin-top: 5px;
+    }
 }
 
 /* Prevent excessive shrinking */
@@ -547,17 +582,4 @@ input[type="url"].group-input {
 
 .main_content {
     min-width: 300px; /* Ensure main content doesn't shrink excessively */
-}
-.sidebar ul li img {
-    width: 30px; /* Adjust icon size */
-    height: 30px;
-    transition: transform 0.2s ease; /* Smooth transition for scaling */
-}
-.sidebar ul li:hover img {
-    transform: scale(1.2); /* Scale up icon on hover */
-}
-
-/* Active effect when clicking the list item: Scale up the icon without changing color */
-.sidebar ul li:active img {
-    transform: scale(1.1); /* Slightly reduce scale while clicking */
 }

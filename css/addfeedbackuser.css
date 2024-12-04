@@ -41,6 +41,12 @@ body {
     float: left;
 }
 
+.title-container{
+    margin-right: 53px;
+}
+.barangay-container{
+    margin-bottom: 7px;
+}
 .sidebar-header {
     display: flex;
     align-items: center;
@@ -170,6 +176,35 @@ body {
     margin-left: 20px;
 }
 
+.return {
+    display: flex;
+    justify-content:end; /* Align items to the start */
+    align-items: center;
+    width: 67.463px;
+    height: 30px;
+    flex-shrink: 0;
+    color: #B1B1B1; /* Set the text color */
+    font-family: Inter; /* Set the font family */
+    font-size: 25px; /* Set the font size */
+    font-style: normal; /* Set the font style */
+    font-weight: 500; /* Set the font weight */
+    line-height: normal; /* Set the line height */
+    background: transparent; /* No background color */
+    border: none; /* No border */
+    cursor: pointer; /* Pointer cursor on hover */
+    float: right;
+}
+
+.arrow-back {
+    background: url(Icons/arrow_back.png) no-repeat center; /* Set the background image */
+    background-size: contain; /* Ensure the image fits within the element */
+    width: 33px;
+    height: 33px;
+    flex-shrink: 0;
+    margin-right: 4.65px; /* Space between the icon and text */
+}
+
+
 .feedback_write_page{
     width: 95%;    
     margin: 20px auto;
@@ -228,9 +263,9 @@ textarea.group-input {
 }
 
 .flex-row-c {
-    display: flex;
-    align-items: flex-start; /* Align items at the start */
+    display: flex; /* Use flexbox for layout */
     margin-top: 10px; /* Space above the row */
+    width: 100%;
 }
 
 .flex-row-c span {
@@ -369,15 +404,16 @@ textarea.group-input {
     line-height: normal;
 }
 
+
 .top {
-    display: flex;
-    flex-direction: column; /* Stack elements vertically */
-    align-items: flex-start; /* Align items to the start */
+    justify-content: center;
+    align-items: center;
+    width: 100%;
 
 }
 
 
-.top h1 {
+.top span {
     color: #343C6A;
     font-family: Inter;
     font-size: 28px;
@@ -410,6 +446,11 @@ textarea.group-input {
     font-weight: 400; /* Use the same font weight */
     font-style: normal; /* Ensure the text is not italic */
 }
+@media (max-width: 1700px) {
+    .sidebar h2 {
+        transform: translateX(-20px); 
+    }
+}
 
 @media (max-width: 1324px) {
     a{
@@ -425,7 +466,7 @@ textarea.group-input {
     .sidebar-header {
         display: flex;
         flex-direction: column;
-        transform: translate(8px, -25px);
+        transform: translate(8px, -15px);
         padding: 10px 0;
         width: 100%;
     }
@@ -504,17 +545,44 @@ textarea.group-input {
         height: 30px;
     }
 }
+@media (max-width: 500px) {
+  .complaint-type-container{
+       display: inline;
+    }
+}
 
 /* For screens smaller than 768px */
 @media (max-width: 768px) {
+
+    .title-container,
+.barangay-container,
+.description-container {
+width: 100%;
+}
+
+    .flex-row-c input{
+        width: 100%;
+    }
+    .flex-row-c {
+        display: inline; /* Use flexbox for layout */
+        margin-top: 10px; /* Space above the row */
+        width: 100%;
+    }
     .sidebar {
         width: 50px; /* Adjusted sidebar width */
+    }
+    .return{
+        font-size: 0px;
+        transform: translateY(-5px);
+    }
+    .top span{
+        font-size: 18px;
     }
 
     .sidebar-header {
         display: flex;
         flex-direction: column;
-        transform: translate(0px, -25px);
+        transform: translate(4px, -15px);
         padding: 10px 0;
         width: 100%;
     }
@@ -547,6 +615,7 @@ textarea.group-input {
         height: 30px;
         cursor: pointer;
         transition: background-color 0.3s ease;
+        transform: translate(0px);
         width: 100%;
     }
 
@@ -603,6 +672,14 @@ textarea.group-input {
     }
 }
 
+/* Prevent excessive shrinking */
+.sidebar {
+    min-width: 50px; /* Prevent the sidebar from shrinking below 50px */
+}
+
+.main_content {
+    min-width: 300px; /* Ensure main content doesn't shrink excessively */
+}
 /* Prevent excessive shrinking */
 .sidebar {
     min-width: 50px; /* Prevent the sidebar from shrinking below 50px */

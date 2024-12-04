@@ -6,10 +6,6 @@ document.getElementById("feedbackli").addEventListener("click", () => {
     location.replace("allFeedbackAdmin.php");
 });
 
-document.getElementById("accountsli").addEventListener("click", () => {
-    location.replace("accountsadmin.php");
-});
-
 document.getElementById("settingsli").addEventListener("click", () => {
     location.replace("profileeditadmin.php");
 });
@@ -22,3 +18,11 @@ document.getElementById("logoutli").addEventListener("click", () => {
    }
    
 });
+
+if(document.getElementById("accountsli")){
+    document.getElementById("accountsli").addEventListener("click", () => {
+        location.replace("accountsadmin.php");
+    });
+    
+}
+

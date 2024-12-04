@@ -12,14 +12,6 @@
     list-style: none;
     text-decoration: none;
 }
-.filler{
-    position: relative;
-    width:13%;
-    height: 100vh;
-    background: #FFF;
-    padding: 30px 0;
-    float: left;
-}
 
 body {
     background-color: #F5F7FA;
@@ -32,6 +24,14 @@ body {
 
 .wrapper .sidebar {
     position: fixed;
+    width:13%;
+    height: 100vh;
+    background: #FFF;
+    padding: 30px 0;
+    float: left;
+}
+.filler{
+    position: relative;
     width:13%;
     height: 100vh;
     background: #FFF;
@@ -60,7 +60,6 @@ body {
     margin-top: 23px;
     font-family: Inter;
 }
-
 .wrapper .sidebar brgy {
     width: 30px;
     height: 30px;
@@ -170,6 +169,9 @@ body {
     margin-left: 20px;
 }
 
+.header input[type=text] {
+    margin-right: 20px;
+}
 
 .rectangle-5 {
     width: 75%;
@@ -230,12 +232,38 @@ float: right;
 }
 
 .arrow-back {
-    background: url(Icons\arrow_back.png) no-repeat center; /* Set the background image */
+    background: url(Icons/arrow_back.png) no-repeat center; /* Set the background image */
     background-size: contain; /* Ensure the image fits within the element */
     width: 33px;
     height: 33px;
     flex-shrink: 0;
     margin-right: 4.65px; /* Space between the icon and text */
+}
+
+.post-button {
+    width: 130px; /* Set width */
+    height: 40px; /* Set height */
+    flex-shrink: 0; /* Prevent the button from shrinking */
+    border-radius: 9px; /* Rounded corners */
+    background: #1814F3; /* Background color for Send button */
+    color: #FFF; /* Text color */
+    border: none; /* No border */
+    cursor: pointer; /* Pointer cursor on hover */
+    font-family: Inter; /* Font family */
+    font-size: 15px; /* Font size */
+    font-style: normal; /* Font style */
+    font-weight: 500; /* Font weight */
+    line-height: normal; /* Line height */
+    transition: background-color 0.3s; /* Transition for hover effect */
+    text-align: center; /* Center the text inside the button */
+    display: flex; /* Use flexbox for layout */
+    justify-content: center; /* Center the text horizontally */
+    align-items: center; /* Center the text vertically */
+    float: right    ;
+}
+
+.post-button:hover {
+    background-color: #0056b3; /* Darker shade on hover for Send button */
 }
 
 .subtitle{
@@ -283,8 +311,8 @@ input[type="url"].group-input {
 
 .flex-row-c {
     display: flex; /* Use flexbox for layout */
-    align-items: flex-start; /* Align items at the start */
     margin-top: 10px; /* Space above the row */
+    width: 100%;
 }
 
 .flex-row-c span {
@@ -293,10 +321,12 @@ input[type="url"].group-input {
 
 .flex-row-c .title {
     margin-bottom: 7px; /* Space between title label and input */
+    
 }
 
 .flex-row-c .barangay {
     margin-bottom: 7px; /* Space between barangay label and combo box */
+    width: 150px;
 }
 
 .title-container,
@@ -320,49 +350,10 @@ input[type="url"].group-input {
     margin-bottom: 5px; /* Space below the label */
 }
 
-
-
-.delete-button {
-    width: 130px;
-    height: 40px;
-    flex-shrink: 0;
-    border-radius: 9px;
-    background: #FE5C73;
-    color: #FFF;
-    text-align: center;
-    font-family: Inter;
-    font-size: 15px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
-    margin-right: 19px; /* Space between buttons */
-    border: none; /* Remove border */
-    float: right;
-}
-
-.post-button {
-    width: 130px;
-    height: 40px;
-    flex-shrink: 0;
-    border-radius: 9px;
-    background: #1814F3;
-    color: #FFF;
-    text-align: center;
-    font-family: Inter;
-    font-size: 15px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
-    border: none; /* Remove border */
-    float: right;
-}
-
-.post-button:hover {
-    background-color: #0056b3; /* Darker shade on hover for Send button */
-}
-
-.delete-button:hover {
-    background-color: #f70777; /* Darker shade on hover for Send button */
+@media (max-width: 1700px) {
+    .sidebar h2 {
+        transform: translateX(-20px); 
+    }
 }
 
 @media (max-width: 1324px) {
@@ -379,7 +370,7 @@ input[type="url"].group-input {
     .sidebar-header {
         display: flex;
         flex-direction: column;
-        transform: translate(8px, -25px);
+        transform: translate(8px, -15px);
         padding: 10px 0;
         width: 100%;
     }
@@ -461,14 +452,36 @@ input[type="url"].group-input {
 
 /* For screens smaller than 768px */
 @media (max-width: 768px) {
+
+    .title-container,
+.barangay-container,
+.description-container {
+width: 100%;
+}
+
+    .flex-row-c input{
+        width: 100%;
+    }
+    .flex-row-c {
+        display: inline; /* Use flexbox for layout */
+        margin-top: 10px; /* Space above the row */
+        width: 100%;
+    }
     .sidebar {
         width: 50px; /* Adjusted sidebar width */
+    }
+    .return{
+        font-size: 0px;
+        transform: translateY(-5px);
+    }
+    .top span{
+        font-size: 20px;
     }
 
     .sidebar-header {
         display: flex;
         flex-direction: column;
-        transform: translate(0px, -25px);
+        transform: translate(4px, -15px);
         padding: 10px 0;
         width: 100%;
     }
@@ -501,6 +514,7 @@ input[type="url"].group-input {
         height: 30px;
         cursor: pointer;
         transition: background-color 0.3s ease;
+        transform: translate(0px);
         width: 100%;
     }
 
@@ -555,6 +569,10 @@ input[type="url"].group-input {
         width: 25px; /* Adjust profile icon size */
         height: 25px;
     }
+    .edit-btn{
+        margin-left: 0;
+        margin-top: 5px;
+    }
 }
 
 /* Prevent excessive shrinking */
@@ -565,16 +583,24 @@ input[type="url"].group-input {
 .main_content {
     min-width: 300px; /* Ensure main content doesn't shrink excessively */
 }
-.sidebar ul li img {
-    width: 30px; /* Adjust icon size */
-    height: 30px;
-    transition: transform 0.2s ease; /* Smooth transition for scaling */
-}
-.sidebar ul li:hover img {
-    transform: scale(1.2); /* Scale up icon on hover */
-}
 
-/* Active effect when clicking the list item: Scale up the icon without changing color */
-.sidebar ul li:active img {
-    transform: scale(1.1); /* Slightly reduce scale while clicking */
+.delete-button {
+    width: 130px;
+    height: 40px;
+    flex-shrink: 0;
+    border-radius: 9px;
+    background: #FE5C73;
+    color: #FFF;
+    text-align: center;
+    font-family: Inter;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    margin-right: 19px; /* Space between buttons */
+    border: none; /* Remove border */
+    float: right;
+}
+.delete-button:hover {
+    background-color: #f70777; /* Darker shade on hover for Send button */
 }
