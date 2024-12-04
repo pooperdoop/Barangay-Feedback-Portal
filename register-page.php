@@ -189,7 +189,7 @@ if (isset($_POST["register_button"])){
 
         <div class="group-20">
           <span class="sex">Sex</span>
-          <select name="sex_choice" style="border: none; transform: translatey(20px); width:100%">
+          <select name="sex_choice" class="group-input-c" style="transform: translatey(20px); width:100%">
                 <option value="Female">Female</option>
                 <option value="Male">Male</option>
                 <option value="Other">Other</option>

@@ -110,21 +110,22 @@ if (isset($_POST["register_button"])){
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap" />
   </head>
   <body>
-        <div class="rectangle">
+    <div class="rectangle">
         <div class="logo">
           <div class="vector-icon"></div>
           <span class="feedback-portal">Barangay Feedback Portal</span>
+          <a href ="index.php"  class="return">Return</a>
         </div>
 
 
-        <a href ="index.php"  class="return">Return</a>
+        
 
         
 
-  <form action="register-official.php" method="post" enctype="multipart/form-data">
+      <form action="register-official.php" method="post" enctype="multipart/form-data">
 
 
-  <div class="group-1">
+        <div class="group-1">
           <span class="first-name">First Name</span>
             <input type="text" name = "first_name" class="group-input-c" placeholder="Charlene" value="<?php if (isset($_POST['first_name'])) echo $_POST['first_name']; ?>"
              style="transform: translatey(20px);" required/>
@@ -187,7 +188,7 @@ if (isset($_POST["register_button"])){
 
         <div class="group-20">
           <span class="sex">Sex</span>
-          <select name="sex_choice" style="border: none; transform: translatey(20px); width:100%">
+          <select name="sex_choice" class="group-input-c" style="transform: translatey(1px); width:100%">
                 <option value="Female">Female</option>
                 <option value="Male">Male</option>
                 <option value="Other">Other</option>
@@ -228,7 +229,8 @@ if (isset($_POST["register_button"])){
         </div>
         
       </form>
-    </div>    
+    </div>   
+
   </body>
 </html>
 

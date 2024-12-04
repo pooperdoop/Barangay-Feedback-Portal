@@ -4,19 +4,36 @@
     "Hiragino Sans GB", "Microsoft Yahei UI", "Microsoft Yahei",
     "Source Han Sans CN", sans-serif;
 }
-body{
-    background-color: #f4f6f9;
+
+body {
+  display: flex; /* Use flexbox */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  height: 100vh; /* Full viewport height */
+  margin: 0; /* Remove default margin */
+  background-color: #f4f6f9; /* Background color */
 }
+
 .rectangle {
-  position: absolute;
-  width: 755px;
-  height: 626px;
+  position: relative; /* Changed to relative for better responsiveness */
+  width: 90%; /* Use percentage for width */
+  max-width: 755px; /* Set a max-width to maintain design */
+  height: 550px; /* Allow height to adjust based on content */
   background: #ffffff;
-  margin-left: 30%;
-  margin-top: 8%;
+  margin: auto;
   z-index: 2;
   border-radius: 30px;
+  padding: 20px; /* Add padding for inner spacing */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Optional: Add shadow for better visibility */
+  overflow: auto; /* Allow scrolling if content exceeds the rectangle */
 }
+
+/* Add this to lock the rectangle size */
+.rectangle {
+  max-width: 755px; /* Maximum width */
+  max-height: 550px; /* Maximum height */
+}
+
 .logo {
   position: absolute;
   width: 327px;
@@ -25,6 +42,7 @@ body{
   left: 16px;
   z-index: 88;
 }
+
 .vector-icon {
   position: absolute;
   width: 72px;
@@ -80,6 +98,7 @@ body{
   left: 632px;
   z-index: 86;
 }
+
 .icon {
   position: relative;
   width: 18.611px;
@@ -90,6 +109,7 @@ body{
   background-size: 100% 100%;
   z-index: 87;
 }
+
 .first-name {
   display: block;
   position: relative;
@@ -164,6 +184,79 @@ body{
   z-index: 44;
   outline: none;
 }
+
+/* Maintain the same border color when focused */
+.group-input-c:focus {
+  border-color: #DFEAF2; /* Keep the same border color on focus */
+  outline: none; /* Remove default outline */
+}
+
+.group-input-c::placeholder {
+  color: #718EBF;
+  font-family: Inter;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+input.group-input-c {
+  border-radius: 15px; /* Rounded corners */
+  border: 1px solid #DFEAF2; /* Border color */
+  background: #FFF; /* Background color */
+  width: 256px; /* Fixed width */
+  height: 40px; /* Fixed height */
+  flex-shrink: 0; /* Prevent shrinking */
+  padding: 0 10px; /* Optional: Add some padding for better text spacing */
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+  color: #718EBF;
+  font-family: Inter;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+
+}
+
+select.group-input-c {
+  border-radius: 15px; /* Rounded corners */
+  border: 1px solid #DFEAF2; /* Border color */
+  background: #FFF; /* Background color */
+  width: 256px; /* Fixed width */
+  height: 40px; /* Fixed height */
+  flex-shrink: 0; /* Prevent shrinking */
+  padding: 0 10px; /* Optional: Add some padding for better text spacing */
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+  color: #718EBF;
+  font-family: Inter;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.dropdown-container {
+  position: relative; /* Position relative for absolute positioning of the icon */
+  display: inline-block; /* Allow the container to fit the content */
+}
+
+.dropdown-icon {
+  position: absolute; /* Position the icon absolutely */
+  right: 10px; /* Position it to the right */
+  top: 50%; /* Center vertically */
+  transform: translateY(-50%); /* Adjust for vertical centering */
+  pointer-events: none; /* Prevent mouse events on the icon */
+  font-size: 16px; /* Adjust icon size */
+  color: #A0A0A0; /* Icon color */
+}
+
+/* Remove hover and focus effects */
+.group-input-c:hover,
+.group-input-c:focus {
+  outline: none; /* Remove default outline */
+  background: #FFF; /* Keep background the same */
+}
+
 .group-7 {
   position: absolute;
   width: 113px;
@@ -186,8 +279,8 @@ body{
   position: absolute;
   width: 25px;
   height: 25px;
-  top: 0;
-  left: 0;
+  top: 78px;
+  left: 85px;
   background: url(Icons/bg\ ng\ pencil.png)
     no-repeat center;
   background-size: cover;
@@ -250,6 +343,7 @@ body{
   white-space: nowrap;
   z-index: 19;
 }
+
 .group-input-c {
   position: absolute;
   width: 256px;
@@ -261,6 +355,7 @@ body{
   z-index: 20;
   outline: none;
 }
+
 .group-d {
   position: absolute;
   width: 256px;
