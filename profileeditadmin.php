@@ -1,7 +1,7 @@
 <?php
 session_start();
 include("all_usersdb.php"); 
-include("functions.php");
+include_once("functions.php");
 $user_data = check_login($con);
 
 $id = $user_data['id'];
@@ -119,7 +119,7 @@ if(!checkUser($con)){echo'
 
             <div class="header">
                 <div>
-                    <h2>Feedbacks</h2>
+                    <h2>Settings</h2>
                 </div>
                 <div>
                     <p>Welcome, <?php echo $user_data['username'] ?></p>
@@ -132,12 +132,12 @@ if(!checkUser($con)){echo'
                         <span class="title">Edit your personal information here</span>
                     </div>
                 </div>
-                <div class="divider"></div>
+                <hr>
 
-                <div class="flex-container" style="display: flex;">
-                    <div class="leftdiv" style="width: 200px; height: 568px;">
+                <div class="flex-container">
+                    <div class="leftdiv">
                     <form action="profileeditadmin.php" method="post" enctype="multipart/form-data">     
-                        <div style="position: relative;">
+                        <div class="profile_area" style="position: relative;">
                         
                             <img class="profile-image" src="<?php echo $profile ?>" id = "user_profile" alt="profile">
                             <div class="pencil-button">
@@ -145,39 +145,40 @@ if(!checkUser($con)){echo'
                                 <label id="submit_lbl"  class="pencil-icon"></label>
                             </div>
                         </div>
+                        <div class="all_buttons">
                         <button type="button" onclick="editUser()" class="edit-button" id = edit_button type="cancel">Edit </button>
                         <button type="button" onclick="cancelEdit()" class="cancel-button" id="cancel_btn" type="cancel" style="display: none;">Cancel</button>
                              <input type="submit" value="Save"  name = "save_btn" id="save_btn" class="save-button" type="save" style="display: none;">
-
+                             </div>
                     </div>
 
 
 
-                    <div class="rightdiv" style="flex-grow: 1; height: 568px;">
+                    <div class="rightdiv" >
                         <div class="form-container">
                             <div class="form-row">
                                 <div class="form-group">
                                     <label for="first-name">First Name</label>
-                                    <input name ="firstname" id="firstname"  value="<?php echo $firstname ?>" type="text"  placeholder="Enter your first name" style="width: 225px; height: 40px; margin-right: 20px;" readonly required>
+                                    <input class="input_user" name ="firstname" id="firstname"  value="<?php echo $firstname ?>" type="text"  placeholder="Enter your first name" readonly required>
                                 </div>
                                 <div class="form-group">
                                     <label for="middle-name">Middle Name</label>
-                                    <input name="middlename" id="middlename" value="<?php echo $middlename ?>" type="text" placeholder="Enter your middle name" style="width: 225px; height: 40px; margin-right: 20px;" readonly required>
+                                    <input class="input_user" name="middlename" id="middlename" value="<?php echo $middlename ?>" type="text" placeholder="Enter your middle name" readonly required>
                                 </div>
                                 <div class="form-group">
                                     <label for="last-name">Last Name</label>
-                                    <input name="lastname" id="lastname" value="<?php echo $lastname ?>" type="text"  placeholder="Enter your last name" style="width: 225px; height: 40px; margin-right: 20px;" readonly required>
+                                    <input class="input_user" name="lastname" id="lastname" value="<?php echo $lastname ?>" type="text"  placeholder="Enter your last name" readonly required>
                                 </div>
                             </div>
             
                             <div class="form-row">
                                 <div class="form-group">
                                     <label for="dob">Date of Birth</label>
-                                    <input name="bday" id="bday" value=<?php echo $birthday ?> type="date" style="width: 225px; height: 40px; margin-right: 20px;"readonly required>
+                                    <input class="input_user" name="bday" id="bday" value=<?php echo $birthday ?> type="date"readonly required>
                                 </div>
                                 <div class="form-group">
                                     <label for="barangay">Barangay</label>
-                                    <select value="<?php echo $barangay?>" name="barangay" id="barangay" style="width: 225px; height: 40px; margin-right: 20px; background-image: url('Icons/droplist.png'); background-repeat: no-repeat; background-position: right 10px center; padding-right: 30px;" disabled required>
+                                    <select class="input_user" value="<?php echo $barangay?>" name="barangay" id="barangay" style="background-image: url('Icons/droplist.png'); background-repeat: no-repeat; background-position: right 10px center; padding-right: 30px;" disabled required>
                                         <option value="<?php echo $barangay ?>"  selected><?php echo $barangay?> </option>
                                         <option value="Barangay 1">Barangay 1</option>
                                         <option value="Barangay 2">Barangay 2</option>
@@ -189,15 +190,15 @@ if(!checkUser($con)){echo'
                                 </div>
                                 <div class="form-group">
                                     <label for="address">Full Address</label>
-                                    <input name="address" value='<?php echo $fulladdress ?>' type="text" id="address" placeholder="Enter your full address" style="width: 225px; height: 40px; margin-right: 20px;" readonly required>
+                                    <input class="input_user" name="address" value='<?php echo $fulladdress ?>' type="text" id="address" placeholder="Enter your full address" readonly required>
                                 </div>
                             </div>
             
                             <div class="form-row">
                                 <div class="form-group">
                                     <label for="sex">Sex</label>
-                                    <select  value="<?php echo $sex ?>" name="sex" id="sex" 
-                                    style="width: 225px; height: 40px; margin-right: 20px; 
+                                    <select class="input_user"  value="<?php echo $sex ?>" name="sex" id="sex" 
+                                    style="
                                     background-image: url('Icons/droplist.png'); 
                                     background-repeat: no-repeat; background-position: right 10px center; padding-right: 30px;" disabled required>
                                         <option value="<?php echo $sex ?>" selected> <?php echo $sex ?> </option>
@@ -208,31 +209,40 @@ if(!checkUser($con)){echo'
                                 </div>
                                 <div class="form-group">
                                     <label for="email">Email</label>
-                                    <input name="email" value=<?php echo $email ?> type="email" id="email" placeholder="Enter your email" style="width: 225px; height: 40px; margin-right: 20px;" readonly required>
+                                    <input class="input_user" name="email" value=<?php echo $email ?> type="email" id="email" placeholder="Enter your email" readonly required>
                                 </div>
                                 <div class="form-group">
                                     <label for="phone">Phone Number</label>
-                                    <input name="contact" value=<?php echo $phonenumber ?> type="tel" id="contact" placeholder="Enter your phone number" style="width: 225px; height: 40px; margin-right: 20px;" readonly required>
+                                    <input class="input_user" name="contact" value=<?php echo $phonenumber ?> type="tel" id="contact" placeholder="Enter your phone number" readonly required>
                                 </div>
                             </div>
             
-                            <div class="form-row">
+                            <div class="form-rowlast">
 
                             <?php if(!checkUser($con)){ echo'
                                 <div class="form-group">
                                     <label for="position">Barangay Position</label>
-                                    <input type="text"  value="'.$position.'" name="position" id="position" style="width: 225px; height: 
-                                    40px; margin-right: 20px; background-image: url("Icons/droplist.png"); 
-                                    background-repeat: no-repeat; background-position: right 10px center; padding-right: 30px;" readonly required >
-                                </div>'   ;} ?>
+                                    <input class="input_user" type="text"  value="'.$position.'" name="position" id="position" readonly required >
+                                </div>
                                 <div class="form-group">
                                     <label for="username">Username</label>
-                                    <input name = "username" value=<?php echo $username ?> type="text" id="username" placeholder="Choose a username" style="width: 225px; height: 40px; margin-right: 20px;" readonly required>
+                                    <input class="input_user" name = "username"  value="'.$username.'" type="text" id="username" placeholder="Choose a username" readonly required>
                                 </div>
                                 <div class="form-group">
                                     <label for="password">Password</label>
-                                    <input name = "password"  value=<?php echo $password ?> type="password" id="password" placeholder="Enter your password" style="width: 225px; height: 40px; margin-right: 20px;"  required readonly>
+                                    <input class="input_user" name = "password"  value="'.$password .'" type="password" id="password" placeholder="Enter your password"  required readonly>
+                                </div>'   ;}
+                                
+                                else{ echo'
+                                    <div class="form-grouplast">
+                                    <label for="username">Username</label>
+                                    <input class="input_user" name = "username" value="'.$username.'"type="text" id="username" placeholder="Choose a username" readonly required>
                                 </div>
+                                <div class="form-grouplast">
+                                    <label for="password">Password</label>
+                                    <input class="input_user" name = "password"  value="'.$password .'"type="password" id="password" placeholder="Enter your password"  required readonly>
+                                </div>'; 
+                                }?>
                             </div>
                         </div>
                     </div>
@@ -355,12 +365,16 @@ feedbackLi.addEventListener("mouseleave", () => {
     feedbackImg.src = "Icons/transfer1.png"; // Reset image when hover ends
 });
 
-accountsLi.addEventListener("mouseenter", () => {
+
+<?php
+if(!checkUser($con)){echo'
+    accountsLi.addEventListener("mouseenter", () => {
     accountsImg.src = accountsHover; // Change the image on hover
 });
 accountsLi.addEventListener("mouseleave", () => {
     accountsImg.src = "Icons/account1.png"; // Reset image when hover ends
-});
+});        ';}
+?>
 
 // settingsLi.addEventListener("mouseenter", () => {
 //     settingsImg.src = settingsHover; // Change the image on hover

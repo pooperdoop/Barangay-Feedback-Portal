@@ -361,15 +361,6 @@ tr:hover {
     padding: 20px;
 }
 
-.table th:nth-child(2),
-.table th:nth-child(3) {
-    width: 175px; /* Width for the second and third columns */
-}
-
-.table th:nth-child(4) {
-    width: 170px; /* Width for the fourth column */
-}
-
 .table td {
     height: 66px; /* Height for the rest of the rows */
     padding: 15px; /* Adjust padding to 10px for a more compact look */
@@ -396,11 +387,6 @@ tr:hover {
     .edit-btn{
         margin-left: 0;
         margin-top: 5px;
-    }
-}
-@media (max-width: 1700px) {    
-    .sidebar h2 {
-        transform: translateX(-20px); 
     }
 }
 @media (max-width: 900px) {
@@ -589,10 +575,6 @@ tr:hover {
         transform: scale(1.1); /* Slightly reduce scale while clicking */
     }
 
-    .main_content {
-        margin-left: 50px; /* Adjust the main content's margin */
-    }
-
     .header {
         height: 55px; /* Adjust header height */
         padding: 10px 20px;
@@ -623,18 +605,12 @@ tr:hover {
     min-width: 50px; /* Prevent the sidebar from shrinking below 50px */
 }
 
-.main_content {
-    min-width: 300px; /* Ensure main content doesn't shrink excessively */
-}
 
 /* Prevent excessive shrinking */
 .sidebar {
     min-width: 50px; /* Prevent the sidebar from shrinking below 50px */
 }
 
-.main_content {
-    min-width: 300px; /* Ensure main content doesn't shrink excessively */
-}
 .sidebar ul li img {
     width: 30px; /* Adjust icon size */
     height: 30px;
@@ -647,4 +623,31 @@ tr:hover {
 /* Active effect when clicking the list item: Scale up the icon without changing color */
 .sidebar ul li:active img {
     transform: scale(1.1); /* Slightly reduce scale while clicking */
+}
+@media (max-width:400px) {
+    .filler{
+        display: none;
+    }
+    .sidebar{
+        display: none;
+    }
+
+    .buttons{
+      align-content:center;
+      align-items: center;
+      justify-content: center;
+    }
+    .buttons button{    
+        max-width: 100px;
+    }
+    .feedback-section, .header, .main_content, .wrapper{
+    margin: 0px;
+    min-width: 100%;
+    padding: 0px;
+    }
+    .wrapper .main_content .header h2 {
+        font-size: 20px;
+    }table tr, th {
+        width: 0px;
+    }
 }

@@ -414,11 +414,6 @@ tr:hover {
         margin-top: 5px;
     }
 }
-@media (max-width: 1700px) {    
-    .sidebar h2 {
-        transform: translateX(-20px); 
-    }
-}
 
 @media (max-width: 1324px) {
     a{
@@ -577,9 +572,9 @@ tr:hover {
     }
 
     .sidebar ul li img {
-        width: 25px; /* Adjust icon size */
-        height: 25px;
-        transition: transform 0.2s ease; /* Smooth transition for scaling */
+        width: 30px;
+        height: 30px;
+        transition: transform 0.2s ease;
     }
 
     /* Hover effect: Scale up the icon without changing color */
@@ -590,10 +585,6 @@ tr:hover {
     /* Active effect when clicking the list item: Scale up the icon without changing color */
     .sidebar ul li:active img {
         transform: scale(1.1); /* Slightly reduce scale while clicking */
-    }
-
-    .main_content {
-        margin-left: 50px; /* Adjust the main content's margin */
     }
 
     .header {
@@ -620,12 +611,31 @@ tr:hover {
         margin-top: 5px;
     }
 }
+@media (max-width:400px) {
+    .filler{
+        display: none;
+    }
+    .sidebar{
+        display: none;
+    }
 
-/* Prevent excessive shrinking */
-.sidebar {
-    min-width: 50px; /* Prevent the sidebar from shrinking below 50px */
+    .buttons{
+      align-content:center;
+      align-items: center;
+      justify-content: center;
+    }
+    .buttons button{    
+        max-width: 100px;
+    }
+    .feedback-section, .header, .main_content, .wrapper{
+    margin: 0px;
+    min-width: 100%;
+    padding: 0px;
+    }
+    .wrapper .main_content .header h2 {
+        font-size: 20px;
+    }table tr, th {
+        width: 0px;
+    }
 }
 
-.main_content {
-    min-width: 300px; /* Ensure main content doesn't shrink excessively */
-}

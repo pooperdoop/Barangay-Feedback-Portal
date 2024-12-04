@@ -2,7 +2,7 @@
 
 session_start();
 include("all_usersdb.php"); 
-include("functions.php");
+include_once("functions.php");
 $user_data = check_login($con);
 if(checkUser($con)){
     header("Location: allFeedbackAdmin");
@@ -90,7 +90,7 @@ if(!checkUser($con)){echo'
                         </button>
                     </div>
                 </div>
-                <div class="divider"></div>
+                <hr>
 
                 <div class="centerdiv">
                     <p><strong>User No: #<?php echo $userID ?></strong></p>

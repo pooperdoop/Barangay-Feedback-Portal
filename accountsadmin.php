@@ -2,7 +2,7 @@
 
 session_start();
 include("all_usersdb.php"); 
-include("functions.php");
+include_once("functions.php");
 $user_data = check_login($con);
 
 if(checkUser($con)){
@@ -94,12 +94,12 @@ if(!checkUser($con)){echo'
                     <table>
                         <thead>
                             <tr>
-                                <th>Name</th>
-                                <th>User No.</th>
-                                <th>Type</th>
-                                <th>Position</th>
-                                <th>Date</th>
-                                <th>Barangay</th>
+                                <th class = "thname">Name</th>
+                                <th  class = "thuser">User No.</th>
+                                <th class = "thtype">Type</th>
+                                <th class = "thpos">Position</th>
+                                <th class = "date">Date</th>
+                                <th class = "thbarangay">Barangay</th>
                                 <th></th>
                             </tr>
                         </thead>
@@ -123,12 +123,12 @@ if(!checkUser($con)){echo'
                                 $name = $row['first_name']." ".$row['last_name'];
                                 $user_num = "#".$row['id'];
                                echo'<tr>
-                               <td>'.$name.'</td>
-                               <td>'.$user_num.'</td>
-                               <td>'.$row["type"].'</td>
-                               <td>'.$row["position"].'</td>
-                               <td>'.$row["date_time"].'</td>
-                                   <td>'.$row["barangay"].'</td>
+                               <td class ="thname">'.$name.'</td>
+                               <td class = "thuser">'.$user_num.'</td>
+                               <td class = "thtype">'.$row["type"].'</td>
+                               <td class = "thpos">'.$row["position"].'</td>
+                               <td class = "date">'.$row["date_time"].'</td>
+                                   <td class = "thbarangay">'.$row["barangay"].'</td>
                                    <td><button value='.$row["id"].' name="view_btn" id="view_btn" class="view-btn">View</button></td>
                                </tr>';
                             }
@@ -139,16 +139,16 @@ if(!checkUser($con)){echo'
                             while($row = mysqli_fetch_assoc($result)){
                                 $name = $row['first_name']." ".$row['last_name'];
                                 $user_num = "#".$row['id'];
-                               echo'<tr>
-                               <td>'.$name.'</td>
-                               <td>'.$user_num.'</td>
-                               <td>'.$row["type"].'</td>
-                               <td>'.$row["position"].'</td>
-                               <td>'.$row["date_time"].'</td>
-                                   <td>'.$row["barangay"].'</td>
-                                   <td><button value='.$row["id"].' name="view_btn" id="view_btn" class="view-btn">View</button></td>
-                               </tr>';
-                            }
+                                echo'<tr>
+                                <td class ="thname">'.$name.'</td>
+                                <td class = "thuser">'.$user_num.'</td>
+                                <td class = "thtype">'.$row["type"].'</td>
+                                <td class = "thpos">'.$row["position"].'</td>
+                                <td class = "date">'.$row["date_time"].'</td>
+                                    <td class = "thbarangay">'.$row["barangay"].'</td>
+                                    <td><button value='.$row["id"].' name="view_btn" id="view_btn" class="view-btn">View</button></td>
+                                </tr>';
+                             }
                         }
                         if(  $currentView == 2){
                             $sql = "SELECT * FROM all_users WHERE type = 'User'";
@@ -156,16 +156,16 @@ if(!checkUser($con)){echo'
                             while($row = mysqli_fetch_assoc($result)){
                                 $name = $row['first_name']." ".$row['last_name'];
                                 $user_num = "#".$row['id'];
-                               echo'<tr>
-                               <td>'.$name.'</td>
-                               <td>'.$user_num.'</td>
-                               <td>'.$row["type"].'</td>
-                               <td>'.$row["position"].'</td>
-                               <td>'.$row["date_time"].'</td>
-                                   <td>'.$row["barangay"].'</td>
-                                   <td><button value='.$row["id"].' name="view_btn" id="view_btn" class="view-btn">View</button></td>
-                               </tr>';
-                            }
+                                echo'<tr>
+                                <td class ="thname">'.$name.'</td>
+                                <td class = "thuser">'.$user_num.'</td>
+                                <td class = "thtype">'.$row["type"].'</td>
+                                <td class = "thpos">'.$row["position"].'</td>
+                                <td class = "date">'.$row["date_time"].'</td>
+                                    <td class = "thbarangay">'.$row["barangay"].'</td>
+                                    <td><button value='.$row["id"].' name="view_btn" id="view_btn" class="view-btn">View</button></td>
+                                </tr>';
+                             }
                         }
                     }
                            ?>

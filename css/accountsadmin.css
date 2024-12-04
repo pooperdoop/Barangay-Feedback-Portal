@@ -343,10 +343,8 @@ tr:hover {
 
 }
 .buttons {
-    width: 1110px;
     display: flex;
     flex-wrap: wrap;
-    margin-left: 20px;
     justify-content: flex-start;
     border-bottom: 1px;
     border-bottom-style: solid;
@@ -355,7 +353,6 @@ tr:hover {
 
 .buttons button {
     border: none;
-    width: 127px;
     height: 35px;
     flex-shrink: 0;
     cursor: pointer;
@@ -385,7 +382,29 @@ tr:hover {
 }
 
 
+@media (max-width: 1700px) {
+    .sidebar h2 {
+        transform: translateX(-20px); 
+    }
+    .edit-btn{
+        margin-left: 0;
+        margin-top: 5px;
+    }
+}
+@media (max-width: 1700px) {    
+    .sidebar h2 {
+        transform: translateX(-20px); 
+    }
+}
+@media (max-width: 900px) {
+    .thpos{
+        display:none;
+    }
+}
 @media (max-width: 1324px) {
+    .thID{
+        display:none;
+    }
     a{
        font-size: 0px;
     }
@@ -399,7 +418,7 @@ tr:hover {
     .sidebar-header {
         display: flex;
         flex-direction: column;
-        transform: translate(8px, -25px);
+        transform: translate(8px, -15px);
         padding: 10px 0;
         width: 100%;
     }
@@ -480,15 +499,25 @@ tr:hover {
 }
 
 /* For screens smaller than 768px */
-@media (max-width: 768px) {
+@media (max-width: 792px) {
     .sidebar {
         width: 50px; /* Adjusted sidebar width */
+    }
+    .all_feed{
+        display:none;
+    }
+    .buttons{
+        flex-wrap: nowrap;
+        margin-left: 0px;
+    }
+    .thuser, .date, .thbarangay{
+        display:none;
     }
 
     .sidebar-header {
         display: flex;
         flex-direction: column;
-        transform: translate(0px, -25px);
+        transform: translate(4px, -15px);
         padding: 10px 0;
         width: 100%;
     }
@@ -521,6 +550,7 @@ tr:hover {
         height: 30px;
         cursor: pointer;
         transition: background-color 0.3s ease;
+        transform: translate(0px);
         width: 100%;
     }
 
@@ -552,10 +582,6 @@ tr:hover {
         transform: scale(1.1); /* Slightly reduce scale while clicking */
     }
 
-    .main_content {
-        margin-left: 50px; /* Adjust the main content's margin */
-    }
-
     .header {
         height: 55px; /* Adjust header height */
         padding: 10px 20px;
@@ -575,6 +601,10 @@ tr:hover {
         width: 25px; /* Adjust profile icon size */
         height: 25px;
     }
+    .edit-btn{
+        margin-left: 0;
+        margin-top: 5px;
+    }
 }
 
 /* Prevent excessive shrinking */
@@ -582,9 +612,12 @@ tr:hover {
     min-width: 50px; /* Prevent the sidebar from shrinking below 50px */
 }
 
-.main_content {
-    min-width: 300px; /* Ensure main content doesn't shrink excessively */
+
+/* Prevent excessive shrinking */
+.sidebar {
+    min-width: 50px; /* Prevent the sidebar from shrinking below 50px */
 }
+
 .sidebar ul li img {
     width: 30px; /* Adjust icon size */
     height: 30px;
@@ -597,4 +630,31 @@ tr:hover {
 /* Active effect when clicking the list item: Scale up the icon without changing color */
 .sidebar ul li:active img {
     transform: scale(1.1); /* Slightly reduce scale while clicking */
+}
+@media (max-width:400px) {
+    .filler{
+        display: none;
+    }
+    .sidebar{
+        display: none;
+    }
+
+    .buttons{
+      align-content:center;
+      align-items: center;
+      justify-content: center;
+    }
+    .buttons button{    
+        max-width: 100px;
+    }
+    .feedback-section, .header, .main_content, .wrapper{
+    margin: 0px;
+    min-width: 100%;
+    padding: 0px;
+    }
+    .wrapper .main_content .header h2 {
+        font-size: 20px;
+    }table tr, th {
+        width: 0px;
+    }
 }

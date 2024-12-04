@@ -2,7 +2,7 @@
 
 session_start();
 include("all_usersdb.php"); 
-include("functions.php");
+include_once("functions.php");
 $user_data = check_login($con);
 if(checkUser($con)){
     header("Location: allFeedbackAdmin");
@@ -99,7 +99,7 @@ if(!checkUser($con)){echo'
                         </button>
                     </div>
                 </div>
-                <div class="divider"></div>
+                <hr>
 
                 <div class="centerdiv">
                     <p><strong>User No: #<?php echo $userID ?></strong></p>
@@ -114,9 +114,9 @@ if(!checkUser($con)){echo'
                     <p><strong>Email: <?php echo $email ?></strong></p>
                     <p><strong>Contact No.: <?php echo $contact ?></strong></p>
                     <p><strong>Attachment: </strong></p>
-                    <img src= <?php echo $validid?> style = 'max-width:800px'>
+                    <img class="attach" src= <?php echo $validid?> style = 'max-width:800px'>
                     <br>
-                    
+                        
                     
                     <div class="rectangle-f">
                         <div class="status">

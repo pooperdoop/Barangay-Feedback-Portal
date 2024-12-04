@@ -2,7 +2,7 @@
 
 session_start();
 include("all_usersdb.php"); 
-include("functions.php");
+include_once("functions.php");
 $user_data = check_login($con);
 if(checkUser($con)){
     header("Location: allFeedbackAdmin");

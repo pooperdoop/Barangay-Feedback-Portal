@@ -3,7 +3,7 @@
 
 session_start();
 include("all_usersdb.php"); 
-include("functions.php");
+include_once("functions.php");
 $user_data = check_login($con);
 $user = $user_data['id'];
 
@@ -85,12 +85,12 @@ if(!checkUser($con)){echo'
 
             <?php if(!checkUser($con)){
             echo' 
-                <button name = "all">All Feedbacks</button>
+                <button name = "all" class="all_feed">All Feedbacks</button>
                 <button name = "comp">Complaints</button>
                 <button name = "req">Request</button>
                 <button name = "sug">Suggestions</button>
-                <button name = "open">Open</button>
-                <button name = "cld">Closed</button>';}
+                <button name = "open" class="all_feed">Open</button>
+                <button name = "cld" class="all_feed">Closed</button>';}
 
                 else{
 
@@ -149,6 +149,7 @@ $result = mysqli_query($con, $sql);
                         <td><button value='.$row["ticketID"].' name="view_btn" id="view_btn" class="view-btn">View</button></td>
                         </tr>';
                 }
+            
             }
             elseif($currentView == 1){
 
@@ -166,6 +167,7 @@ $result2 = mysqli_query($con, $sql2);
                         <td><button value='.$row["ticketID"].' name="view_btn" id="view_btn" class="view-btn">View</button></td>
                         </tr>';
                 }
+            
             }
             elseif($currentView == 2){
 $sql3 = "SELECT * FROM all_feedback WHERE type = 'Request' AND barangay = '$barangay'";
@@ -183,6 +185,7 @@ $result3 = mysqli_query($con, $sql3);
                         <td><button value='.$row["ticketID"].' name="view_btn" id="view_btn" class="view-btn">View</button></td>
                         </tr>';
                 }
+            
             }
             elseif($currentView == 3){
 $sql4 = "SELECT * FROM all_feedback WHERE type = 'Suggestion' AND barangay = '$barangay'";
@@ -200,6 +203,7 @@ $result4 = mysqli_query($con, $sql4);
                         <td><button value='.$row["ticketID"].' name="view_btn" id="view_btn" class="view-btn">View</button></td>
                         </tr>';
                 }
+            
             }
             elseif($currentView == 4){
 $sql5 = "SELECT * FROM all_feedback WHERE status = 'Open' AND barangay = '$barangay'";
@@ -217,6 +221,7 @@ $result5 = mysqli_query($con, $sql5);
                         <td><button value='.$row["ticketID"].' name="view_btn" id="view_btn" class="view-btn">View</button></td>
                         </tr>';
                 }
+            
             }
             elseif($currentView == 5){
 $sql6 = "SELECT * FROM all_feedback WHERE status = 'Closed' AND barangay = '$barangay'";
@@ -233,12 +238,12 @@ $result6 = mysqli_query($con, $sql6);
                         <td><button value='.$row["ticketID"].' name="view_btn" id="view_btn" class="view-btn">View</button></td>
                         </tr>';
                 }
+            
             }
         } else{
             if($currentView == 0){
                 $sql = "SELECT * FROM all_feedback WHERE user_current = '$user'";
                 $result = mysqli_query($con, $sql);
-
             while($row = mysqli_fetch_assoc($result)){
 
                 echo'<tr id="all_feedback" >
@@ -250,28 +255,28 @@ $result6 = mysqli_query($con, $sql6);
                         <td class="thuser">'.$row["user"].'</td>
                         <td><button value='.$row["ticketID"].' name="view_btn" id="view_btn" class="view-btn">View</button></td>
                         </tr>';
+            
                 }
                 $sql = "SELECT * FROM all_reply WHERE replyuser = '$user'";
                 $result = mysqli_query($con, $sql);
-
                 while($row = mysqli_fetch_assoc($result)){
 
                     echo'<tr id="all_feedback" >
                     <td class="thtitle">'.$row["title"].'</td>
-                    <td class="thID"> #'.$row["ticketID"].'</td>
-                    <td class= "thtype">'.$row["type"].'</td>
+                    <td class="thID"> #'.$row["replyID"].'</td>
+                    <td class= "thtype">Reply</td>
                     <td class="thdate">'.$row["date"].'</td>
-                        <td class="thstat">'.$row["status"].'</td>
-                        <td class="thuser">'.$row["user"].'</td>
-                        <td><button value='.$row["ticketID"].' name="view_btn" id="view_btn" class="view-btn">View</button></td>
+                        <td class="thstat">-</td>
+                        <td class="thuser">'.$row["user"].'</td>        
+                        <td><button value='.$row["replyID"].' name="view_btn" id="view_btn" class="view-btn">View</button></td>
                         </tr>';
                 }
+            
             }
             if($currentView == 1){
 
                 $sql = "SELECT * FROM all_feedback WHERE user_current = '$user'";
                 $result = mysqli_query($con, $sql);
-
             while($row = mysqli_fetch_assoc($result)){
 
                 echo'<tr id="all_feedback" >
@@ -284,23 +289,23 @@ $result6 = mysqli_query($con, $sql6);
                         <td><button value='.$row["ticketID"].' name="view_btn" id="view_btn" class="view-btn">View</button></td>
                         </tr>';
                 }
+            
             }
             if($currentView == 2){
                 $sql = "SELECT * FROM all_reply WHERE replyuser = '$user'";
                 $result = mysqli_query($con, $sql);
-
                 while($row = mysqli_fetch_assoc($result)){
-
-                echo'<tr id="all_feedback" >
+                    echo'<tr id="all_feedback" >
                     <td class="thtitle">'.$row["title"].'</td>
-                    <td class="thID"> #'.$row["ticketID"].'</td>
-                    <td class= "thtype">'.$row["type"].'</td>
+                    <td class="thID"> #'.$row["replyID"].'</td>
+                    <td class= "thtype">Reply</td>
                     <td class="thdate">'.$row["date"].'</td>
-                        <td class="thstat">'.$row["status"].'</td>
-                        <td class="thuser">'.$row["user"].'</td>
-                        <td><button value='.$row["ticketID"].' name="view_btn" id="view_btn" class="view-btn">View</button></td>
+                        <td class="thstat">-</td>
+                        <td class="thuser">'.$row["user"].'</td>        
+                        <td><button value='.$row["replyID"].' name="view_btn" id="view_btn" class="view-btn">View</button></td>
                         </tr>';
                 }
+            
             }
 
         }

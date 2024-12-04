@@ -76,7 +76,7 @@ float: right;
 }
 
 .arrow-back {
-    background: url(Icons\arrow_back.png) no-repeat center; /* Set the background image */
+    background: url(Icons/arrow_back.png) no-repeat center; /* Set the background image */
     background-size: contain; /* Ensure the image fits within the element */
     width: 33px;
     height: 33px;
@@ -432,7 +432,7 @@ float: right;
     .sidebar-header {
         display: flex;
         flex-direction: column;
-        transform: translate(8px, -25px);
+        transform: translate(8px, -15px);
         padding: 10px 0;
         width: 100%;
     }
@@ -518,10 +518,15 @@ float: right;
         width: 50px; /* Adjusted sidebar width */
     }
 
+    .return{
+        font-size: 0px;
+        transform: translateY(-5px);
+    }
+
     .sidebar-header {
         display: flex;
         flex-direction: column;
-        transform: translate(0px, -25px);
+        transform: translate(4px, -15px);
         padding: 10px 0;
         width: 100%;
     }
@@ -554,6 +559,7 @@ float: right;
         height: 30px;
         cursor: pointer;
         transition: background-color 0.3s ease;
+        transform: translate(0px);
         width: 100%;
     }
 
@@ -609,6 +615,11 @@ float: right;
         height: 25px;
     }
 }
+@media (max-width: 1700px) {
+    .sidebar h2 {
+        transform: translateX(-20px); 
+    }
+}
 
 /* Prevent excessive shrinking */
 .sidebar {
@@ -631,3 +642,34 @@ float: right;
 .sidebar ul li:active img {
     transform: scale(1.1); /* Slightly reduce scale while clicking */
 }
+@media (max-width:400px) {
+    .filler{
+        display: none;
+    }
+    .sidebar{
+        display: none;
+    }
+
+    .buttons{
+      align-content:center;
+      align-items: center;
+      justify-content: center;
+    }
+    .buttons button{    
+        max-width: 100px;
+    }
+    .feedback-section, .header, .main_content, .wrapper{
+    margin: 0px;
+    min-width: 100%;
+    }
+    .wrapper .main_content .header h2 {
+        font-size: 20px;
+    }
+    .top span {
+       font-size: 20px;
+    }
+    .attach{
+        width: 95%;
+    }
+}
+

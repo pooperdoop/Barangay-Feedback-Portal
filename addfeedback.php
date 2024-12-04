@@ -1,7 +1,7 @@
 <?php
 session_start();
 include("all_usersdb.php"); 
-include("functions.php");
+include_once("functions.php");
 $user_data = check_login($con);
 
 if(isset($_POST['send_feedback'])){ 
@@ -135,6 +135,7 @@ if(!checkUser($con)){echo'
                     <option value="Request">Request</option>
                 </select>
             </div>
+
             
             <div class="file-upload-container">
                 <label for="feedback_file" class="file-upload-label">
@@ -142,8 +143,8 @@ if(!checkUser($con)){echo'
                     <input type="file" name="feedback_file" class="group-input-e" id="feedback_file" accept="image/*" style="display: none;" />
                 </label>
             </div>
-            
             <button type="submit" name ="send_feedback" id="send_feedback" class="send-feedback-button">Send</button>
+
         </div>
         </form>   
     </div>

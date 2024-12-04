@@ -2,7 +2,7 @@
 
 session_start();
 include("all_usersdb.php"); 
-include("functions.php");
+include_once("functions.php");
 $user_data = check_login($con);
 
 if(isset($_POST['view_btn'])){
@@ -153,7 +153,7 @@ if(!checkUser($con)){echo'
                          if(checkIfReply($con,$Isfeedback)){
                     echo "
                         <p><strong>Attachments: </strong></p>
-                        <img style ='max-width:800px'  src=". $attachment." >
+                        <img class='attach' style ='max-width:800px'  src=". $attachment." >
                         ";}
 
 
@@ -253,12 +253,17 @@ homeLi.addEventListener("mouseleave", () => {
 //     feedbackImg.src = "Icons/transfer1.png"; // Reset image when hover ends
 // });
 
-accountsLi.addEventListener("mouseenter", () => {
+
+<?php
+if(!checkUser($con)){echo'
+    accountsLi.addEventListener("mouseenter", () => {
     accountsImg.src = accountsHover; // Change the image on hover
 });
 accountsLi.addEventListener("mouseleave", () => {
     accountsImg.src = "Icons/account1.png"; // Reset image when hover ends
-});
+});        ';}
+?>
+
 
 settingsLi.addEventListener("mouseenter", () => {
     settingsImg.src = settingsHover; // Change the image on hover
