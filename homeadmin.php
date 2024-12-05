@@ -4,6 +4,7 @@ session_start();
 include("all_usersdb.php"); 
 include_once("functions.php");
 $user_data = check_login($con);
+$user = $user_data['id'];
 
 if(isset($_POST['view_btn'])){
 
@@ -95,7 +96,12 @@ if(!checkUser($con)){echo'
                     </thead>
                     <tbody>         
                     <?php
-                    $sql = "SELECT * FROM all_notice";
+                              $sql1 = "SELECT * FROM all_users WHERE ID = '$user'";
+                              $result1 = mysqli_query($con, $sql1);
+                              $row = mysqli_fetch_assoc($result1);
+                              $barangay = $row['barangay'];
+
+                    $sql = "SELECT * FROM all_notice WHERE barangay = '$barangay'";
                     $result = mysqli_query($con, $sql);
 
                     while($row = mysqli_fetch_assoc($result)){
