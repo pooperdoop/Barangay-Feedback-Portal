@@ -560,3 +560,149 @@
     width: 100%; /* Full-width input fields */
   }
 }
+
+/* For screens smaller than 768px (Tablets and large phones) */
+@media (max-width: 375px) {
+
+  form {
+    width: 300px;
+  }
+
+  .group {
+    position: relative;
+    width: 300px;
+    height: 586.304px;
+    margin: auto;
+    z-index: 1;
+    overflow: visible auto;
+  } 
+
+  .rectangle-8 {
+    position: absolute;
+    width: 300px;
+    height: 420px;
+    top: 0;
+    left: 0;
+    background: #ffffff;
+    z-index: 2;
+    border-radius: 23.021px;
+    padding: 20px;
+  }
+
+  .logo {
+    position: relative;
+    width: 280.321px;
+    height: 87.633px;
+    margin: 20px 0 0 8px;
+    z-index: 27;
+  }
+
+  .iconfinder-vector {
+    position: absolute;
+    width: 100.032px;
+    height: 84.503px;
+    top: 3.13px;
+    left: 0;
+    background: url(Icons/brgy\ icon.png)
+      no-repeat center;
+    background-size: cover;
+    z-index: 28;
+    overflow: hidden;
+  }
+
+  .barangay-feedback-portal {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    position: absolute;
+    width: 170.826px;
+    height: 84.5px;
+    top: 0;
+    left: 109.496px;
+    color: #343c6a;
+    font-family: Montserrat, var(--default-font-family);
+    font-size: 30px;
+    font-weight: 800;
+    line-height: 30px;
+    text-align: left;
+    z-index: 29;
+  }
+
+  .login_btn {
+    position: relative;
+    width: 129.111px;
+    height: 38.6px;
+    cursor: pointer;
+    background: transparent;
+    color: white;
+    font-size: 17px;
+    border: none;
+    z-index: 15;
+    border-radius: 10.359px;
+    background-color: #1814f3;
+    transition: 0.5s;
+    display: block; /* Make the button a block element */
+    margin: 0 auto; /* Center the button horizontally */
+  }
+
+  .register {
+    position: relative;
+    width: 125.884px;
+    height: 50.292px; 
+    margin: 14.985px 0 0 20px;
+    cursor: pointer;
+    color: white;
+    font-family: Inter, var(--default-font-family);
+    font-size: 17.265625px;
+    font-weight: 500;
+    line-height: 20.895px;
+    white-space: nowrap;
+    background: transparent;
+    background-color: #16dbaa;
+    border: none;
+    border-radius: 10.359px;
+    z-index: 22;
+    transition: 0.5s;
+  }
+
+  .register-officialbtn {
+    position: absolute;
+    width: 125.884px;
+    height: 50.292px;
+    top: 339px;
+    left: 154px;
+    cursor: pointer;
+    background: transparent;
+    color: white;
+    font-size: 17px;
+    background: #fe5c73;
+    border: none;
+    z-index: 23;
+    border-radius: 10.359px;
+    transition: 0.5s;
+  }
+  
+  .group-1 {
+    position: relative;
+    width: 250px;
+    height: 78.926px;
+    margin: 20px 0 0 25px;
+    font-size: 0px;
+    z-index: 3;
+  }
+
+  .group-3 {
+    position: relative;
+    width: 250px;
+    height: 78.926px;
+    margin: 0 0 0 25px;
+    font-size: 0px;
+    z-index: 9;
+    overflow: visible auto;
+  }
+
+  .username_input,
+  .password_input {
+    width: 100%; /* Full-width input fields */
+  }
+}
