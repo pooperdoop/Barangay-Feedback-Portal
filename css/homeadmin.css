@@ -226,13 +226,20 @@ body {
     border-bottom-color: #EBEEF2;
 }
 
+.add-notices-btn{
+    background-color: #14f39d;
+    border-radius: 10px;
+}
+
+
 .buttons button {
+
     border: none;
     width: 125px;
     height: 35px;
     flex-shrink: 0;
     cursor: pointer;
-    margin-right: 10px;
+    margin-right: 10px; 
     font-size: 14px;
     transition: background-color 0.3s;
     color: #718EBF;
@@ -241,8 +248,8 @@ body {
     font-style: normal;
     font-weight: 500;
     line-height: normal;
-    background: none;
 }
+
 
 .buttons button:hover {
     border-bottom: 3px;

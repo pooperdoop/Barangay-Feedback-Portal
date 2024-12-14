@@ -239,6 +239,10 @@ body {
     line-height: normal;
     background: none;
 }
+.buttons .add_but{
+    background-color: #14f39d;
+    border-radius: 10px;
+}
 
 .buttons button:hover {
     border-bottom: 3px;

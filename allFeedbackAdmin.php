@@ -99,7 +99,7 @@ if(!checkUser($con)){echo'
                 <button name = "all_user" class="all_feed">My Feedbacks</button>
                 <button name = "sent" class="regular-button">Sent</button>
                 <button name = "rec" class="regular-button">Received</button>
-                <button type = "button" onclick = "addfeedback()"> Add Feedback</button>'
+                <button class ="add_but" type = "button" onclick = "addfeedback()"> Add Feedback</button>'
                 ;}?>
             </div>
             </form>
@@ -132,10 +132,17 @@ if(!checkUser($con)){echo'
                 $feedbackView = mysqli_fetch_assoc($initialresult);
                 $currentView = $feedbackView['feedback_view'];
                 $barangay = $feedbackView['barangay'];
+                $type = $feedbackView['type'];
 if(!checkUser($con)){
                 if($currentView == 0){
+                    if($type == "SuperAdmin"){
+                        $sql = "SELECT * FROM all_feedback";
+$result = mysqli_query($con, $sql);
+                    } else{
 $sql = "SELECT * FROM all_feedback WHERE barangay = '$barangay'";
 $result = mysqli_query($con, $sql);
+
+}
 
             while($row = mysqli_fetch_assoc($result)){
 
@@ -152,9 +159,12 @@ $result = mysqli_query($con, $sql);
             
             }
             elseif($currentView == 1){
-
+                if($type == "SuperAdmin"){
+                    $sql2 = "SELECT * FROM all_feedback WHERE type = 'Complaint'" ;
+                    $result2 = mysqli_query($con, $sql2);
+                } else{
 $sql2 = "SELECT * FROM all_feedback WHERE type = 'Complaint' AND barangay = '$barangay'";
-$result2 = mysqli_query($con, $sql2);
+$result2 = mysqli_query($con, $sql2); }
 
             while($row = mysqli_fetch_assoc($result2)){
                 echo'<tr id="all_feedback" >
@@ -170,8 +180,12 @@ $result2 = mysqli_query($con, $sql2);
             
             }
             elseif($currentView == 2){
+                if($type == "SuperAdmin"){
+                    $sql3 = "SELECT * FROM all_feedback WHERE type = 'Request'";
+                    $result3 = mysqli_query($con, $sql3);
+                } else{
 $sql3 = "SELECT * FROM all_feedback WHERE type = 'Request' AND barangay = '$barangay'";
-$result3 = mysqli_query($con, $sql3);
+$result3 = mysqli_query($con, $sql3); }
 
             while($row = mysqli_fetch_assoc($result3)){
 
@@ -188,8 +202,12 @@ $result3 = mysqli_query($con, $sql3);
             
             }
             elseif($currentView == 3){
+                if($type == "SuperAdmin"){
+                    $sql4 = "SELECT * FROM all_feedback WHERE type = 'Suggestion'";
+                    $result4 = mysqli_query($con, $sql4);
+                } else{
 $sql4 = "SELECT * FROM all_feedback WHERE type = 'Suggestion' AND barangay = '$barangay'";
-$result4 = mysqli_query($con, $sql4);
+$result4 = mysqli_query($con, $sql4); }
 
             while($row = mysqli_fetch_assoc($result4)){
 
@@ -206,8 +224,12 @@ $result4 = mysqli_query($con, $sql4);
             
             }
             elseif($currentView == 4){
+                if($type == "SuperAdmin"){
+                    $sql5 = "SELECT * FROM all_feedback WHERE status = 'Open'";
+                    $result5 = mysqli_query($con, $sql5);
+                } else{
 $sql5 = "SELECT * FROM all_feedback WHERE status = 'Open' AND barangay = '$barangay'";
-$result5 = mysqli_query($con, $sql5);
+$result5 = mysqli_query($con, $sql5);}
 
             while($row = mysqli_fetch_assoc($result5)){
 
@@ -240,7 +262,7 @@ $result6 = mysqli_query($con, $sql6);
                 }
             
             }
-        } else{
+        } elseif(checkUser($con)){
             if($currentView == 0){
                 $sql = "SELECT * FROM all_feedback WHERE user_current = '$user'";
                 $result = mysqli_query($con, $sql);
@@ -307,7 +329,6 @@ $result6 = mysqli_query($con, $sql6);
                 }
             
             }
-
         }
     }
                 ?>
