@@ -22,7 +22,7 @@
         </div>
 
       <form action="index.php" method="post">
-
+        
             <div class="group-1">
               <span class="username_lbl"><b>User Name</b></span>
               <input type = "text"class="username_input" name = "username_input" placeholder="Enter Username" required/>

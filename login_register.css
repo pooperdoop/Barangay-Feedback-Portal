@@ -301,6 +301,26 @@
     left: 0;
     background: #f4f6f9;
   }
+  @media (max-width: 450) {
+    .main-container {
+      align-items: center;
+    }
+  
+    .rectangle-8{
+      width: 100%;
+    }
+    .group-1, .group-3{
+      position:absolute;
+      margin:0px;
+      padding: 0px;
+      width: 100%;
+    }
+    .username_input, .password_input{
+      width: 100%;
+    }
+    
+  }
+  
 
 /* For screens smaller than 1024px (Tablets and smaller laptops) */
 @media (max-width: 1024px) {

@@ -53,7 +53,9 @@ if(isset($_POST['save_btn'])){
     $new_lastname = $_POST["lastname"];
     $new_email = $_POST["email"];
     $new_password = $_POST["password"];
-    $new_position = $_POST["position"];
+    if(!checkUser($con)){
+        $new_position = $_POST["position"];
+    }
     $new_phonenumber = $_POST["contact"];
     $new_username = $_POST["username"];
     $new_fulladdress = $_POST["address"];
@@ -119,10 +121,10 @@ if(!checkUser($con)){echo'
 
             <div class="header">
                 <div>
-                    <h2>Settings</h2>
+                    <h2 id='secret_switch' name="settings">Settings</h2>
                 </div>
                 <div>
-                    <p>Welcome, <?php echo $user_data['username'] ?></p>
+                    <p id='secret_logout'>Welcome, <?php echo $user_data['username'] ?></p>
                 </div>
             </div>
             

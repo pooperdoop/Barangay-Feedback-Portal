@@ -82,10 +82,10 @@ if(!checkUser($con)){echo'
 
         <div class="header">
                 <div>
-                    <h2>Feedbacks</h2>
+                    <h2 id='secret_switch' name="feedbacks">Feedbacks</h2>
                 </div>
                 <div>
-                    <p>Welcome, <?php echo $user_data['username'] ?></p>
+                    <p id='secret_logout'>Welcome, <?php echo $user_data['username'] ?></p>
                 </div>
             </div>
 

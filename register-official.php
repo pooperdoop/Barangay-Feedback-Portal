@@ -31,6 +31,16 @@ if (isset($_POST["register_button"])){
   else{
 
     
+    $checkusername= "SELECT * FROM all_users WHERE username = '$username'";
+    $result1 = mysqli_query($con, $checkusername);
+
+    if(mysqli_num_rows($result1)>0){
+    
+      echo '<script>alert("Username Already Taken!")</script>';  
+
+    } else{
+
+    
     $checkEmail = "SELECT * FROM all_users WHERE email = '$email'";
     $result = mysqli_query($con, $checkEmail);
 
@@ -86,6 +96,7 @@ if (isset($_POST["register_button"])){
    die;
 }
   }
+}
     } else{
       echo '<script>alert("Please upload an image")</script>';  
     }

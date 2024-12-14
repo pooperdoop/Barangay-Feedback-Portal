@@ -68,10 +68,10 @@ if(!checkUser($con)){echo'
 
             <div class="header">
                 <div>
-                    <h2>Home</h2>
+                    <h2 id='secret_switch' name="homes">Home</h2>
                 </div>
                 <div>
-                    <p>Welcome, <?php echo $user_data['username'] ?></p>
+                    <p id='secret_switch'>Welcome, <?php echo $user_data['username'] ?></p>
                 </div>
             </div>
 
