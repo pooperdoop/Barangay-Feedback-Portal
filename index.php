@@ -34,15 +34,14 @@
             </div>
 
             <input type="submit" class="login_btn" value="Log In" >
-
+            <div style="display: flex; justify-content: center; margin-top:10px">
+            <span style="font-family:inter; position: relative; z-index:100">Don't have an Account? <a href="register-page.php">Sign Up</a></span>
+            </div>
       </form>
 
         <div class="rectangle-8">
           
         </div>
-  
-        <button onclick="gotoRegisterUser()" class="register"><b>Register</b></button>
-        <button onclick="gotoRegisterOfficial()" class="register-officialbtn"><b>Register as an Official</b></button>
 
       </div>
 
@@ -87,14 +86,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
             if($user_data['password'] == $password){
               $_SESSION['id'] = $user_data['id'];
-              if($user_data['type'] == "Official"){
               if($user_data['verified'] == "yes" ){
               header('Location: homeadmin.php');}
               else{
                 echo"<script>alert('Account not verified, wait for verification!')</script>";
               }
-            } else{
-              header('Location: homeadmin.php');}
             
          
             }

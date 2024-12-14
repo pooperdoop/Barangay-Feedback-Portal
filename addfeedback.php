@@ -4,6 +4,7 @@ include("all_usersdb.php");
 include_once("functions.php");
 $user_data = check_login($con);
 
+$current_barangay = $user_data['barangay'];
 if(isset($_POST['send_feedback'])){ 
 
 $title = $_POST['feedback_title'];
@@ -114,11 +115,13 @@ if(!checkUser($con)){echo'
             
             <div class="barangay-container">
                 <span class="barangay">Barangay</span>
-                <select name="barangay" id="barangay" class="group-input"    required    >
-                    <option value="" disabled selected>Select Barangay</option>
+                <select name="barangay" id="barangay" class="group-input" required >
+                    <option value="<?php echo $current_barangay ?>"  selected><?php echo $current_barangay ?></option>
                     <option value="Barangay 1">Barangay 1</option>  
                     <option value="Barangay 2">Barangay 2</option>
                     <option value="Barangay 3">Barangay 3</option>
+                    <option value="Barangay 4">Barangay 4</option>
+                    <option value="Barangay 5">Barangay 5</option>
                 </select>
             </div>
         </div>
@@ -213,5 +216,16 @@ logoutLi.addEventListener("mouseenter", () => {
 logoutLi.addEventListener("mouseleave", () => {
     logoutImg.src = "Icons/logout1.png"; // Reset image when hover ends
 });
+
+
+let feedbacktype = document.getElementById("complaint_type");
+feedbacktype.onchange = (event) =>{
+    if(document.getElementById("complaint_type").value == "Complaint"){
+        document.getElementById("barangay").disabled = false;
+    } else{
+        document.getElementById("barangay").disabled = true;
+        document.getElementById("barangay").value = "<?php echo $current_barangay ?>";
+    }
+}
 
 </script>

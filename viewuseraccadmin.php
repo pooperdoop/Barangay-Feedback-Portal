@@ -25,6 +25,7 @@ $type = $user['type'];
 $pos = $user['position'];
 $email = $user['email'];
 $contact = $user['phonenumber'];
+$validid = $user["valid_id_dir"];
 
 if(isset($_POST['delete'])){
 
@@ -107,6 +108,7 @@ if(!checkUser($con)){echo'
                     <p><strong>Official Position:  <?php echo $pos ?></strong></p>
                     <p><strong>Email: <?php echo $email ?></strong></p>
                     <p><strong>Contact No.: <?php echo $contact ?></strong></p>
+                    <img class="attach" src= <?php echo $validid?> style = 'max-width:800px'>
                     <br>
                     
                     <form action="viewuseraccadmin.php" method="post">

@@ -1,6 +1,6 @@
 <?php
 include("all_usersdb.php");
-include("functions.php");
+include_once("functions.php");
 
 if (isset($_POST["register_button"])){
 
@@ -49,9 +49,9 @@ if (isset($_POST["register_button"])){
     }
     else{
 
-    $sql = "INSERT INTO all_users(username, email, password, first_name, middle_name, last_name, birthday, full_address, type, position, barangay, sex, phonenumber) 
+    $sql = "INSERT INTO all_users(username, email, password, first_name, middle_name, last_name, birthday, full_address, type, position, barangay, sex, phonenumber, verified) 
                         VALUE ('$username', '$email', '$password', '$firstname', '$middlename', '$lastname', '$birthday', '$fulladdress', 'User', '-', '$barangay', '$sex', 
-                        '$phonenumber')";
+                        '$phonenumber', 'no')";
   mysqli_query($con, $sql);
 
   $sqlImgName = "SELECT * FROM all_users WHERE email = '$email' AND password = '$password'";
@@ -225,7 +225,8 @@ if (isset($_POST["register_button"])){
             <label class="ellipse"  for = "submit_profile"><img src="Icons/pencil.png" class ="pencil" alt="x"></label>
         </div>
         
-      </form>
+      </form> 
+      <span style="font-family:inter; right:5%; position:absolute; bottom: 20px; color:#717171">Signup as an <a style = "color:#313131" href="register-official.php">Official</a> </span> 
     </div>    
   </body>
 </html>

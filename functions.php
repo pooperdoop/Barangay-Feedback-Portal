@@ -38,11 +38,8 @@ function switchTab($value, $con){
     $verified = $user_data['verified'];
 
 
-    if($type == "User"){
-        header("Location: viewuseraccadmin.php");
-        die;
-    }
-    elseif($verified == "no"){
+
+    if($verified == "no"){
         header("Location: viewofficialacc.php");
     }
     elseif($verified == "yes"){

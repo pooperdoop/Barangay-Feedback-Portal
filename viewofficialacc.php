@@ -110,7 +110,10 @@ if(!checkUser($con)){echo'
                     <p><strong>Address: <?php echo $address ?></strong></p>
                     <p><strong>Barangay: <?php echo $barangay ?></strong></p>
                     <p><strong>Type: <?php echo $type ?></strong></p>
-                    <p><strong>Official Position: <?php echo $pos ?></strong></p>
+                    <?php
+                if($type == "Official"){echo'
+                    <p><strong>Official Position: '. $pos.' </strong></p>';
+                } ?>
                     <p><strong>Email: <?php echo $email ?></strong></p>
                     <p><strong>Contact No.: <?php echo $contact ?></strong></p>
                     <p><strong>Attachment: </strong></p>

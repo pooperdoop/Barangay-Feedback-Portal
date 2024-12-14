@@ -47,8 +47,12 @@ elseif(isset($_POST['cld'])){
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap" />
 </head>
 <body>
-    
 <div class="wrapper">
+    
+<?php
+if(checkUser($con)){echo'
+<button class ="add_but" type = "button" onclick = "addfeedback()"></button>';} ?>
+
         <div class= "filler"></div>
         <div class="sidebar">
         <div class="sidebar-header">
@@ -81,27 +85,28 @@ if(!checkUser($con)){echo'
                 </div>
             </div>
             <form action="allFeedbackAdmin.php" method="post">
-            <div class="buttons">   
+
 
             <?php if(!checkUser($con)){
             echo' 
+                <div class="buttons">   
                 <button name = "all" class="all_feed">All Feedbacks</button>
                 <button name = "comp">Complaints</button>
                 <button name = "req">Request</button>
                 <button name = "sug">Suggestions</button>
                 <button name = "open" class="all_feed">Open</button>
-                <button name = "cld" class="all_feed">Closed</button>';}
-
+                <button name = "cld" class="all_feed">Closed</button>
+                            </div>';}
                 else{
 
             echo'
-                  
+                 <div class="buttons">   
                 <button name = "all_user" class="all_feed">My Feedbacks</button>
                 <button name = "sent" class="regular-button">Sent</button>
                 <button name = "rec" class="regular-button">Received</button>
-                <button class ="add_but" type = "button" onclick = "addfeedback()"> Add Feedback</button>'
+                </div>'
                 ;}?>
-            </div>
+
             </form>
 
             <section class="feedback-section">

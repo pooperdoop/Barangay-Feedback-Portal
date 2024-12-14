@@ -1,6 +1,6 @@
 <?php
 include("all_usersdb.php");
-include("functions.php");
+include_once("functions.php");
 
 if (isset($_POST["register_button"])){
 
@@ -125,7 +125,7 @@ if (isset($_POST["register_button"])){
         <div class="logo">
           <div class="vector-icon"></div>
           <span class="feedback-portal">Barangay Feedback Portal</span>
-          <a href ="index.php"  class="return">Return</a>
+          <a href ="register-page.php"  class="return">Return</a>
         </div>
 
 

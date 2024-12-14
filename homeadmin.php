@@ -42,6 +42,10 @@ if(isset($_POST['view_btn'])){
 <body>
     
     <div class="wrapper">
+    <?php  if(!checkUser($con)){ 
+                echo'   
+                <button id="add_notice" class="add-notices-btn" onclick="addNotice()"></button>';}      
+                 ?>
         <div class= "filler"></div>
         <div class="sidebar">
         <div class="sidebar-header">
@@ -77,10 +81,7 @@ if(!checkUser($con)){echo'
             <div class="buttons">
                 <button class="notices-btn">Notices</button>
 
-                <?php  if(!checkUser($con)){ 
-                echo'   
-                <button id="add_notice" class="add-notices-btn" onclick="addNotice()">Add Notices</button>';}      
-                 ?>
+
               </div>
             
 
@@ -100,10 +101,14 @@ if(!checkUser($con)){echo'
                               $result1 = mysqli_query($con, $sql1);
                               $row = mysqli_fetch_assoc($result1);
                               $barangay = $row['barangay'];
-
+                              $type = $row['type'];
+                              if($type == "SuperAdmin"){
+                                $sql = "SELECT * FROM all_notice";
+                                $result = mysqli_query($con, $sql);
+                              } else{
                     $sql = "SELECT * FROM all_notice WHERE barangay = '$barangay'";
                     $result = mysqli_query($con, $sql);
-
+                              }
                     while($row = mysqli_fetch_assoc($result)){
 
                         echo'<tr>
