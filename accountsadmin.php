@@ -22,7 +22,7 @@ if(isset($_POST['all'])){
     $sql = "UPDATE all_users SET acc_view = '0' WHERE id = '$user'";
     mysqli_query($con, $sql);
 }
-if(isset($_POST['verified'])){
+if(isset($_POST['verifiedoff'])){
     $sql = "UPDATE all_users SET acc_view = '1' WHERE id = '$user'";
     mysqli_query($con, $sql);
 }
@@ -30,8 +30,20 @@ if(isset($_POST['users'])){
     $sql = "UPDATE all_users SET acc_view = '2' WHERE id = '$user'";
     mysqli_query($con, $sql);
 }
-if(isset($_POST['unverified'])){
+if(isset($_POST['unverifiedoff'])){
     $sql = "UPDATE all_users SET acc_view = '3' WHERE id = '$user'";
+    mysqli_query($con, $sql);
+}
+if(isset($_POST['unverifieduser'])){
+    $sql = "UPDATE all_users SET acc_view = '4' WHERE id = '$user'";
+    mysqli_query($con, $sql);
+}
+if(isset($_POST['verifieduser'])){
+    $sql = "UPDATE all_users SET acc_view = '5' WHERE id = '$user'";
+    mysqli_query($con, $sql);
+}
+if(isset($_POST['official'])){
+    $sql = "UPDATE all_users SET acc_view = '6' WHERE id = '$user'";
     mysqli_query($con, $sql);
 }
 
@@ -88,9 +100,12 @@ if(!checkUser($con)){echo'
                 <form action="accountsadmin.php" method="post">
                 <div class="buttons" style="margin-left: 20px;">   
                     <button name = 'all'>All Accounts</button>
-                    <button name = 'verified'>Verified Accounts</button>
-                    <button name = 'unverified'>Unverified Accounts</button>
+                    <button name = 'verifiedoff'>Verified Officials</button>
+                    <button name = 'unverifiedoff'>Unverified Officials</button>
+                    <button name = 'verifieduser'>Verified Residents</button>
+                    <button name = 'unverifieduser'>Unverified Residents</button>
                     <button name = 'users'>Users</button>
+                    <button name = 'official'>Officials</button>
                 </div>
                 </form>
                 
@@ -147,10 +162,10 @@ if(!checkUser($con)){echo'
                         }
                         if(  $currentView == 1){
                             if($type == "SuperAdmin"){
-                                $sql = "SELECT * FROM all_users WHERE verified = 'yes'";
+                                $sql = "SELECT * FROM all_users WHERE verified = 'yes' AND type = 'Official'";
                                 $result = mysqli_query($con, $sql);
                             }    else{
-                            $sql = "SELECT * FROM all_users WHERE verified = 'yes' AND barangay ='$barangay'";
+                            $sql = "SELECT * FROM all_users WHERE verified = 'yes' AND barangay ='$barangay' AND type = 'Official'";
                             $result = mysqli_query($con, $sql); 
                         }
                             while($row = mysqli_fetch_assoc($result)){
@@ -193,10 +208,79 @@ if(!checkUser($con)){echo'
                         if(  $currentView == 3){
                             
                             if($type == "SuperAdmin"){
-                                $sql = "SELECT * FROM all_users WHERE verified = 'no'";
+                                $sql = "SELECT * FROM all_users WHERE verified = 'no' AND type = 'Official'";
                                 $result = mysqli_query($con, $sql);
                             }    else{
-                            $sql = "SELECT * FROM all_users WHERE verified = 'no' AND barangay ='$barangay'";
+                            $sql = "SELECT * FROM all_users WHERE verified = 'no' AND barangay ='$barangay' AND type = 'Official'";
+                            $result = mysqli_query($con, $sql);
+                            }
+                            while($row = mysqli_fetch_assoc($result)){
+                                $name = $row['first_name']." ".$row['last_name'];
+                                $user_num = "#".$row['id'];
+                                echo'<tr>
+                                <td class ="thname">'.$name.'</td>
+                                <td class = "thuser">'.$user_num.'</td>
+                                <td class = "thtype">'.$row["type"].'</td>
+                                <td class = "thpos">'.$row["position"].'</td>
+                                <td class = "date">'.$row["date_time"].'</td>
+                                    <td class = "thbarangay">'.$row["barangay"].'</td>
+                                    <td><button value='.$row["id"].' name="view_btn" id="view_btn" class="view-btn">View</button></td>
+                                </tr>';
+                             }
+                        }
+                        if(  $currentView == 4){
+                            
+                            if($type == "SuperAdmin"){
+                                $sql = "SELECT * FROM all_users WHERE verified = 'yes' AND type = 'User'";
+                                $result = mysqli_query($con, $sql);
+                            }    else{
+                            $sql = "SELECT * FROM all_users WHERE verified = 'no' AND barangay ='$barangay' AND type = 'User'";
+                            $result = mysqli_query($con, $sql);
+                            }
+                            while($row = mysqli_fetch_assoc($result)){
+                                $name = $row['first_name']." ".$row['last_name'];
+                                $user_num = "#".$row['id'];
+                                echo'<tr>
+                                <td class ="thname">'.$name.'</td>
+                                <td class = "thuser">'.$user_num.'</td>
+                                <td class = "thtype">'.$row["type"].'</td>
+                                <td class = "thpos">'.$row["position"].'</td>
+                                <td class = "date">'.$row["date_time"].'</td>
+                                    <td class = "thbarangay">'.$row["barangay"].'</td>
+                                    <td><button value='.$row["id"].' name="view_btn" id="view_btn" class="view-btn">View</button></td>
+                                </tr>';
+                             }
+                        }
+                        if(  $currentView == 5){
+                            
+                            if($type == "SuperAdmin"){
+                                $sql = "SELECT * FROM all_users WHERE verified = 'no' AND type = 'User'";
+                                $result = mysqli_query($con, $sql);
+                            }    else{
+                            $sql = "SELECT * FROM all_users WHERE verified = 'no' AND barangay ='$barangay' AND type = 'User'";
+                            $result = mysqli_query($con, $sql);
+                            }
+                            while($row = mysqli_fetch_assoc($result)){
+                                $name = $row['first_name']." ".$row['last_name'];
+                                $user_num = "#".$row['id'];
+                                echo'<tr>
+                                <td class ="thname">'.$name.'</td>
+                                <td class = "thuser">'.$user_num.'</td>
+                                <td class = "thtype">'.$row["type"].'</td>
+                                <td class = "thpos">'.$row["position"].'</td>
+                                <td class = "date">'.$row["date_time"].'</td>
+                                    <td class = "thbarangay">'.$row["barangay"].'</td>
+                                    <td><button value='.$row["id"].' name="view_btn" id="view_btn" class="view-btn">View</button></td>
+                                </tr>';
+                             }
+                        }
+                        if(  $currentView == 6){
+                            
+                            if($type == "SuperAdmin"){
+                                $sql = "SELECT * FROM all_users WHERE type = 'official'";
+                                $result = mysqli_query($con, $sql);
+                            }    else{
+                            $sql = "SELECT * FROM all_users WHERE type = 'official' AND barangay ='$barangay'";
                             $result = mysqli_query($con, $sql);
                             }
                             while($row = mysqli_fetch_assoc($result)){

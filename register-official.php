@@ -125,7 +125,7 @@ if (isset($_POST["register_button"])){
         <div class="logo">
           <div class="vector-icon"></div>
           <span class="feedback-portal">Barangay Feedback Portal</span>
-          <a href ="register-page.php"  class="return">Return</a>
+          <a href ="index.php"  class="return">Return</a>
         </div>
 
 
@@ -240,6 +240,7 @@ if (isset($_POST["register_button"])){
         </div>
         
       </form>
+      <span style="font-family:inter; right:5%; position:absolute; bottom: 10px; color:#717171">Signup as a <a style = "color:#313131" href="register-page.php">Resident</a> </span> 
     </div>   
 
   </body>
