@@ -107,6 +107,17 @@ if(!checkUser($con)){echo'
                 
                 <span class="msg_span">Message</span>
  <form action="addfeedback.php" method="post"  enctype="multipart/form-data">
+
+ <div class="rectangle-f">
+            <div class="complaint-type-container">
+                <span class="complaint">Type of Feedback</span>
+                <select name="complaint_type" id="complaint_type" class="complaint-type-dropdown">
+                    <option value="Complaint">Complaint</option>
+                    <option value="Suggestion">Suggestion</option>
+                    <option value="Request">Request</option>
+                </select>
+            </div>
+
         <div class="flex-row-c" style="margin-top: 5px;">
             <div class="title-container">
                 <span class="title">Title</span>
@@ -128,26 +139,15 @@ if(!checkUser($con)){echo'
     
         <span class="message">Description</span>
         <textarea name="description" id="description" class="group-input" placeholder="Enter your description here" required></textarea>
-
-        <div class="rectangle-f">
-            <div class="complaint-type-container">
-                <span class="complaint">Type of Feedback</span>
-                <select name="complaint_type" id="complaint_type" class="complaint-type-dropdown">
-                    <option value="Complaint">Complaint</option>
-                    <option value="Suggestion">Suggestion</option>
-                    <option value="Request">Request</option>
-                </select>
-            </div>
-
-            
-            <div class="file-upload-container">
-                <label for="feedback_file" class="file-upload-label">
+            <div>
+            <div class="file-upload-container" style="width: 130px; display:flex; margin-top: 20px; ">
+                <label for="feedback_file" class="file-upload-label" style="margin-right: 20px;">
                     <label type="button" for="feedback_file" class="attach-files-button">Attach Files</label>
                     <input type="file" name="feedback_file" class="group-input-e" id="feedback_file" accept="image/*" style="display: none;" />
                 </label>
+                <button type="submit" name ="send_feedback" id="send_feedback" class="send-feedback-button">Send</button>
             </div>
-            <button type="submit" name ="send_feedback" id="send_feedback" class="send-feedback-button">Send</button>
-
+            </div>
         </div>
         </form>   
     </div>

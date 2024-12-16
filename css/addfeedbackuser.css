@@ -307,7 +307,6 @@ textarea.group-input {
 }
 
 .rectangle-f {
-    display: flex; /* Use flexbox for layout */
     justify-content: space-between; /* Space between items */
     align-items: center; /* Center items vertically */
     margin-top: 20px; /* Optional: Space above the rectangle */
@@ -326,6 +325,8 @@ textarea.group-input {
 }
 
 .send-feedback-button {
+    position: relative;
+    right: 10px;
     width: 130px; /* Set width */
     height: 40px; /* Set height */
     flex-shrink: 0; /* Prevent the button from shrinking */
@@ -348,7 +349,7 @@ textarea.group-input {
 }
 
 .file-upload-container {
-    margin-right: 19px; /* Space between Attach Files and Send button */
+    position: relative;
 }
 
 .attach-files-button {
@@ -367,6 +368,7 @@ textarea.group-input {
     font-style: normal;
     font-family: Inter;
     transition: background-color 0.3s; /* Transition for hover effect */
+
 }
 
 .attach-files-button:hover {
@@ -551,6 +553,7 @@ textarea.group-input {
 
     }   
     .complaint-type-container{
+        margin-top: 15px;
         margin-bottom: 15px;
     }
 

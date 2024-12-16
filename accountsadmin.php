@@ -231,7 +231,7 @@ if(!checkUser($con)){echo'
                         if(  $currentView == 4){
                             
                             if($type == "SuperAdmin"){
-                                $sql = "SELECT * FROM all_users WHERE verified = 'yes' AND type = 'User'";
+                                $sql = "SELECT * FROM all_users WHERE verified = 'no' AND type = 'User'";
                                 $result = mysqli_query($con, $sql);
                             }    else{
                             $sql = "SELECT * FROM all_users WHERE verified = 'no' AND barangay ='$barangay' AND type = 'User'";
@@ -254,10 +254,10 @@ if(!checkUser($con)){echo'
                         if(  $currentView == 5){
                             
                             if($type == "SuperAdmin"){
-                                $sql = "SELECT * FROM all_users WHERE verified = 'no' AND type = 'User'";
+                                $sql = "SELECT * FROM all_users WHERE verified = 'yes' AND type = 'User'";
                                 $result = mysqli_query($con, $sql);
                             }    else{
-                            $sql = "SELECT * FROM all_users WHERE verified = 'no' AND barangay ='$barangay' AND type = 'User'";
+                            $sql = "SELECT * FROM all_users WHERE verified = 'yes' AND barangay ='$barangay' AND type = 'User'";
                             $result = mysqli_query($con, $sql);
                             }
                             while($row = mysqli_fetch_assoc($result)){
