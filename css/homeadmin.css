@@ -238,7 +238,16 @@ body {
     border-radius: 50px;
     bottom: 40px;
     right: 60px;
+    transition: 0.5s;
 
+}
+
+.add-notices-btn:hover{
+        transform: scale(1.1);
+}
+.add-notices-btn:active{
+    background-color: #403df1;
+    transform: scale(0.9);
 }
 .add-notices-btn::after{
     content: "+Add Notice";
