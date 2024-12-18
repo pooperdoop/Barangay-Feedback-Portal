@@ -295,7 +295,7 @@ $result6 = mysqli_query($con, $sql6);
                     <td class="thdate">'.$row["date"].'</td>
                         <td class="thstat">-</td>
                         <td class="thuser">'.$row["user"].'</td>        
-                        <td><button value='.$row["replyID"].' name="view_btn" id="view_btn" class="view-btn">View</button></td>
+                        <td><button value='.$row["replyID"].' name="view_btn_rep" id="view_btn" class="view-btn">View</button></td>
                         </tr>';
                 }
             
@@ -329,7 +329,7 @@ $result6 = mysqli_query($con, $sql6);
                     <td class="thdate">'.$row["date"].'</td>
                         <td class="thstat">-</td>
                         <td class="thuser">'.$row["user"].'</td>        
-                        <td><button value='.$row["replyID"].' name="view_btn" id="view_btn" class="view-btn">View</button></td>
+                        <td><button value='.$row["replyID"].' name="view_btn_rep" id="view_btn_rep" class="view-btn">View</button></td>
                         </tr>';
                 }
             
